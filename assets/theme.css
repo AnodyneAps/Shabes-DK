@@ -14107,7 +14107,6 @@ shopify-payment-terms {
   position: absolute;
   top: 38px;
   left: -36px;
-  background-color: var(--blackdays);
   text-transform: uppercase;
   color: white;
   font-weight: 900;
@@ -14124,7 +14123,6 @@ shopify-payment-terms {
   right:30px;
   width: 60px;
   height: 60px;
-  background-color: var(--blackdays);
   color:white;
   padding: 4px;
   line-height: 1;
@@ -14137,6 +14135,18 @@ shopify-payment-terms {
   text-transform: uppercase;
 }
 .ProductMeta .days__badge--save--blackdays,
+.ProductItem__Wrapper .days__badge--black,
+.ProductItem__Wrapper .days__badge--save--black,
+.ProductMeta .days__badge--save--blackday{
+  background-color: var(--blackdays);
+}
+
+.ProductItem__Wrapper .days__badge--cyber,
+.ProductMeta .days__badge--save--cyberdays,
+.ProductItem__Wrapper .days__badge--save--cyber{
+  background-color: var(--cyberdays);
+}
+.ProductMeta .days__badge--save--blackdays,
 .ProductMeta .days__badge--save--cyberdays{
   top: 80px;
 }
@@ -14144,7 +14154,7 @@ shopify-payment-terms {
 .ProductMeta .days__badge--save--cyberdays,
 .ProductItem__Wrapper .days__badge--save--cyberdays,
 .ProductItem__Wrapper .days__badge--cyberdays{
-  background-color: var(--blackdays);
+  background-color: var(--cyberdays);
 }
 .returndate__wrapper{
   padding: 15px;
