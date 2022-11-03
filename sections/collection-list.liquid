@@ -1,0 +1,455 @@
+{%- capture flickity_options -%}
+{
+  "prevNextButtons": {% if section.blocks.size > 1 %}true{% else %}false{% endif %},
+  "pageDots": {% if section.blocks.size > 1 %}true{% else %}false{% endif %},
+  "setGallerySize": true,
+  "wrapAround": true,
+  "watchCSS": true,
+  "dragThreshold": 8
+}
+{%- endcapture -%}
+
+<section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="collection-list">
+  {%- capture collection_items -%}
+    {%- for block in section.blocks -%}
+      {%- assign collection = collections[block.settings.collection] -%}
+      {%- render 'collection-item', block: block, collection: collection, apply_overlay: block.settings.apply_overlay -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if section.settings.stack_on_mobile -%}
+    <div class="CollectionList CollectionList--grid">
+      {{ collection_items }}
+    </div>
+  {%- else -%}
+    <div class="Carousel Carousel--insideDots CollectionList" data-flickity-config='{{ flickity_options }}'>
+      {{ collection_items }}
+    </div>
+  {%- endif -%}
+</section>
+
+<style>
+  #section-{{ section.id }} .CollectionItem .Heading,
+  #section-{{ section.id }} .flickity-page-dots,
+  #section-{{ section.id }} .flickity-prev-next-button,
+  #section-{{ section.id }} .CollectionItem p {
+    color: {{ section.settings.text_color }};
+  }
+
+  #section-{{ section.id }} .CollectionItem__Content p{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #section-{{ section.id }} .next {
+    background-color: transparent !important;
+    box-shadow: unset !important;
+    right: 0 !important;
+  }
+
+  #section-{{ section.id }} .previous {
+    background-color: transparent !important;
+    box-shadow: unset !important;
+    left: 0 !important;
+  }
+
+  #section-{{ section.id }} .SectionHeader__SubHeading {
+    font-size: {{ section.settings.sub_heading_size }}px !important;
+  }
+
+  #section-{{ section.id }} .SectionHeader__Heading {
+    font-size: {{ section.settings.heading_size }}px !important;
+
+  }
+
+  #section-{{ section.id }} .CollectionItem p {
+    font-size: {{ section.settings.richtext_size }}px !important;
+  }
+
+  #section-{{ section.id }} .CollectionItem__Link {
+    color: {{ section.settings.button_color }} !important;
+    border-color: {{ section.settings.button_border_color }} !important;
+    font-size: {{ section.settings.button_size }}px !important;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: {{ section.settings.button_fill }} !important;
+    border-style: solid !important;
+    transition: all .2s ease-in-out !important;  
+  }
+
+  #section-{{ section.id }} .CollectionItem__Link::before {
+      color: {{ section.settings.button_color_hoover }} !important;
+      text-decoration: none;
+      background-color: {{ section.settings.button_fill_hoover }};
+      transition: all .2s ease-in-out !important;
+      font-size: {{ section.settings.button_size }}px !important;
+  }
+
+  @media (-moz-touch-enabled: 0), (hover: hover) {
+    #section-{{ section.id }} .CollectionItem__Link:hover {
+      color: {{ section.settings.button_color_hoover }} !important;
+      text-decoration: none;
+      background-color: {{ section.settings.button_fill_hoover }} !important;
+      transition: all .2s ease-in-out !important;
+      font-size: {{ section.settings.button_size }}px !important;
+    }
+  }
+
+  @media screen and (max-width: 641px) {
+  	#section-{{ section.id }} .CollectionItem .SectionHeader__Heading {
+      font-size: 22px !important;
+  	}
+
+    #section-{{ section.id }} .SectionHeader__SubHeading {
+      font-size: 22px !important;
+    }
+
+    #section-{{ section.id }} .CollectionItem p {
+      font-size: 14px !important;
+    }
+
+    #section-{{ section.id }} .CollectionItem__Link {
+      font-size: 14px !important;
+    }
+
+    #section-{{ section.id }} .CollectionItem__Link::before {
+      font-size: 14px !important;
+    }
+
+    #section-{{ section.id }} .CollectionItem__Link:hover {
+      font-size: 14px !important;
+    }
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "max_blocks": 18,
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "spacing",
+      "label": "Add spacing",
+      "options": [
+        {
+          "value": "add_spacing_single",
+          "label": "Single object"
+        },
+        {
+          "value": "add_spacing",
+          "label": "Two objects"
+        },
+        {
+          "value": "add_spacing_three",
+          "label": "Three objects"
+        }
+      ],
+      "default": "add_spacing"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min":  15,
+      "max":  100,
+      "label": "Heading size",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "sub_heading_size",
+      "min":  15,
+      "max":  100,
+      "label": "Sub-heading size",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "expand_collection",
+      "label": "Expand collections to fill row",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_on_mobile",
+      "label": "Stack on mobile",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "richtext_size",
+      "min":  10,
+      "max":  30,
+      "label": "Richtext size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "min":  15,
+      "max":  50,
+      "label": "Button size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_fill",
+      "label": "Button fill",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_color_hoover",
+      "label": "Button text hoover",
+      "default": "#342E29"
+    },
+    {
+      "type": "color",
+      "id": "button_fill_hoover",
+      "label": "Button fill hoover",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "label": "Hide collection on mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_link",
+          "label": "Remove link"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1120 x 1200px .jpg recommended"
+        },
+        {
+          "type": "select",
+          "id": "image_alignment",
+          "label": "Image alignment",
+          "options": [
+            {
+              "value": "top left",
+              "label": "Top left"
+            },
+            {
+              "value": "top center",
+              "label": "Top center"
+            },
+            {
+              "value": "top right",
+              "label": "Top right"
+            },
+            {
+              "value": "center left",
+              "label": "Middle left"
+            },
+            {
+              "value": "center center",
+              "label": "Middle center"
+            },
+            {
+              "value": "center right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center center"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image mobile"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "middleLeft",
+              "label": "Middle left"
+            },
+            {
+              "value": "middleRight",
+              "label": "Middle right"
+            },
+            {
+              "value": "middleCenter",
+              "label": "Middle center"
+            },
+            {
+              "value": "bottomLeft",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottomRight",
+              "label": "Bottom right"
+            },
+            {
+              "value": "bottomCenter",
+              "label": "Bottom center"
+            }
+          ],
+          "default": "bottomLeft"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Sub-heading",
+          "default": "Sub-heading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Collection name"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Tekst"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "View products"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link",
+          "info": "If none is set, collection URL is used."
+        },
+        {
+          "type": "header",
+          "content": "Extra settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "apply_overlay",
+          "label": "Apply overlay on image",
+          "info": "This can improve text visibility.",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "apply_overlay_extra",
+          "label": "Apply extra overlay on image",
+          "info": "This can improve text visibility.",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "add_logo",
+          "label": "Add logo",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "logo_color",
+          "label": "Logo fill",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "logo_size",
+          "min":  50,
+          "step":  10,
+          "max":  500,
+          "label": "Logo size",
+          "default": 150 
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Collection",
+      "name": "Collection list",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

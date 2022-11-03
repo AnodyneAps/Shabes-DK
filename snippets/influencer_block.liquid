@@ -1,0 +1,23 @@
+{%- capture flickity_options -%}
+{
+  "prevNextButtons": true,
+  "wrapAround": true,
+  "pageDots": false,
+  "draggable": true,
+  "adaptiveHeight": true,
+  "watchCSS": true,
+  "cellAlign": "left",
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}
+{%- endcapture -%}
+
+
+{%- if template == 'product' -%}
+    <div class="influencer_block">
+       <div class="influencer_block_inner flex_align-start flex_colum">
+           <div class="influencer_videos flex_align-start justify_content_start carousel-cell">
+                
+           </div>
+       </div>
+    </div>
+{% endif %}

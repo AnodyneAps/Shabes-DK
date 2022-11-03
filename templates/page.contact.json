@@ -1,0 +1,325 @@
+{
+  "sections": {
+    "1633371596a7c8aa4f": {
+      "type": "page-header",
+      "settings": {
+        "imageDesktop": "shopify:\/\/shop_images\/58682.jpg",
+        "hide_desktop": true,
+        "image-alignment": "center center",
+        "imageMobile": "shopify:\/\/shop_images\/58682.jpg",
+        "image-alignment-mobile": "center center",
+        "image-fixed": false,
+        "color-overlay": true,
+        "header": "Effektivt og komfortabelt shapewear",
+        "text_color": "#ffffff"
+      }
+    },
+    "1633371568b0cf6ff0": {
+      "type": "text-area",
+      "settings": {
+        "padding_small": false,
+        "hide_desktop": true,
+        "float_left": false,
+        "background_img": "none",
+        "background": "#ffffff",
+        "text_color": "#342e29",
+        "title": "Om os",
+        "heading_size": 26,
+        "margin_heading": false,
+        "heading_size_mobile": 22,
+        "content": "<p>Hos Shabes tror vi på, at det bedste shapewear er det shapewear, du rent faktisk bruger. Shapewear du altid har liggende i øverste skuffe fordi, at du ved hvad det gør for dig og dit outfit. Hos Shabes skaber vi luksuriøst shapewear, og fundamentet for alle vores produkter er effekt, komfort og bæredygtighed. Vi mener, at alle har ret til at føle sig komfortable i egen krop og derfor laver vi shapewear af høj kvalitet til retfærdige priser.<\/p>",
+        "max_content": false,
+        "max_content_size": 50,
+        "max_box_size": 50,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "1633106609f8b9d9b6": {
+      "type": "collection-list",
+      "blocks": {
+        "1633106609f8b9d9b6-0": {
+          "type": "collection",
+          "settings": {
+            "hide_mobile": true,
+            "hide_link": true,
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/58522.jpg",
+            "image_alignment": "center center",
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "Om os",
+            "richtext": "<p>Hos Shabes tror vi på, at det bedste shapewear er det shapewear, du rent faktisk bruger. Shapewear du altid har liggende i øverste skuffe, fordi du ved hvad det gør for dig og dit outfit. Hos Shabes skaber vi luksuriøst shapewear, og fundamentet for alle vores produkter er effekt, komfort og bæredygtighed. Vi mener, at alle har ret til at føle sig komfortable i egen krop og derfor laver vi shapewear af højeste kvalitet.<\/p>",
+            "button_text": "",
+            "button_link": "",
+            "apply_overlay": true,
+            "apply_overlay_extra": true,
+            "add_logo": false,
+            "logo_color": "#ffffff",
+            "logo_size": 150
+          }
+        },
+        "1633106609f8b9d9b6-1": {
+          "type": "collection",
+          "settings": {
+            "hide_mobile": true,
+            "hide_link": true,
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/58682.jpg",
+            "image_alignment": "center center",
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "",
+            "richtext": "",
+            "button_text": "View products",
+            "button_link": "",
+            "apply_overlay": true,
+            "apply_overlay_extra": false,
+            "add_logo": false,
+            "logo_color": "#ffffff",
+            "logo_size": 150
+          }
+        }
+      },
+      "block_order": [
+        "1633106609f8b9d9b6-0",
+        "1633106609f8b9d9b6-1"
+      ],
+      "settings": {
+        "image_size": "large",
+        "spacing": "add_spacing",
+        "heading_size": 40,
+        "sub_heading_size": 20,
+        "expand_collection": true,
+        "stack_on_mobile": true,
+        "text_color": "#ffffff",
+        "richtext_size": 18,
+        "button_size": 16,
+        "button_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_fill": "#ffffff",
+        "button_color_hoover": "#342e29",
+        "button_fill_hoover": "#ffffff"
+      }
+    },
+    "1633105780476e9b6e": {
+      "type": "text-area",
+      "settings": {
+        "padding_small": false,
+        "hide_desktop": false,
+        "float_left": false,
+        "background_img": "none",
+        "background": "#ffffff",
+        "text_color": "#1c1b1b",
+        "title": "VORES VISION",
+        "heading_size": 26,
+        "margin_heading": false,
+        "heading_size_mobile": 20,
+        "content": "<p>SHABES er et dansk brand med en klar mission: Vi vil være de bedste til at formgive kvindekroppen med komfortabelt og luksuriøst shapewear lavet af de bedste og mest innovative materialer i modebranchen. Vores DNA består af en vision om et shapewear brand, der gør op med den endeløse søgen efter shapewear der virker, er behageligt og passer lige netop din kropstype.<\/p>",
+        "max_content": false,
+        "max_content_size": 10,
+        "max_box_size": 30,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "16332719427841c4cf": {
+      "type": "text-with-image",
+      "settings": {
+        "height": false,
+        "subheading": "",
+        "title": "VORES REJSE MOD RESTEN AF VERDEN",
+        "image": "shopify:\/\/shop_images\/VA97648.jpg",
+        "image_position": "right",
+        "content": "<p>Shabes er drevet af et passioneret team, som arbejder hårdt for vores fælles mål om at lave fantastisk shapewear til rimelige priser. Vores dygtige designere og konstruktører elsker håndarbejdet og at nørkle med detaljerne for altid at skabe de bedste resulter, og vores marketingteam elsker at fortælle historien. Vi er stolte af, hvor langt vi er kommet, og at vores fælles indsats allerede er repræsenteret i fire lande.<\/p>",
+        "text_align": "center",
+        "heading_size": 26,
+        "sub_heading_size": 20,
+        "richtext_size": 16,
+        "link_text": "",
+        "link_url": "",
+        "button_size": 16,
+        "button_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_fill": "#ffffff",
+        "button_color_hoover": "#342e29",
+        "button_fill_hoover": "#ffffff"
+      }
+    },
+    "1633105534279acece": {
+      "type": "collection-list",
+      "blocks": {
+        "1633105534279acece-0": {
+          "type": "collection",
+          "settings": {
+            "hide_mobile": false,
+            "hide_link": false,
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/SHABES_fabric_lycra_small_81be1bcf-3217-4f90-897e-646931216458.jpg",
+            "image_alignment": "center center",
+            "image_mobile": "shopify:\/\/shop_images\/SHABES_fabric_lycra_small_81be1bcf-3217-4f90-897e-646931216458.jpg",
+            "content_position": "middleCenter",
+            "subheading": "",
+            "title": "KUNSTEN I MATERIALET",
+            "richtext": "<p>Vi brugte over to år på at source de helt rigtige materialer til vores shapewear. Materialerne skulle være komfortable og effektive for kroppens former og bæredygtige for dig og vores planet. Resultatet af tiden vi brugte, er nogle af verdens fineste materialer fra modebranchen, som giver vores shapewear sit æstetiske og tidsløse design. Du kan læse mere om materialerne her.<\/p>",
+            "button_text": "Læs mere",
+            "button_link": "shopify:\/\/pages\/baeredygtighed-info",
+            "apply_overlay": true,
+            "apply_overlay_extra": false,
+            "add_logo": false,
+            "logo_color": "#ffffff",
+            "logo_size": 150
+          }
+        }
+      },
+      "block_order": [
+        "1633105534279acece-0"
+      ],
+      "settings": {
+        "image_size": "normal",
+        "spacing": "add_spacing_single",
+        "heading_size": 32,
+        "sub_heading_size": 20,
+        "expand_collection": true,
+        "stack_on_mobile": true,
+        "text_color": "#ffffff",
+        "richtext_size": 16,
+        "button_size": 16,
+        "button_color": "#303030",
+        "button_border_color": "#ffffff",
+        "button_fill": "#ffffff",
+        "button_color_hoover": "#ffffff",
+        "button_fill_hoover": "rgba(0,0,0,0)"
+      }
+    },
+    "main": {
+      "type": "main-contact",
+      "disabled": true,
+      "blocks": {
+        "53aa7ee2-7a5a-4a54-b709-a69cbc5fa874": {
+          "type": "text",
+          "settings": {
+            "title": "Custom field",
+            "use_long_text": false,
+            "is_required": false
+          }
+        }
+      },
+      "block_order": [
+        "53aa7ee2-7a5a-4a54-b709-a69cbc5fa874"
+      ],
+      "settings": {
+      }
+    },
+    "1633276970194f94d2": {
+      "type": "text-with-image",
+      "settings": {
+        "height": false,
+        "subheading": "",
+        "title": "VORES PRODUKTION",
+        "image": "shopify:\/\/shop_images\/97817_2daaba56-bd27-459a-a816-106fe328e41e.jpg",
+        "image_position": "left",
+        "content": "<p>I Shabes arbejder vi målrettet på at gøre vores materialer, produktion og logistik så klimaneutral og bæredygtig som muligt. Vi tager skarpt afstand til greenwashing, og fortæller i stedet åbent og ærligt om vores initiativer og mål. Vi designer vores shapewear i Danmark, og producerer under ordnede forhold i Europa - bl.a. fra vedvarende energikilder som dækker op til 80% af vores produktionsforbrug. Vi arbejder også aktivt med FN’s verdensmål, som er kontinuerligt arbejde, men er hele arbejdet værd. Det betyder nemlig, at du kan købe Shabes med grøn samvittighed.<\/p>",
+        "text_align": "center",
+        "heading_size": 32,
+        "sub_heading_size": 20,
+        "richtext_size": 16,
+        "link_text": "",
+        "link_url": "",
+        "button_size": 15,
+        "button_color": "#342e29",
+        "button_border_color": "#342e29",
+        "button_fill": "rgba(0,0,0,0)",
+        "button_color_hoover": "#ffffff",
+        "button_fill_hoover": "#342e29"
+      }
+    },
+    "16331060767b0bcec3": {
+      "type": "text-area",
+      "disabled": true,
+      "settings": {
+        "padding_small": false,
+        "hide_desktop": false,
+        "float_left": false,
+        "background_img": "none",
+        "background": "#fafafa",
+        "text_color": "#1c1b1b",
+        "title": "”THE BEST SHAPEWEAR, IS THE SHAPEWEAR YOU WILL ACTUALLY WEAR”",
+        "heading_size": 26,
+        "margin_heading": false,
+        "heading_size_mobile": 15,
+        "content": "<p>- Shabes lead designer<\/p>",
+        "max_content": false,
+        "max_content_size": 50,
+        "max_box_size": 50,
+        "button_label": "Se vores produkter",
+        "button_link": "#"
+      }
+    },
+    "16331060443ad848d5": {
+      "type": "customer-testimonials",
+      "blocks": {
+        "16331060443ad848d5-0": {
+          "type": "review",
+          "settings": {
+            "review_heading": "Ekstremt blødt",
+            "review_richtext": "<p>Ekstremt blødt og passer perfekt på min krop! Stor anbefaling til Shabes herfra. <\/p>",
+            "review_name": "Zenia barbara"
+          }
+        },
+        "16331060443ad848d5-1": {
+          "type": "review",
+          "settings": {
+            "review_heading": "Jeg er meget imponeret",
+            "review_richtext": "<p>Jeg er meget imponeret. Det er på ingen måder ubehageligt, men strammer alligevel op alle de steder jeg vil have.<\/p>",
+            "review_name": "Sanne Skifter"
+          }
+        },
+        "16331060443ad848d5-2": {
+          "type": "review",
+          "settings": {
+            "review_heading": "Flot arbejde Shabes",
+            "review_richtext": "<p>Du får en utrolig flot figur af Shabes.<br\/>Produkterne stimulerer lige der hvor de skal. Flot arbejde Shabes! <\/p>",
+            "review_name": "Helene Kornum"
+          }
+        },
+        "bffeaf43-001d-4b33-a9b9-1ab47b0ae50a": {
+          "type": "review",
+          "settings": {
+            "review_heading": "Toppen af poppen",
+            "review_richtext": "<p>Af alt jeg har prøvet, er det her toppen af poppen. I bruger nogle fantastiske materialer. Jeg anbefaler jer! <\/p>",
+            "review_name": "Maya Wraae"
+          }
+        }
+      },
+      "block_order": [
+        "16331060443ad848d5-0",
+        "16331060443ad848d5-1",
+        "16331060443ad848d5-2",
+        "bffeaf43-001d-4b33-a9b9-1ab47b0ae50a"
+      ],
+      "settings": {
+        "background-color": "#fafafa",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "draggable": true,
+        "arrows": true,
+        "title": "Vores kunder elsker os",
+        "heading_size": 26,
+        "heading_size_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "1633371596a7c8aa4f",
+    "1633371568b0cf6ff0",
+    "1633106609f8b9d9b6",
+    "1633105780476e9b6e",
+    "16332719427841c4cf",
+    "1633105534279acece",
+    "main",
+    "1633276970194f94d2",
+    "16331060767b0bcec3",
+    "16331060443ad848d5"
+  ]
+}

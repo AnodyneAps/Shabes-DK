@@ -1,0 +1,71 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "blocks": {
+        "38e3581d-af60-4f84-a3a7-fde551a57c25": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image_alignment": "center center",
+            "content_position": "bottomLeft",
+            "subheading": "Sub-heading",
+            "title": "Heading",
+            "button_text": "View products"
+          }
+        },
+        "a261b232-1d3a-4f05-95b8-8b2a6d3ed291": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image_alignment": "center center",
+            "content_position": "bottomLeft",
+            "subheading": "Sub-heading",
+            "title": "Heading",
+            "button_text": "View products"
+          }
+        },
+        "c48e70fa-7ad6-4e26-94b6-66ad5a46b9b3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image_alignment": "center center",
+            "content_position": "bottomLeft",
+            "subheading": "Sub-heading",
+            "title": "Heading",
+            "button_text": "View products"
+          }
+        },
+        "c7a60d7d-9753-48be-8446-14ad2a3455ea": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image_alignment": "center center",
+            "content_position": "bottomLeft",
+            "subheading": "Sub-heading",
+            "title": "Heading",
+            "button_text": "View products"
+          }
+        }
+      },
+      "block_order": [
+        "38e3581d-af60-4f84-a3a7-fde551a57c25",
+        "a261b232-1d3a-4f05-95b8-8b2a6d3ed291",
+        "c48e70fa-7ad6-4e26-94b6-66ad5a46b9b3",
+        "c7a60d7d-9753-48be-8446-14ad2a3455ea"
+      ],
+      "settings": {
+        "collections_to_show": "selected",
+        "image_size": "normal",
+        "add_spacing": true,
+        "expand_collection": false,
+        "apply_overlay": true,
+        "text_color": "#ffffff",
+        "button_color": "#363636"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

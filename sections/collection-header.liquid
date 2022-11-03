@@ -1,0 +1,234 @@
+<section id="section-{{ section.id }}">
+
+    <div class="FlexboxIeFix">
+        <div class="ImageHero-collection ImageHero--collection-size" style="background: url({{ collection.image | img_url: '1x1' }})">
+        <div class="ImageHero__ImageWrapper">
+            <div class="ImageHero__Image Image--contrast Image--lazyLoad Image--zoomOut"
+                data-optimumx="1.4"
+                data-expand="-150"
+                data-bgset="{{ collection.image | img_url: '750x' }} 750w, {{ collection.image| img_url: '1000x' }} 1000w, {{ collection.image | img_url: '1500x' }} 1500w">
+            </div>
+
+            <noscript>
+            <div class="ImageHero__Image"></div>
+            </noscript>
+        </div>
+
+        <div class="ImageHero__ContentOverlay">
+                {% if collection.metafields.global.seo_text_title.value != blank %}
+                    <h2 class="Heading collection-header">{{ collection.title | escape }}</h2>
+                  {% else %}
+                    <h1 class="Heading collection-header">{{ collection.title | escape }}</h1>
+                {% endif %}
+
+                <div class="SectionHeader__Description">
+                    {{ collection.description }}
+                </div>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="FlexboxIeFix">
+        <div class="collection_description_mobile">
+
+            {% if collection.description.size > 80 %}
+                <div class="text_unfold">
+                    {{ collection.description }}
+                </div>
+
+                <div class="unfold_description_color">
+
+                </div>
+
+                <p class="text_area_open">
+                  <span class="more_knap">{{ 'general.accessibility.readMore' | t }}</span>
+                  <span class="less_knap">{{ 'general.accessibility.readLess' | t }}</span>
+    
+                </p>
+
+            {% else %}
+                {{ collection.description }}
+            {% endif %} 
+        </div>
+
+    </div>
+</section>
+
+<style>
+    #section-{{ section.id }},
+    #section-{{ section.id }} .Heading {
+    color: {{ section.settings.text_color }};
+    }
+
+    .SectionHeader__Description{
+        display: block;
+    }
+
+    .collection_description_mobile{
+        display: none;
+    }
+
+    #section-{{ section.id }} .text_unfold {
+      height: 50px;
+    }
+
+
+    @media screen and (max-width: 810px) {
+        .SectionHeader__Description{
+        display: none;
+        }
+
+        .collection_description_mobile{
+            display: block;
+        }
+    }
+    
+    
+    #section-{{ section.id }} .ImageHero__Image {
+        background-image: url({{ section.settings.imageMobile| img_url: '1000x' }});
+        background-position: {{ section.settings.image-alignment-mobile }};
+    }
+
+    @media screen and (min-width: 810px) {
+    #section-{{ section.id }} .ImageHero__Image {
+        background-image: url({{ section.settings.imageDesktop| img_url: '1000x' }});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: {{ section.settings.image-alignment }};
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name":"Collection header",
+  "settings":[
+        {
+            "type": "image_picker",
+            "id": "imageDesktop",
+            "label": "Select image desktop"
+        },
+        {
+         "type": "select",
+         "id": "image-alignment",
+         "label": "Image allignment Desktop",
+         "options": [
+            {
+              "value": "top left",
+              "label": "Top left"
+            },
+            {
+              "value": "top center",
+              "label": "Top center"
+            },
+            {
+              "value": "top right",
+              "label": "Top right"
+            },
+            {
+              "value": "center left",
+              "label": "Middle left"
+            },
+            {
+              "value": "center center",
+              "label": "Middle center"
+            },
+            {
+              "value": "center right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center center"
+       },
+       {
+         "type": "image_picker",
+         "id": "imageMobile",
+         "label": "Select image mobile"
+       },
+       
+        {
+         "type": "select",
+         "id": "image-alignment-mobile",
+         "label": "Image allignment mobile",
+         "options": [
+            {
+              "value": "top left",
+              "label": "Top left"
+            },
+            {
+              "value": "top center",
+              "label": "Top center"
+            },
+            {
+              "value": "top right",
+              "label": "Top right"
+            },
+            {
+              "value": "center left",
+              "label": "Middle left"
+            },
+            {
+              "value": "center center",
+              "label": "Middle center"
+            },
+            {
+              "value": "center right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center center"
+       },
+       {
+        "type":"checkbox",
+        "id":"image-fixed",
+        "label":"Image scroll",
+        "default":false
+       },
+
+        {
+         "type":"checkbox",
+         "id":"color-overlay",
+         "label":"Show color overlay",
+         "default":false
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text",
+            "default": "#ffffff"
+          }
+      ],
+      "presets": [
+        {
+          "category": "Collection",
+          "name": "Collection header",
+          "settings": {}
+        }
+      ]
+}
+  {% endschema %}

@@ -1,0 +1,262 @@
+<section class="Section Section--spacingNormal" id="section-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="icon_list_wrapper">
+      <h3 class="subheader Heading u-h3">{{ section.settings.title }}</h3>
+      <div class="icon_list flex_align-center justify_content_space_even align_items_start carousel">
+          {% for block in section.blocks %}
+            <div class="icon_box flex_align-center flex_colum carousel-cell" id="block-{{ block.id }}" >
+              <div class="icon_box_icon flex_align-center">
+                {%- render 'icon' with {{block.settings.icon_selector}} -%}
+                <style>
+                  #block-{{ block.id }} svg {
+                    height: {{ block.settings.icon_size }}px;
+                    fill: {{ block.settings.icon-color }};
+                  }
+
+                  #block-{{ block.id }} .text_unfold {
+                    height: {{ section.settings.max_box_size }}px;
+                  }
+              </style>
+              </div>
+
+              <h4 class="Heading u-h4">
+                  {{ block.settings.icon_heading }}
+              </h4>
+              {% if section.settings.max_content %}
+                  {% if block.settings.icon_text.size > section.settings.max_content_size %}
+                    <div class="text_unfold">
+                      {{ block.settings.icon_text }}
+                    </div>
+    
+                    <div class="unfold_description_color">
+    
+                    </div>
+    
+                    <p class="text_area_open">
+                      <span class="more_knap">{{ 'general.accessibility.readMore' | t }}</span>
+                      <span class="less_knap">{{ 'general.accessibility.readLess' | t }}</span>
+        
+                    </p>
+    
+                  {% else %}
+                    {{ block.settings.icon_text }} 
+                  {% endif %}
+    
+                {% else %}
+                  {{ block.settings.icon_text }}
+              {% endif %}
+
+            </div>
+          {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+
+  var flkty = new Flickity( '.icon_list', {
+    "prevNextButtons": {% if section.settings.arrows %}true{% else %}false{% endif %},
+  "wrapAround": true,
+  "pageDots": false,
+  "draggable": {% if section.settings.draggable %}true{% else %}false{% endif %},
+  "contain": true,
+  "watchCSS": true,
+  "adaptiveHeight": true,
+  "pauseAutoPlayOnHove": false,
+  "cellAlign": "left",
+  "autoPlay": {% if section.settings.autoplay %}{{ section.settings.cycle_speed | times: 1000 }}{% else %}false{% endif %},
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+  });
+  
+</script>
+
+<style>
+
+
+  #section-{{ section.id }}{
+    background-color: {{ section.settings.background-color }};
+  }
+
+  #section-{{ section.id }} .subheader{
+        font-size: {{ section.settings.heading_size }}px;
+        0px 20px 20px 20px
+    }
+
+    @media screen and (max-width: 640px) {
+
+        #section-{{ section.id }} .subheader{
+            font-size: {{ section.settings.heading_size_mobile }}px;
+        }
+    }
+
+</style>
+
+{% schema %}
+{ 
+  "name": "Five reasons",
+  "class": "shopify-section--bordered",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "max_content",
+      "label": "Unfold option",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "max_content_size",
+      "label": "Unfold option character max",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "max_box_size",
+      "label": "Folded tekst box max height",
+      "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between testimonials",
+      "default": true
+    },
+    {
+    "type": "range",
+    "id": "cycle_speed",
+    "min": 3,
+    "max": 12,
+    "step": 0.5,
+    "unit": "sec",
+    "label": "Change testimonials every",
+    "default": 5
+    },
+    {
+    "type": "checkbox",
+    "id": "draggable",
+    "label": "Dragable",
+    "default": true 
+    },
+    {
+    "type": "checkbox",
+    "id": "arrows",
+    "label": "Arrow active",
+    "default": true 
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Your story"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min":  15,
+      "max":  100,
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile",
+      "min":  8,
+      "max":  60,
+      "default": 15
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_selector",
+          "label": "Select icon",
+          "options": [
+            {
+              "value": "reason-1",
+              "label": "Reason 1"
+            },
+            {
+              "value": "reason-2",
+              "label": "Reason 2"
+            },
+            {
+              "value": "reason-3",
+              "label": "Reason 3"
+            },
+            {
+              "value": "reason-4",
+              "label": "Reason 4"
+            },
+            {
+              "value": "reason-5",
+              "label": "Reason 5"
+            }
+          ],
+          "default": "reason-1"
+        },
+        {
+          "type": "color",
+          "id": "icon-color",
+          "label": "Icon color",
+          "default": "#d8beac"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "unit": "px",
+          "label": "Change icon height",
+          "default": 200
+        },
+        {
+          "type": "text",
+          "id": "icon_heading",
+          "label": "Icon heading",
+          "default": "Icon heading"
+        },
+        {
+          "type": "richtext",
+          "id": "icon_text",
+          "label": "Icon richtext",
+          "default": "<p>Tekst here</p>"
+        }
+      ]
+    }
+    ],
+
+  "presets" : [
+      {
+        "category": "Text",
+        "name": "Five reasons",
+        "settings": {},
+        "blocks": [
+            {
+            "type": "icon",
+            "settings": {}
+            },
+            {
+            "type": "icon",
+            "settings": {}
+            },
+            {
+            "type": "icon",
+            "settings": {}
+            }
+        ]
+        }
+    ]
+    }
+{% endschema %}
+

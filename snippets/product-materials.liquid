@@ -1,0 +1,57 @@
+{%- capture flickity_product_materials -%}
+{
+  "prevNextButtons": true,
+  "contain": true,
+  "pageDots": false,
+  "draggable": true,
+  "adaptiveHeight": true,
+  "pauseAutoPlayOnHove": false,
+  "cellAlign": "left",
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}
+{%- endcapture -%}
+
+<section class="Section p_materials Section--spacingNormal" id="section-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="testimonials-slider-text flex_align-center flex_colum">
+    {%- if block.settings.reviews_title != blank -%}
+        <h3 class="Heading u-h3">{{ block.settings.reviews_title | escape }}</h3>
+    {%- endif -%}
+    <div class="text-slider-group">
+      <div class="carousel" data-flickity='{{ flickity_product_materials }}'>
+
+        <div class="testimonials-slider-indside-text carousel-cell flex_align-center flex_colum">
+          <img src="{{ block.settings.materials_image1 | img_url: '1000x' }}">  
+          
+          <h4 class="Heading u-h4">
+                {{ block.settings.materials_1_heading }}
+            </h4>
+
+            <p>{{ block.settings.materials_1_text }}</p>
+        </div>
+
+        <div class="testimonials-slider-indside-text carousel-cell flex_align-center flex_colum">
+          <img src="{{ block.settings.materials_image2 | img_url: '1000x' }}">  
+          
+          <h4 class="Heading u-h4">
+                {{ block.settings.materials_2_heading }}
+            </h4>
+
+            <p>{{ block.settings.materials_2_text }}</p>
+        </div>
+        {%- comment -%}
+        <div class="testimonials-slider-indside-text carousel-cell flex_align-center flex_colum">
+          <img src="//cdn.shopify.com/s/files/1/0561/6592/5053/files/materials_1200x.jpg?v=1639649667">  
+          
+          <h4 class="Heading u-h4">
+                {{ block.settings.materials_3_heading }}
+            </h4>
+
+            <p>{{ block.settings.materials_3_text }}</p>
+        </div>
+        {%- endcomment -%}
+        
+        
+      </div>
+    </div>
+</div>
+</section>

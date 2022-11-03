@@ -1,0 +1,44 @@
+{% include 'shop-url' %}
+
+{% if shop_url == shop_url_dk %}
+  
+{%- comment -%}
+{% elsif shop_url == shop_url_gb %}
+    <script type="text/javascript">
+        function ffChatInitCallback(sdk) {
+        }
+        
+        !function(t){var e=t.createElement("script");
+        e.src="https://cdn.rela.tel/www/public/chat/embed.js",e.async=!0,e.onload=e.onreadystatechange=function(){if(!this.readyState||-1!==["complete","loaded"].indexOf(this.readyState))try{ffChat.init("ZsANCnrZGUqzikHJR7FyPFya8YCv3VKVhjNVlOug",ffChatInitCallback)}catch(t){}};
+        var a=t.getElementsByTagName("head")[0];
+        a.appendChild(e)}(document);
+    </script>    
+{%- endcomment -%}
+
+{%- comment -%}
+{% elsif shop_url == shop_url_se %}
+  {%- render 'icon' with 'flag-se' -%}
+
+{% elsif shop_url == shop_url_no %}
+  {%- render 'icon' with 'flag-no' -%}
+
+{% elsif shop_url == shop_url_de %}
+  {%- render 'icon' with 'flag-de' -%}
+
+{% elsif shop_url == shop_url_nl %}
+  {%- render 'icon' with 'flag-nl' -%}
+
+{% elsif shop_url == shop_url_ch %}
+  {%- render 'icon' with 'flag-ch' -%}
+
+{% elsif shop_url == shop_url_at %}
+  {%- render 'icon' with 'flag-at' -%}
+
+{% elsif shop_url == shop_url_test %}
+  {%- render 'icon' with 'flag-dk' -%}
+
+{%- endcomment -%}
+  
+{% else %}
+
+{% endif %}

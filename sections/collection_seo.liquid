@@ -1,0 +1,73 @@
+{% if collection.metafields.global.seo_text_title.value != blank and collection.metafields.global.seo_text_left.value != blank and collection.metafields.global.seo_text_right.value != blank %}
+  <div class="Collection_seo_section" id="section-{{ section.id }}">
+
+      <h1 class="Heading u-h3">{{ collection.metafields.global.seo_text_title.value }}</h1>
+      {% if section.settings.max_content %}
+          <div class="text_unfold">
+              <div class="seo_grid">
+                <div class="seo_section_box">
+                    {{ collection.metafields.global.seo_text_left.value }}
+                </div>
+                <div class="seo_section_box">
+                    {{ collection.metafields.global.seo_text_right.value }}
+                </div>
+              </div>
+            </div>
+
+            <div class="unfold_description_color">
+
+            </div>
+
+            <p class="text_area_open">
+              <span class="more_knap">{{ 'general.accessibility.readMore' | t }}</span>
+              <span class="less_knap">{{ 'general.accessibility.readLess' | t }}</span>
+
+            </p>
+
+        {% else %}
+          <div class="seo_grid">
+            <div class="seo_section_box">
+                {{ collection.metafields.global.seo_text_left.value }}
+            </div>
+            <div class="seo_section_box">
+                {{ collection.metafields.global.seo_text_right.value }}
+            </div>
+          </div>
+    {%- endif -%}
+  </div>
+{% endif %}
+
+<style>
+#section-{{ section.id }} .text_unfold {
+  height: {{section.settings.max_box_size}}px;
+}
+</style>
+
+{% schema %}
+    {
+        "name": "Seo text",
+        "class": "full-height",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "max_content",
+            "label": "Unfold option",
+            "default": true
+          },
+          {
+            "type": "number",
+            "id": "max_box_size",
+            "label": "Folded tekst box max height",
+            "default": 140
+          }
+        ],
+      "presets" : [
+         {
+            "category": "Text",
+            "name": "Seo text",
+            "settings": {}
+         }
+        ]
+    }   
+
+      {% endschema %}

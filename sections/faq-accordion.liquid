@@ -1,0 +1,56 @@
+<section class="faq_inner">
+    <div class="Product__Tabs">
+    {% for block in section.blocks %}
+        <div id="{{block.id}}">
+            <div class="Collapsible Collapsible--large" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="{% if countfaqs == 1%}true{% else %}false{% endif%}">
+                    <div class="faq-question" itemprop="name">{{ block.settings.faq-box-title }}</div><span class="Collapsible__Plus"></span>
+                </button>
+            
+                <div class="Collapsible__Inner" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="Collapsible__Content">
+                        <div class="Rte" itemprop="text">
+                            {{ block.settings.faq-box-richtext }}
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name":"Page content",
+  "blocks":[
+     {
+      "type": "faq-accordion",
+      "name": "FAQ accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "faq-box-title",
+          "label": "FAQ box title", 
+          "default": "Create a title for your box"
+        },
+        {
+          "type": "richtext",
+          "id": "faq-box-richtext",
+          "label": "FAQ box text",
+          "default": "<p>Add text to your box</p>"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "category": "Image",
+        "name": "Faq accordion",
+        "settings": {}
+      }
+    ]
+} 
+  {% endschema %}

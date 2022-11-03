@@ -1,0 +1,265 @@
+{% assign max_size = section.settings.max_content_size %}  
+
+<section class="Section Section--spacingNormal {% if section.settings.hide_desktop %}
+hidden-lap-and-up
+{% endif %}" id="section-{{ section.id }}">
+    <div class="Text_Wrapper">
+        {%- if section.settings.title != blank -%}
+          {%- if section.settings.h1 != blank -%}
+            <h1 class="Heading u-h3">{{ section.settings.title | escape }}</h1>
+          {% else %}
+          <h3 class="Heading u-h3">{{ section.settings.title | escape }}</h3>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.content != blank -%}
+          {% if section.settings.max_content %}
+            {% if section.settings.content.size > section.settings.max_content_size %}
+                <div class="text_unfold">
+                    {{ section.settings.content }}
+                </div>
+
+                <div class="unfold_description_color">
+
+                </div>
+
+                <p class="text_area_open">
+                  <span class="more_knap">{{ 'general.accessibility.readMore' | t }}</span>
+                  <span class="less_knap">{{ 'general.accessibility.readLess' | t }}</span>
+    
+                </p>
+
+            {% else %}
+                {{ section.settings.content }}
+            {% endif %} 
+
+          {% else %}
+            {{ section.settings.content }}
+          {% endif %}
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+        <div class="Container">
+          <div class="SectionFooter">
+            <a href="{{ section.settings.button_link }}" class="Button Button--primary">{{ section.settings.button_label | escape }}</a>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+  
+  <style>
+    #section-{{ section.id }},
+    #section-{{ section.id }} .Heading {
+      color: {{ section.settings.text_color }};
+    }
+
+    #section-{{ section.id }} .Button {
+      text-decoration: none;
+    }
+
+    #section-{{ section.id }} {
+      background-color: {{ section.settings.background }};
+    }
+
+    #section-{{ section.id }} .Heading{
+        font-size: {{ section.settings.heading_size }}px;
+    }
+
+    {% if section.settings.margin_heading %}
+      #section-{{ section.id }} .Heading{
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+      }
+    {% endif %}
+
+    {% if section.settings.padding_small %}
+      .Section--spacingNormal #section-{{ section.id }} {
+        padding: 40px 0 20px 0 !important;
+      }
+    {% endif %}
+
+    {% if section.settings.float_left %}
+      #section-{{ section.id }} .text_unfold {
+        text-align: left;
+        height: 50px;
+      }
+    {% endif %}
+
+    @media screen and (max-width: 640px) {
+
+        #section-{{ section.id }} .Heading{
+            font-size: {{ section.settings.heading_size_mobile }}px;
+        }
+    }
+
+    #section-{{ section.id }} .text_unfold{
+      height: {{ section.settings.max_box_size }}px;
+      overflow: hidden;
+    }
+
+    {%- if section.settings.background_img == 'icons-cream.svg' or 'icons-green.svg' -%}
+    #section-{{ section.id }}:before{
+      content: ' ';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 1100px; 
+        background-image: url('{{ section.settings.background_img| asset_url }}');
+        background-posistion: top;
+        background-size: cover;
+        opacity: 0.5;
+    }
+
+    #section-{{ section.id }} {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .Text_Wrapper{
+      max-width: 700px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  {%- endif -%}
+
+
+  </style>
+  
+  {% schema %}
+  {
+    "name": "Text block",
+    "settings": [
+      {
+          "type": "checkbox",
+          "id": "padding_small",
+          "label": "Padding small",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "float_left",
+          "label": "Float left",
+          "default": false
+        }, 
+        {
+          "type": "select",
+          "id": "background_img",
+          "label": "Use icons background - choose color",
+          "options": [
+            {
+              "value": "icons-cream.svg",
+              "label": "Cream"
+            },
+            {
+              "value": "icons-green.svg",
+              "label": "Green"
+            },
+            {
+              "value": "none",
+              "label": "No background image"
+            }
+          ],
+          "default": "none"
+        },
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text",
+        "default": "#342e29"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Your story"
+      },
+      {
+        "type": "checkbox",
+        "id": "h1",
+        "label": "Set title to h1",
+        "default": false
+      }, 
+      {
+        "type": "range",
+        "id": "heading_size",
+        "label": "Heading size",
+        "min":  15,
+        "max":  100,
+        "default": 26
+      },
+      {
+        "type": "checkbox",
+        "id": "margin_heading",
+        "label": "Remove margin Heading",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "heading_size_mobile",
+        "label": "Heading size mobile",
+        "min":  8,
+        "max":  60,
+        "default": 15
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Text",
+        "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "max_content",
+        "label": "Unfold option",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "max_content_size",
+        "label": "Unfold option character max",
+        "default": 50
+      },
+      {
+        "type": "number",
+        "id": "max_box_size",
+        "label": "Folded tekst box max height",
+        "default": 50
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "category": "Image",
+        "name": "Text block",
+        "settings": {}
+      }
+    ]
+  }
+  {% endschema %}

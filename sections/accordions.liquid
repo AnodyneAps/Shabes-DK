@@ -1,0 +1,378 @@
+{%- comment -%}
+{%- capture flickity_customer_accordions -%}
+{
+  "prevNextButtons": true,
+  "wrapAround": true,
+  "pageDots": true,
+  "draggable": true,
+  "adaptiveHeight": true,
+  "cellAlign": "left",
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}
+{%- endcapture -%}
+{%- endcomment -%}
+
+<section class="section-{{ section.id }} hidden-pocket" id="materials">
+    <div id="material-info" data-noused="{% increment countinfo %}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+      {% for block in section.blocks limit:1 %}
+        <div class="material-title open" data-number="{% increment countinfo %}"><span class="title">{{block.settings.title}}<button class="btn"><span></span><span></span></button> </span>
+          <div class="content">{{block.settings.richtext}}</div>
+        </div>
+      {% endfor %}
+      {% for block in section.blocks offset: 1 %}
+          <div class="material-title" data-number="{% increment countinfo %}"><span class="title">{{block.settings.title}}<button class="btn"><span></span><span></span></button> </span>
+            <div class="content">{{block.settings.richtext}}</div>
+          </div>
+
+      {% endfor %}
+    </div>
+    <div id="material-image" data-noused="{% increment countimg %}">
+      {% for block in section.blocks %}
+        <div class="image" data-number="{% increment countimg %}" style="background-image: url('{{ block.settings.image | img_url: '1200x' }}'); background-size: cover; background-position:{{block.settings.image-alignment}};">
+            <div class="image-text">
+                <h4>{{block.settings.title}}</h4>
+            </div>
+        </div>
+      {% endfor %} 
+    </div>
+
+    
+</section>
+
+
+<section class="section-{{ section.id }} hidden-lap-and-up" id="materials">
+  <div class="materials_mobile_wrapper">
+    <div class="materials_mobile_textbox carousel flex_colum" data-flickityzz='{{  }}'>
+      {% for block in section.blocks%}
+        <div class="carousel-cell">
+          <div class="materials_text">
+            {%- if section.settings.title != blank -%}
+              <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title | escape }}</h2>
+            {%- endif -%}
+            <h3 class="SectionHeader__SubHeading Heading u-h4">{{block.settings.title}}</h3>
+            <div class="materials_text_opener">
+              {{block.settings.richtext}}
+            </div>
+            <div class="materials_description_color">
+
+            </div>
+
+            <p class="materials_description_open">
+              <span class="more_knap">{{ 'general.accessibility.readMore' | t }}</span>
+              <span class="less_knap">{{ 'general.accessibility.readLess' | t }}</span>
+
+            </p>
+          </div>
+
+          <div class="materials_m_image">
+            <div class="image" style="background-image: url('{{ block.settings.image | img_url: '1200x' }}'); background-position:{{block.settings.image-alignment}};">
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+</section>
+
+<style>
+  {% if section.settings.full_height %}
+    .section-{{ section.id }} #material-image, .section-{{ section.id }} #material-info {
+      height: calc(100vh - var(--header-height) - 40px) !important;
+      max-height: 900px;
+    }
+
+    .section-{{ section.id }} {
+      height: calc(100vh - var(--header-height)) !important;
+    }
+  {% endif %}
+
+  .section-{{ section.id }} .SectionHeader__Heading {
+    font-size: {{ section.settings.heading_size }}px !important;
+  }
+
+  .section-{{ section.id }} {
+    color: {{ section.settings.text_color }} !important;
+  }
+
+  .section-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+  }
+
+  .section-{{ section.id }} .SectionHeader__Heading {
+    text-align: left;
+    width: 100%;
+    color: #fff !important;
+  }
+
+  @media screen and (max-width: 960px) {
+
+  .section-{{ section.id }} .SectionHeader__Heading {
+      font-size: 22px !important;
+      width: 100%;
+      color: #fff !important;
+  	}
+
+  .section-{{ section.id }} .SectionHeader__SubHeading {
+    font-size: 16px !important;
+    color: #fff !important;
+  }
+
+}
+
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+	$(document).ready(function(){
+		var heights = [];
+      var heights2 = [];
+    	var counter = 0;
+
+      	$('#material-info .material-title').each(function(){
+      		var i = ++counter;
+      		$(this).find('.content').css('height', 'auto');
+      		heights[i] = $(this).find('.content').innerHeight();
+      		if(i !== 1){
+          		$(this).find('.content').css('height', '0px');
+      		} else {
+          		$(this).find('.content').css('height', heights[i]);
+      		}
+    	});
+      
+      	counter = 0;
+      
+      	$('#material-info2 .material-title').each(function(){
+      		var i = ++counter;
+      		$(this).find('.content').css('height', 'auto');
+      		heights2[i] = $(this).find('.content').innerHeight();
+      		if(i !== 1){
+          		$(this).find('.content').css('height', '0px');
+      		} else {
+          		$(this).find('.content').css('height', heights2[i]);
+      		}
+    	});
+      
+      
+      
+
+      	$('#material-info').on("click", ".material-title:not(.open)", function(){
+          	var number = $(this).data('number');
+
+            $('#material-info .material-title').removeClass('open');
+            $('#material-info .material-title').find('.content')
+            .css('height', '0px')
+            .css('padding-top', '0px')
+            .css('opacity', '0');
+
+            $(this).addClass('open');
+            $(this).find('.content')
+            .css('height', heights[number])
+            .css('padding-top', '16px')
+            .css('opacity', '1');
+
+            $('#material-image .image').each(function(){
+                var img_number = $(this).data('number');
+                if(img_number !== number){
+                    $(this).fadeOut();
+                } else {
+                    $(this).fadeIn();
+                }
+            });
+    	});
+      
+      
+      
+      
+      $('#material-info2').on("click", ".material-title:not(.open)", function(){
+          	var number = $(this).data('number');
+
+            $('#material-info2 .material-title').removeClass('open');
+            $('#material-info2 .material-title').find('.content')
+            .css('height', '0px')
+            .css('padding-top', '0px')
+            .css('opacity', '0');
+
+            $(this).addClass('open');
+            $(this).find('.content')
+            .css('height', heights2[number])
+            .css('padding-top', '16px')
+            .css('opacity', '1');
+
+            $('#material-image2 .image').each(function(){
+                var img_number = $(this).data('number');
+                if(img_number !== number){
+                    $(this).fadeOut();
+                } else {
+                    $(this).fadeIn();
+                }
+            });
+    	});
+      
+      
+      });
+</script>
+
+{% schema %}
+{
+  "name": "Accordions",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_height",
+      "label": "Full height",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background color",
+      "default": "#342e29"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Title"
+  },
+  {
+    "type": "range",
+    "id": "heading_size",
+    "min":  15,
+    "max":  100,
+    "label": "Heading size",
+    "default": 26
+  }
+  ],
+  "blocks":[
+     {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Accordion title", 
+          "default": "Create a title for your box"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Accordion title",
+          "default": "<p>Add text to your box</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image-alignment",
+          "label": "Image allignment mobile",
+          "options": [
+             {
+               "value": "top left",
+               "label": "Top left"
+             },
+             {
+               "value": "top center",
+               "label": "Top center"
+             },
+             {
+               "value": "top right",
+               "label": "Top right"
+             },
+             {
+               "value": "center left",
+               "label": "Middle left"
+             },
+             {
+               "value": "center center",
+               "label": "Middle center"
+             },
+             {
+               "value": "center right",
+               "label": "Middle right"
+             },
+             {
+               "value": "bottom left",
+               "label": "Bottom left"
+             },
+             {
+               "value": "bottom center",
+               "label": "Bottom center"
+             },
+             {
+               "value": "bottom right",
+               "label": "Bottom right"
+             }
+           ],
+           "default": "center center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Accordions",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+    
+  var readmore = document.getElementsByClassName('materials_description_open');
+
+
+  var flkty = new Flickity( '.carousel', {
+    "prevNextButtons": true,
+    "wrapAround": true,
+    "pageDots": true,
+    "draggable": true,
+    "adaptiveHeight": true,
+    "cellAlign": "left",
+    "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+  });
+
+  for (var i = 0;i<readmore.length;i+=1){
+    var btn = readmore[i];
+    btn.onclick = function() {
+      var commonParrent = this.parentElement;
+      commonParrent.classList.toggle('materials_text--open');
+      var closestwrapper = commonParrent.closest('.materials_mobile_wrapper')
+      closestwrapper.classList.toggle('materials_mobile_wrapper--open');
+      flkty.resize();
+      
+
+    }
+  }
+
+  flkty.on( 'change', function( index ) {
+    var sliderOpen = this.slider.getElementsByClassName('materials_text--open')[0];
+    if (sliderOpen) {
+      var button = sliderOpen.getElementsByClassName('materials_description_open')[0];
+      if (button) {
+        button.click()
+      }
+    }
+    
+  });
+
+  </script>

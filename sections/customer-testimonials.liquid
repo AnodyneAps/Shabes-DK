@@ -1,0 +1,178 @@
+{%- capture flickity_customer_testimonials -%}
+{
+  "prevNextButtons": {% if section.settings.arrows %}true{% else %}false{% endif %},
+  "wrapAround": true,
+  "pageDots": false,
+  "draggable": {% if section.settings.draggable %}true{% else %}false{% endif %},
+  "contain": true,
+  "adaptiveHeight": true,
+  "pauseAutoPlayOnHove": false,
+  "cellAlign": "left",
+  "autoPlay": {% if section.settings.autoplay %}{{ section.settings.cycle_speed | times: 1000 }}{% else %}false{% endif %},
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}
+{%- endcapture -%}
+
+<section class="Section Section--spacingNormal" id="section-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="testimonials-slider-text flex_align-center flex_colum">
+    {%- if section.settings.title != blank -%}
+        <h3 class="Heading u-h3">{{ section.settings.title | escape }}</h3>
+    {%- endif -%}
+    <div class="text-slider-group">
+      <div class="carousel" data-flickity='{{ flickity_customer_testimonials }}'>
+        {%- for block in section.blocks -%}
+          <div class="testimonials-slider-indside-text carousel-cell flex_align-center flex_colum">
+            <h4 class="Heading u-h4">
+                "{{ block.settings.review_heading }}"
+            </h4>
+
+            {{ block.settings.review_richtext }}
+
+
+            <div class="review-name"><span class="Heading u-h6">{{ block.settings.review_name }}</span>
+              <span class="testimonials-stars">
+                {%- render 'icon' with 'star' -%}
+                {%- render 'icon' with 'star' -%}
+                {%- render 'icon' with 'star' -%}
+                {%- render 'icon' with 'star' -%}
+                {%- render 'icon' with 'star' -%}
+              </span>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+</div>
+</section>
+
+<style>
+  #section-{{ section.id }}{
+    background-color: {{ section.settings.background-color }};
+  }
+
+  #section-{{ section.id }} .u-h3{
+        font-size: {{ section.settings.heading_size }}px;
+        0px 20px 20px 20px
+    }
+
+    @media screen and (max-width: 640px) {
+
+        #section-{{ section.id }} .u-h3{
+            font-size: {{ section.settings.heading_size_mobile }}px;
+        }
+    }
+
+</style>
+
+{% schema %}
+{ 
+  "name": "Customers testimonials",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between testimonials",
+      "default": true
+    },
+    {
+    "type": "range",
+    "id": "cycle_speed",
+    "min": 3,
+    "max": 12,
+    "step": 0.5,
+    "unit": "sec",
+    "label": "Change testimonials every",
+    "default": 5
+    },
+    {
+    "type": "checkbox",
+    "id": "draggable",
+    "label": "Dragable",
+    "default": true 
+    },
+    {
+    "type": "checkbox",
+    "id": "arrows",
+    "label": "Arrow active",
+    "default": true 
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Your story"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min":  15,
+      "max":  100,
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile",
+      "min":  8,
+      "max":  60,
+      "default": 15
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+            "type": "text",
+            "id": "review_heading",
+            "label": "Review heading",
+            "default": "Review heading"
+        },
+        {
+          "type": "richtext",
+          "id": "review_richtext",
+          "label": "Review text",
+          "default": "<p>Here is the review text</p>"
+        },
+        {
+            "type": "text",
+            "id": "review_name",
+            "label": "Review name",
+            "default": "Review name"
+        }
+        ]
+    }
+    ],
+
+  "presets" : [
+      {
+        "category": "Text",
+        "name": "Reviews Slider",
+        "settings": {},
+        "blocks": [
+            {
+            "type": "review",
+            "settings": {}
+            },
+            {
+            "type": "review",
+            "settings": {}
+            },
+            {
+            "type": "review",
+            "settings": {}
+            }
+        ]
+        }
+    ]
+    }
+{% endschema %}

@@ -1,0 +1,161 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": true,
+            "show_sku": false,
+            "show_product_rating": false,
+            "show_taxes_included": false,
+            "show_meta-days": false,
+            "selector_meta-days": "none",
+            "blackdays__meta-save": ""
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "show_color_swatch": true,
+            "show_color_carousel": false,
+            "size_chart": "size-chart"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_price_in_button": false,
+            "show_payment_button": false
+          }
+        },
+        "f4cce94d-6434-4928-a9a9-d142eb3b4702": {
+          "type": "product_usp",
+          "settings": {
+            "blackdays__returndate": "",
+            "usp_autoplay": true,
+            "usp_cycle_speed": 3,
+            "icon_selector1": "package",
+            "icon_1_heading": "Fri fragt ved køb over 399 kr",
+            "icon_selector2": "shipping",
+            "icon_2_heading": "Fri 30 dages retur",
+            "icon_selector3": "cards",
+            "icon_3_heading": "Nem og sikker betaling",
+            "icon_selector4": "heart",
+            "icon_4_heading": "Altid til rådighed"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "db8668d8-1342-408e-afc0-e884dcf70f00": {
+          "type": "materials",
+          "settings": {
+            "materials_max_content": false,
+            "materials_max_content_size": 50,
+            "materials_max_box_size": 50,
+            "draggable": true,
+            "arrows": true,
+            "materials_image1": "shopify:\/\/shop_images\/SHABES_fabric_lycra_small_81be1bcf-3217-4f90-897e-646931216458.jpg",
+            "materials_1_heading": "LYCRA® SHAPING TECHNOLOGY",
+            "materials_1_text": "<p>Lyder det teknisk? Det er det også! Shaping Technology® er det nyeste materiale udviklet af Lycra® specifikt til shapewear. Materialet er skabt til at give dig en timeglasfigur uden en følelse af ubehag. Udover at opstramme bedre end nogen andre materialer er Lycra® Shaping Technology® også langtidsholdbart og kan strække sig over 100% uden, at det mister sin funktionalitet. Et fantastisk materiale skabt til din fantastiske krop og implementeret i alt shapewear fra Shabes.<\/p>",
+            "materials_image2": "shopify:\/\/shop_images\/shutterstock_1138374116.jpg",
+            "materials_2_heading": "NYLON 6.6",
+            "materials_2_text": "<p>Nylon 6.6 er et slidstærkt, åndbart og temperaturregulerende materiale, som vi bruger i alle vores produkter. Materialet har 33% højere slidstyrke end andre nylonformer og sikrer derved, at du kan bruge dit shapewear igen og igen. Bæredygtigt for dig og vores planet. Nylon 6.6 er behageligt på og for huden, da det ikke bliver for varmt at gå med og tillader din hud at trække vejret, imens du bruger det.<\/p>"
+          }
+        },
+        "0ea1b043-eff1-4e99-946d-d1923fd15e88": {
+          "type": "content",
+          "settings": {
+            "title": "Materialer",
+            "content": "<p>- 30% Lycra® Shaping Technology®<br\/>- 40% Sensil® EcoCare®<br\/>- 30% Nylon<\/p>",
+            "page": ""
+          }
+        },
+        "17147ba3-3eb8-4b38-bf0a-81e6a99fb9a1": {
+          "type": "content",
+          "settings": {
+            "title": "",
+            "content": "",
+            "page": "baeredygtighed-info"
+          }
+        },
+        "c0ab2312-1a63-481b-98d5-778ca72c7b2a": {
+          "type": "content",
+          "settings": {
+            "title": "",
+            "content": "",
+            "page": "care"
+          }
+        },
+        "b5ea8457-163f-4cc0-9652-0f966b5b6b81": {
+          "type": "buy_it_with",
+          "disabled": true,
+          "settings": {
+            "product": "shabes-high-cut-trusse",
+            "title": "Buy it with"
+          }
+        },
+        "cd6e4361-d237-45fa-9aeb-01d0e976786a": {
+          "type": "customers_reviews",
+          "settings": {
+            "background-color": "#ffffff",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "draggable": true,
+            "arrows": true,
+            "reviews_title": "Hvad siger vores kunder om os",
+            "heading_size": 26,
+            "heading_size_mobile": 20
+          }
+        },
+        "aea4f3b9-107f-48e5-a166-29bd91fd25fe": {
+          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "heading_size": 26,
+            "feed_width": 100,
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "variant_selector",
+        "buy_buttons",
+        "f4cce94d-6434-4928-a9a9-d142eb3b4702",
+        "description",
+        "db8668d8-1342-408e-afc0-e884dcf70f00",
+        "0ea1b043-eff1-4e99-946d-d1923fd15e88",
+        "17147ba3-3eb8-4b38-bf0a-81e6a99fb9a1",
+        "c0ab2312-1a63-481b-98d5-778ca72c7b2a",
+        "b5ea8457-163f-4cc0-9652-0f966b5b6b81",
+        "cd6e4361-d237-45fa-9aeb-01d0e976786a",
+        "aea4f3b9-107f-48e5-a166-29bd91fd25fe"
+      ],
+      "settings": {
+        "image_size": "large",
+        "stack_images": true,
+        "show_thumbnails": true,
+        "enable_image_zoom": true,
+        "enable_video_looping": true
+      }
+    },
+    "16518645113964c1e9": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Andre kiggede på",
+        "show_product_info": true,
+        "show_vendor": true,
+        "show_color_swatch": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16518645113964c1e9"
+  ]
+}

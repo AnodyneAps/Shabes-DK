@@ -1,0 +1,39 @@
+<a class="Header__Icon Icon-Wrapper header_shipping Icon-Wrapper--clickable js-modal-btn">
+    <span class="flag-header">
+{% include 'shop-url' %}
+{% if shop_url == shop_url_dk %}
+  {%- render 'icon' with 'flag-dk' -%}
+
+{% elsif shop_url == shop_url_gb %}
+  {%- render 'icon' with 'flag-gb' -%}
+
+{% elsif shop_url == shop_url_se %}
+  {%- render 'icon' with 'flag-se' -%}
+
+{% elsif shop_url == shop_url_no %}
+  {%- render 'icon' with 'flag-no' -%}
+
+{% elsif shop_url == shop_url_de %}
+  {%- render 'icon' with 'flag-de' -%}
+
+{% elsif shop_url == shop_url_nl %}
+  {%- render 'icon' with 'flag-nl' -%}
+
+{% elsif shop_url == shop_url_be %}
+  {%- render 'icon' with 'flag-be' -%}
+
+{% elsif shop_url == shop_url_ch %}
+  {%- render 'icon' with 'flag-ch' -%}
+
+{% elsif shop_url == shop_url_at %}
+  {%- render 'icon' with 'flag-at' -%}
+
+{% elsif shop_url == shop_url_test %}
+  {%- render 'icon' with 'flag-dk' -%}
+  
+{% else %}
+
+{% endif %}
+<img class="arrow-down-black" style="float: right; margin-top:9px; margin-left: 8px; width: 9px; height: 9px;" src="{{ 'arrow-down.svg' | asset_url }}">
+</span>
+</a>

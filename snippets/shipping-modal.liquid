@@ -1,0 +1,98 @@
+<div id="shippingModal" class="shipping-modal">
+
+    <!-- Modal content -->
+    <div class="shipping-content">
+      <div class="shipping-header">
+        <span class="sh-close">{%- render 'icon' with 'close' -%}</span>
+        <h2 class="Heading u-h6">Country</h2>
+        <p>You are shipping to: <br>
+          {% include 'shop-url' %}
+          {% if shop_url == shop_url_dk %}
+            {%- render 'icon' with 'flag-dk' -%}
+            <span>Denmark</span>
+
+          {% elsif shop_url == shop_url_gb %}
+            {%- render 'icon' with 'flag-gb' -%}
+            <span>Great Britain</span>
+
+          {% elsif shop_url == shop_url_se %}
+            {%- render 'icon' with 'flag-se' -%}
+            <span>Sweden</span>
+
+          {% elsif shop_url == shop_url_no %}
+            {%- render 'icon' with 'flag-no' -%}
+            <span>Norway</span>
+
+          {% elsif shop_url == shop_url_de %}
+            {%- render 'icon' with 'flag-de' -%}
+            <span>Germany</span>
+
+          {% elsif shop_url == shop_url_de_dev %}
+          {%- render 'icon' with 'flag-de' -%}
+          <span>Germany</span>
+
+          {% elsif shop_url == shop_url_ch %}
+            {%- render 'icon' with 'flag-ch' -%}
+            <span>Switzerland</span>
+
+          {% elsif shop_url == shop_url_nl %}
+            {%- render 'icon' with 'flag-nl' -%}
+            <span>Netherlands</span>
+
+          {% elsif shop_url == shop_url_be %}
+            {%- render 'icon' with 'flag-be' -%}
+            <span>Belgium</span>
+
+          {% elsif shop_url == shop_url_at %}
+            {%- render 'icon' with 'flag-at' -%}
+            <span>Austria</span>
+
+          {% elsif shop_url == shop_url_test %}
+            {%- render 'icon' with 'flag-dk' -%}
+            <span>Denmark</span>
+          {% else %}
+          
+          {% endif %}
+        </p><br>
+        <p>Please select your country:</p>
+      </div>
+      <div class="shipping-body">
+        {%- comment -%}
+        <a href="https://shabes.at"><li>
+          {%- render 'icon' with 'flag-at' -%}<span>Austria</span>
+         </li></a>
+         {%- endcomment -%}
+        <a href="https://www.shabes.dk"><li>
+            {%- render 'icon' with 'flag-dk' -%}<span>Denmark</span>
+        </li></a>
+        {%- comment -%}
+        <a href="https://shabes.de"><li>
+          {%- render 'icon' with 'flag-de' -%}<span>Germany</span>
+        </li></a>
+        {%- endcomment -%}
+        <a href="https://shabes.co.uk"><li>
+            {%- render 'icon' with 'flag-gb' -%}<span>Great Britain</span>
+        </li></a>
+        <a href="https://shabes.nl"><li>
+          {%- render 'icon' with 'flag-nl' -%}<span>Netherlands</span>
+        </li></a>
+        <a href="https://shabes.be"><li>
+          {%- render 'icon' with 'flag-be' -%}<span>Belgium</span>
+        </li></a>
+        
+        {%- comment -%}
+        <a href="https://shabes.no"><li>
+            {%- render 'icon' with 'flag-no' -%}<span>Norway</span>
+        </li></a>
+        <a href="https://shabes.se"><li>
+            {%- render 'icon' with 'flag-se' -%}<span>Sweden</span>
+        </li></a>
+        {%- endcomment -%}
+       
+        <a href="https://shabes.ch"><li>
+          {%- render 'icon' with 'flag-ch' -%}<span>Switzerland</span>
+        </li></a>
+      </div>
+    </div>
+  
+  </div>

@@ -1,0 +1,237 @@
+<section id="section-{{ section.id }}" {% if section.settings.hide_desktop %}
+class="hidden-lap-and-up"
+{% endif %}>
+
+    <div class="FlexboxIeFix">
+        <div class="ImageHero-collection ImageHero--collection-size" style="background: url({{ collection.image | img_url: '1x1' }})">
+        <div class="ImageHero__ImageWrapper">
+            <div class="ImageHero__Image Image--contrast Image--lazyLoad Image--zoomOut"
+                data-optimumx="1.4"
+                data-expand="-150"
+                data-bgset="{{ section.settings.imageMobile | img_url: '750x' }} 750w, {{ section.settings.imageDesktop | img_url: '1000x' }} 1000w, {{ section.settings.imageDesktop | img_url: '1500x' }} 1500w">
+            </div>
+
+            <noscript>
+            <div class="ImageHero__Image"></div>
+            </noscript>
+        </div>
+
+        <div class="ImageHero__ContentOverlay">
+
+                <h1 class="Heading collection-header">{{ section.settings.header | escape }}</h1>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+<style>
+    #section-{{ section.id }},
+    #section-{{ section.id }} .Heading {
+    color: {{ section.settings.text_color }};
+    }
+
+    .SectionHeader__Description{
+        display: block;
+    }
+
+    .collection_description_mobile{
+        display: none;
+    }
+
+
+    @media screen and (max-width: 810px) {
+        .SectionHeader__Description{
+        display: none;
+        }
+
+        .collection_description_mobile{
+            display: block;
+        }
+    }
+    
+    
+    #section-{{ section.id }} .ImageHero__Image {
+        background-image: url({{ section.settings.imageMobile| img_url: '1000x' }});
+        background-position: {{ section.settings.image-alignment-mobile }};
+    }
+
+    @media screen and (min-width: 810px) {
+    #section-{{ section.id }} .ImageHero__Image {
+        background-image: url({{ section.settings.imageDesktop| img_url: '1000x' }});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: {{ section.settings.image-alignment }};
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name":"Collection header",
+  "settings":[
+        {
+            "type": "image_picker",
+            "id": "imageDesktop",
+            "label": "Select image desktop"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_desktop",
+          "label": "Hide on desktop",
+          "default": false
+        },
+        {
+         "type": "select",
+         "id": "image-alignment",
+         "label": "Image allignment Desktop",
+         "options": [
+            {
+              "value": "top left",
+              "label": "Top left"
+            },
+            {
+              "value": "top center",
+              "label": "Top center"
+            },
+            {
+              "value": "top right",
+              "label": "Top right"
+            },
+            {
+              "value": "center left",
+              "label": "Middle left"
+            },
+            {
+              "value": "center center",
+              "label": "Middle center"
+            },
+            {
+              "value": "center right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center center"
+       },
+       {
+         "type": "image_picker",
+         "id": "imageMobile",
+         "label": "Select image mobile"
+       },
+       
+        {
+         "type": "select",
+         "id": "image-alignment-mobile",
+         "label": "Image allignment mobile",
+         "options": [
+            {
+              "value": "top left",
+              "label": "Top left"
+            },
+            {
+              "value": "top center",
+              "label": "Top center"
+            },
+            {
+              "value": "top right",
+              "label": "Top right"
+            },
+            {
+              "value": "center left",
+              "label": "Middle left"
+            },
+            {
+              "value": "center center",
+              "label": "Middle center"
+            },
+            {
+              "value": "center right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center center"
+       },
+       {
+        "type":"checkbox",
+        "id":"image-fixed",
+        "label":"Image scroll",
+        "default":false
+       },
+
+        {
+         "type":"checkbox",
+         "id":"color-overlay",
+         "label":"Show color overlay",
+         "default":false
+        },
+        {
+          "type":"text",
+          "id":"header",
+          "label":"Header",
+          "default": "Page header"
+         },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text",
+            "default": "#ffffff"
+          }
+      ],
+      "presets": [
+        {
+          "category": "Text",
+          "name": "Page header",
+          "settings": {}
+        }
+      ]
+}
+  {% endschema %}
+
+  <script>
+    
+    var textBox = document.querySelector('.small-description');
+    var readmore = document.querySelector('.collection_description_open');
+    var readless = document.querySelector('.collection_description_close');
+    var collectionColor = document.querySelector('.collection_description_color');
+
+    document.body.onclick = function(i) {
+      if (i.target.classList.contains('collection_description_open')){
+        textBox.style.height = 'auto';
+        readmore.style.display = 'none';
+        readless.style.display = 'block';
+        collectionColor.style.display = 'none';
+  
+      }
+      else if (i.target.classList.contains('collection_description_close')) {
+        textBox.style.height = '';
+        readmore.style.display = 'block';
+        readless.style.display = 'none';
+        collectionColor.style.display = 'block';
+      }
+    };
+  
+    </script>

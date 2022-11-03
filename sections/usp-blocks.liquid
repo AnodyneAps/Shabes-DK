@@ -1,0 +1,300 @@
+{%- capture flickity_options -%}
+{
+  "prevNextButtons": false,
+  "wrapAround": true,
+  "pageDots": false,
+  "draggable": true,
+  "adaptiveHeight": true,
+  "watchCSS": true,
+  "pauseAutoPlayOnHove": false,
+  "cellAlign": "left",
+  "autoPlay": {% if section.settings.usp_autoplay %}{{ section.settings.usp_cycle_speed | times: 1000 }}{% else %}false{% endif %},
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}
+{%- endcapture -%}
+
+
+<div class="usp_block_wrapper usp_section">
+    <div class="usp_carousel carousel flex_align-center flex_row justify_content_space_even" data-flickity='{{ flickity_options }}'>
+        {% if section.settings.icon_1_heading != blank %}
+            <div class="usp_block flex_align-center flex_colum carousel-cell">
+                <div class="usp_icon">
+                    {%- render 'icon' with {{section.settings.icon_selector1}} -%}
+                </div>
+                <div class="usp_text">
+                    <h4 class="Heading u-h5">{{ section.settings.icon_1_heading }}</h4>
+                    {{ section.settings.icon_1_richtext }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if section.settings.icon_2_heading != blank %}
+            <div class="usp_block flex_align-center flex_colum carousel-cell">
+                <div class="usp_icon">
+                    {%- render 'icon' with {{section.settings.icon_selector2}} -%}
+                </div>
+                <div class="usp_text">
+                    <h4 class="Heading u-h5">{{ section.settings.icon_2_heading }}</h4>
+                    {{ section.settings.icon_2_richtext }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if section.settings.icon_3_heading != blank %}
+            <div class="usp_block flex_align-center flex_colum carousel-cell">
+                <div class="usp_icon">
+                    {%- render 'icon' with {{section.settings.icon_selector3}} -%}
+                </div>
+                <div class="usp_text">
+                    <h4 class="Heading u-h5">{{ section.settings.icon_3_heading }}</h4>
+                    {{ section.settings.icon_3_richtext }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if section.settings.icon_4_heading != blank %}
+            <div class="usp_block flex_align-center flex_colum carousel-cell">
+                <div class="usp_icon">
+                    {%- render 'icon' with {{section.settings.icon_selector4}} -%}
+                </div>
+                <div class="usp_text">
+                    <h4 class="Heading u-h5">{{ section.settings.icon_4_heading }}</h4>
+                    {{ section.settings.icon_4_richtext }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Product ups",
+        "class": "full-height",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "usp_autoplay",
+            "label": "Auto rotate between usp",
+            "default": true
+          },
+          {
+            "type": "range",
+            "id": "usp_cycle_speed",
+            "min": 3,
+            "max": 12,
+            "step": 0.5,
+            "unit": "sec",
+            "label": "Change usp every",
+            "default": 5
+          },
+          {
+            "type": "header",
+            "content": "Icon 1"
+          },
+          {
+            "type": "select",
+            "id": "icon_selector1",
+            "label": "Select icon",
+            "options": [
+              {
+                "value": "sustainable",
+                "label": "Sustainable"
+              },
+              {
+                "value": "package",
+                "label": "Package"
+              },
+              {
+                "value": "shipping",
+                "label": "Shipping"
+              },
+              {
+                "value": "cards",
+                "label": "Cards"
+              },
+              {
+                "value": "material",
+                "label": "Material"
+              },
+              {
+                "value": "heart",
+                "label": "Customer service"
+              },
+              {
+                "value": "star",
+                "label": "Star"
+              }
+            ],
+            "default": "star"
+          },
+          {
+            "type": "text",
+            "id": "icon_1_heading",
+            "label": "Icon 1 text"
+          },
+          {
+            "type": "richtext",
+            "id": "icon_1_richtext",
+            "label": "Icon 1 richtext"
+          },
+          {
+            "type": "header",
+            "content": "Icon 2"
+          },
+          {
+            "type": "select",
+            "id": "icon_selector2",
+            "label": "Select icon",
+            "options": [
+              {
+                "value": "sustainable",
+                "label": "Sustainable"
+              },
+              {
+                "value": "package",
+                "label": "Package"
+              },
+              {
+                "value": "shipping",
+                "label": "Shipping"
+              },
+              {
+                "value": "cards",
+                "label": "Cards"
+              },
+              {
+                "value": "material",
+                "label": "Material"
+              },
+              {
+                "value": "heart",
+                "label": "Customer service"
+              },
+              {
+                "value": "star",
+                "label": "Star"
+              }
+            ],
+            "default": "star"
+          },
+          {
+            "type": "text",
+            "id": "icon_2_heading",
+            "label": "Icon 2 text"
+          },
+          {
+            "type": "richtext",
+            "id": "icon_2_richtext",
+            "label": "Icon 2 richtext"
+          },
+          {
+            "type": "header",
+            "content": "Icon 3"
+          },
+          {
+            "type": "select",
+            "id": "icon_selector3",
+            "label": "Select icon",
+            "options": [
+              {
+                "value": "sustainable",
+                "label": "Sustainable"
+              },
+              {
+                "value": "package",
+                "label": "Package"
+              },
+              {
+                "value": "shipping",
+                "label": "Shipping"
+              },
+              {
+                "value": "cards",
+                "label": "Cards"
+              },
+              {
+                "value": "material",
+                "label": "Material"
+              },
+              {
+                "value": "heart",
+                "label": "Customer service"
+              },
+              {
+                "value": "star",
+                "label": "Star"
+              }
+            ],
+            "default": "star"
+          },
+          {
+            "type": "text",
+            "id": "icon_3_heading",
+            "label": "Icon 3 text"
+          },
+          {
+            "type": "richtext",
+            "id": "icon_3_richtext",
+            "label": "Icon 3 richtext"
+          },
+          {
+            "type": "header",
+            "content": "Icon 4"
+          },
+          {
+            "type": "select",
+            "id": "icon_selector4",
+            "label": "Select icon",
+            "options": [
+              {
+                "value": "sustainable",
+                "label": "Sustainable"
+              },
+              {
+                "value": "package",
+                "label": "Package"
+              },
+              {
+                "value": "shipping",
+                "label": "Shipping"
+              },
+              {
+                "value": "cards",
+                "label": "Cards"
+              },
+              {
+                "value": "material",
+                "label": "Material"
+              },
+              {
+                "value": "heart",
+                "label": "Customer service"
+              },
+              {
+                "value": "star",
+                "label": "Star"
+              }
+            ],
+            "default": "star"
+          },
+          {
+            "type": "text",
+            "id": "icon_4_heading",
+            "label": "Icon 4 text"
+          },
+          {
+            "type": "richtext",
+            "id": "icon_4_richtext",
+            "label": "Icon 4 richtext"
+          }
+        ],
+      "presets" : [
+         {
+            "category": "Text",
+            "name": "USP",
+            "settings": {}
+         }
+        ]
+    }   
+
+      {% endschema %}

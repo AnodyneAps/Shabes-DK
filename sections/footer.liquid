@@ -1,0 +1,649 @@
+<style>
+  .newsletter_img{
+    background-image: url({{ section.settings.newsletter_image| img_url: '1000x' }});
+    background-position: center top;
+    background-size: cover;
+  }
+  
+  </style>
+  
+  
+  <footer id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="footer" class="Footer {% if add_top_margin %}Footer--withMargin{% endif %}" role="contentinfo">
+  
+  <div class="footer_newsletter">
+    <div class="newsletter_box">
+      <div class="newsletter_inner">
+        <h3 class="Heading u-h3">{{ section.settings.newsletter_header }}</h3>
+  
+        {%- assign newsletter_id = 'footer-' | append: section.id -%}
+  
+        {%- form 'customer', id: newsletter_id, class: 'Newsletter Form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="Form__Alert Alert Alert--success">{{ 'home_page.newsletter.success' | t }}</p>
+          {%- else -%}
+            {%- if form.errors -%}
+              <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
+            {%- endif -%} 
+  
+            <div class="Newsletter__Inner">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'home_page.newsletter.input' | t }}" placeholder="{{ 'home_page.newsletter.input' | t }}" required>
+              <button type="submit" class="Form__Submit Button Button--secondary Button--full">{{ 'home_page.newsletter.submit' | t }}</button>
+            </div>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  
+    <div class="newsletter_img">
+  
+    </div>
+  </div>
+  
+  <div class="Footer_Box">
+    <div class="Footer__Inner">
+  
+      <div class="footer_info">
+  
+        <div class="footer-text footer-box ">
+          <h3 class="Heading u-h4">{{ section.settings.text_box_header }}</h3>
+          {{ section.settings.text_box_text }}
+        </div>
+  
+        <div class="footer-link footer-box">
+          <h3 class="Heading u-h4">{{ section.settings.linkbox_1_header }}</h3>
+          <ul class="Linklist">
+            {%- assign linklist_one = linklists[section.settings.linkbox_1_menu] -%}
+            {%- for link in linklist_one.links -%}
+              <li class="Linklist__Item">
+                <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+  
+        <div class="footer-link footer-box">
+          <h3 class="Heading u-h4">{{ section.settings.linkbox_2_header }}</h3>
+          <ul class="Linklist">
+            {%- assign linklist_two = linklists[section.settings.linkbox_2_menu] -%}
+            {%- for link in linklist_two.links -%}
+              <li class="Linklist__Item">
+                <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+  
+        <div class="footer-link footer-box footer-contact">
+          <h3 class="Heading u-h4">{{ section.settings.contact_box_header }}</h3>
+          <ul class="Linklist">
+              <li class="Linklist__Item"><b>{{ section.settings.contact_box_phone }}</b> {{ section.settings.contact_box_number }}</li>
+              <li class="Linklist__Item"><b>{{ section.settings.contact_box_mail }}</b> {{ section.settings.contact_box_mail_text }}</li>
+              <li class="Linklist__Item"><b>{{ section.settings.contact_box_day_week }}</b> {{ section.settings.contact_box_day_week_time }}</li>
+              <li class="Linklist__Item"><b>{{ section.settings.contact_box_day_weekend }}</b> {{ section.settings.contact_box_day_weekend_time }}</li>
+              {% if settings.country_selector %}
+                <br>
+                <li class="Linklist__Item"><b>Select country: </b><span class="footer_country_desktop">{% include 'shipping-to' %}</span></li> 
+              {% endif %}
+          </ul>
+        </div>
+   
+  
+        <div class="Product__Tabs">
+          <div class="Collapsible Collapsible--large">
+            <button class="Collapsible__Button Heading u-h4" data-action="toggle-collapsible" aria-expanded="false">
+              {{ section.settings.linkbox_1_header }}<span class="Collapsible__Plus"></span>
+            </button>
+        
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <div class="Rte">
+                  <ul class="Linklist">
+                    {%- assign linklist_one = linklists[section.settings.linkbox_1_menu] -%}
+                    {%- for link in linklist_one.links -%}
+                      <li class="Linklist__Item">
+                        <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="Collapsible Collapsible--large">
+            <button class="Collapsible__Button Heading u-h4" data-action="toggle-collapsible" aria-expanded="false">
+              {{ section.settings.linkbox_2_header }}<span class="Collapsible__Plus"></span>
+            </button>
+    
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <div class="Rte">
+                  <ul class="Linklist">
+                    {%- assign linklist_two = linklists[section.settings.linkbox_2_menu] -%}
+                    {%- for link in linklist_two.links -%}
+                      <li class="Linklist__Item">
+                        <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="Collapsible Collapsible--large">
+            <button class="Collapsible__Button Heading u-h4" data-action="toggle-collapsible" aria-expanded="false">
+              {{ section.settings.contact_box_header }}<span class="Collapsible__Plus"></span>
+            </button>
+    
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <div class="Rte">    
+                    <ul class="Linklist">
+                      <li class="Linklist__Item"><b>{{ section.settings.contact_box_phone }}</b> {{ section.settings.contact_box_number }}</li>
+                      <li class="Linklist__Item"><b>{{ section.settings.contact_box_mail }}</b> {{ section.settings.contact_box_mail_text }}</li>
+                      <li class="Linklist__Item"><b>{{ section.settings.contact_box_day_week }}</b> {{ section.settings.contact_box_day_week_time }}</li>
+                      <li class="Linklist__Item"><b>{{ section.settings.contact_box_day_weekend }}</b> {{ section.settings.contact_box_day_weekend_time }}</li>
+                      
+                      {% if settings.country_selector %}
+                        <br>
+                        <li class="Linklist__Item"><b>Select country: </b><span class="footer_country_desktop">{% include 'shipping-to' %}</span></li> 
+                      {% endif %} 
+            
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+  
+      </div>
+  
+  
+  
+      <div class="footer_copyright">
+        {% if settings.country_selector %}
+          <div class="footer_country"><b>Select country: </b>{% include 'shipping-to' %}</div>
+        {% endif %}
+        
+        {%- comment -%}
+          <div class="footer-some">
+            <a href="https://www.instagram.com/shabesofficial" target="blank"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 21.5 20.3" style="enable-background:new 0 0 21.5 20.3;" xml:space="preserve">
+            <style type="text/css">
+                .st0{fill:#342E29 !important;}
+                .st0{fill:none;stroke:#342E29;stroke-width:0.25;stroke-miterlimit:10;}
+            </style>
+            <g>
+                <path class="st0" d="M10.7,7.5c-1.5,0-2.6,1.2-2.6,2.6c0,1.5,1.2,2.6,2.6,2.6c1.5,0,2.6-1.2,2.6-2.6C13.4,8.7,12.2,7.5,10.7,7.5z
+                    M10.7,11.9c-1,0-1.7-0.8-1.7-1.7c0-1,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7C12.5,11.1,11.7,11.9,10.7,11.9z"/>
+                <g>
+                    <path class="st0" d="M13,5.1H8.5c-1.6,0-2.8,1.3-2.8,2.8v4.6c0,1.6,1.3,2.8,2.8,2.8H13c1.6,0,2.8-1.3,2.8-2.8V7.9
+                        C15.8,6.3,14.6,5.1,13,5.1z M14.9,12.4c0,1.1-0.9,1.9-1.9,1.9H8.5c-1.1,0-1.9-0.9-1.9-1.9V7.9C6.5,6.8,7.4,6,8.5,6H13
+                        c1.1,0,1.9,0.9,1.9,1.9V12.4z"/>
+                    <path class="st0" d="M13.5,6.8c-0.4,0-0.7,0.3-0.7,0.7c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7c0-0.2-0.1-0.3-0.2-0.5
+                        C13.8,6.8,13.7,6.8,13.5,6.8z"/>
+                </g>
+            </g>
+            <circle class="st1" cx="10.7" cy="10.2" r="9.8"/>
+            </svg></a>
+        
+            <a href="https://www.facebook.com/shabesofficial" target="blank"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 21.5 20.3" style="enable-background:new 0 0 21.5 20.3;" xml:space="preserve">
+            <style type="text/css">
+                .st13{fill:#342E29;}
+                .st03{fill:none;stroke:#342E29;stroke-width:0.25;stroke-miterlimit:10;}
+            </style>
+            <circle class="st03" cx="10.7" cy="10.2" r="9.8"/>
+            <g transform="translate(-22.077)">
+                <path class="st13" d="M35.4,5H34c-1.3-0.1-2.4,0.9-2.5,2.2c0,0.1,0,0.2,0,0.3v1.2h-1.3c-0.1,0-0.2,0.1-0.2,0.2v1.7
+                    c0,0.1,0.1,0.2,0.2,0.2h1.3v4.3c0,0.1,0.1,0.2,0.2,0.2c0,0,0,0,0,0h1.7c0.1,0,0.2-0.1,0.2-0.2v-4.3h1.6c0.1,0,0.2-0.1,0.2-0.2
+                    c0,0,0,0,0,0V8.9c0-0.1-0.1-0.2-0.2-0.2h-1.6v-1c0-0.5,0.1-0.7,0.7-0.7h0.9c0.1,0,0.2-0.1,0.2-0.2V5.2C35.6,5.1,35.5,5,35.4,5
+                    C35.4,5,35.4,5,35.4,5z"/>
+            </g>
+            </svg></a>
+    
+          </div>
+        {%- endcomment -%}
+  
+        <div class="copyright_line">
+          <span>©{{ section.settings.copyright_text }}</span>
+          {{ section.settings.copyright_text_company }}
+          
+        </div>
+  
+        {%- if section.settings.show_payment_methods -%}
+        {%- capture payment_methods -%}
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="HorizontalList__Item">{{ type | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        {%- endcapture -%}
+  
+        {%- if payment_methods != blank -%}
+          <ul class="Footer__PaymentList HorizontalList">
+            {{ payment_methods }}
+          
+            {% assign shop_url_product_page = shop.url %}
+            {% assign shop_dk = 'https://shabes.dk' %}
+            {% if shop_url_product_page == shop_dk %}
+              <li class="HorizontalList__Item"><img style="border-radius:3px;padding:1px;border:1px solid #ececec;margin-top: -8px;height:24px;width: 38px;" src="{{ 'Anyday_black44b.png' | asset_url }}"></li>
+            {% endif %}
+          </ul>
+        {%- endif -%}
+      {%- endif -%}
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  {%- comment -%}
+  
+  {%- if template.name == 'page' or template.name == 'blog' or template == 'customers/account' or template == 'customers/order' or template == 'customers/addresses' -%}
+    {%- assign add_top_margin = true -%}
+  {%- else -%}
+    {%- assign add_top_margin = false -%}
+  {%- endif -%}
+  
+  {%- if template == 'page.collections' -%}
+    {%- assign add_top_margin = false -%}
+  {%- endif -%}
+  
+  
+  
+  
+  <div class="footer-border" style="border-top: 1px solid var(--border-color); width: 100%;">
+    
+  </div>
+  
+      
+      <div class="FlexboxIeFix">
+        <div class="ImageHero" style="min-height: 200px !important; margin-bottom: 100px;">
+  
+    
+          <div class="ImageHero__ContentOverlay">
+                <h3 class="Heading u-h6">BLIV EN DEL AF FAMILIEN OG FÅ 10% PÅ DIN FØRSTE ORDRE</h3><br>
+    
+            {%- assign newsletter_id = 'footer-' | append: section.id -%}
+    
+            {%- form 'customer', id: newsletter_id, class: 'Newsletter Form' -%}
+              {%- if form.posted_successfully? -%}
+                <p class="Form__Alert Alert Alert--success">{{ 'home_page.newsletter.success' | t }}</p>
+              {%- else -%}
+                {%- if form.errors -%}
+                  <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
+                {%- endif -%}
+    
+                <div class="Newsletter__Inner">
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'home_page.newsletter.input' | t }}" placeholder="{{ 'home_page.newsletter.input' | t }}" required>
+                  <button type="submit" class="Form__Submit Button Button--primary">{{ 'home_page.newsletter.submit' | t }}</button>
+                </div>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+        </div>
+      </div>
+      {%- endcomment -%}
+  
+      {%- comment -%}
+      <div class="Container">
+      
+  
+      {%- if section.blocks.size > 0 -%}
+        <div class="Footer__Inner">
+          {%- for block in section.blocks -%}
+            <div class="Footer__Block Footer__Block--{{ block.type }}" {{ block.shopify_attributes }}>
+              {%- case block.type -%}
+                {%- when 'text' -%}
+                  {%- if block.settings.title != blank -%}
+                    <h2 class="Footer__Title Heading u-h6">{{ block.settings.title | escape }}</h2>
+                  {%- endif -%}
+  
+                  {%- if block.settings.content != blank -%}
+                    <div class="Footer__Content Rte">
+                      {{ block.settings.content }}
+                    </div>
+                  {%- endif -%}
+  
+                  {%- if block.settings.show_social_media -%}
+                    {% render 'social-media', class: 'Footer__Social', spacing: 'loose' %}
+                  {%- endif -%}
+  
+                {%- when 'links' -%}
+                  {%- assign linklist = linklists[block.settings.menu] -%}
+  
+                  {%- if linklist != empty -%}
+                    <h2 class="Footer__Title Heading u-h6">{{ linklist.title | escape }}</h2>
+  
+                    <ul class="Linklist">
+                      {%- for link in linklist.links -%}
+                        <li class="Linklist__Item">
+                          <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+  
+                {%- when 'newsletter' -%}
+                  {%- if block.settings.title != blank -%}
+                    <h2 class="Footer__Title Heading u-h6">{{ block.settings.title | escape }}</h2>
+                  {%- endif -%}
+  
+                  {%- if block.settings.content != blank -%}
+                    <div class="Footer__Content Rte">
+                      {{ block.settings.content }}
+                    </div>
+                  {%- endif -%}
+  
+                  {%- form 'customer', id: 'footer-newsletter', class: 'Footer__Newsletter Form' -%}
+                    {%- if form.posted_successfully? -%}
+                      <p class="Form__Alert Alert Alert--success">{{ 'footer.newsletter.success' | t }}</p>
+                    {%- else -%}
+                      {%- if form.errors -%}
+                        <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
+                      {%- endif -%}
+  
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'footer.newsletter.input' | t }}" placeholder="{{ 'footer.newsletter.input' | t }}" required>
+                      <button type="submit" class="Form__Submit Button Button--primary">{{ 'footer.newsletter.submit' | t }}</button>
+                    {%- endif -%}
+                  {%- endform -%}
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+  
+      <div class="Footer_Middle">
+        {% include "shipping-footer" %}
+      </div>
+  
+      <div class="Footer__Aside">
+        <div class="footer-some">
+          <a href="https://www.instagram.com/shabesofficial" target="blank"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 21.5 20.3" style="enable-background:new 0 0 21.5 20.3;" xml:space="preserve">
+          <style type="text/css">
+              .st0{fill:#342E29 !important;}
+              .st0{fill:none;stroke:#342E29;stroke-width:0.25;stroke-miterlimit:10;}
+          </style>
+          <g>
+              <path class="st0" d="M10.7,7.5c-1.5,0-2.6,1.2-2.6,2.6c0,1.5,1.2,2.6,2.6,2.6c1.5,0,2.6-1.2,2.6-2.6C13.4,8.7,12.2,7.5,10.7,7.5z
+                   M10.7,11.9c-1,0-1.7-0.8-1.7-1.7c0-1,0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7C12.5,11.1,11.7,11.9,10.7,11.9z"/>
+              <g>
+                  <path class="st0" d="M13,5.1H8.5c-1.6,0-2.8,1.3-2.8,2.8v4.6c0,1.6,1.3,2.8,2.8,2.8H13c1.6,0,2.8-1.3,2.8-2.8V7.9
+                      C15.8,6.3,14.6,5.1,13,5.1z M14.9,12.4c0,1.1-0.9,1.9-1.9,1.9H8.5c-1.1,0-1.9-0.9-1.9-1.9V7.9C6.5,6.8,7.4,6,8.5,6H13
+                      c1.1,0,1.9,0.9,1.9,1.9V12.4z"/>
+                  <path class="st0" d="M13.5,6.8c-0.4,0-0.7,0.3-0.7,0.7c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7c0-0.2-0.1-0.3-0.2-0.5
+                      C13.8,6.8,13.7,6.8,13.5,6.8z"/>
+              </g>
+          </g>
+          <circle class="st1" cx="10.7" cy="10.2" r="9.8"/>
+          </svg></a>
+      
+          <a href="https://www.facebook.com/shabesofficial" target="blank"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 21.5 20.3" style="enable-background:new 0 0 21.5 20.3;" xml:space="preserve">
+          <style type="text/css">
+              .st13{fill:#342E29;}
+              .st03{fill:none;stroke:#342E29;stroke-width:0.25;stroke-miterlimit:10;}
+          </style>
+          <circle class="st03" cx="10.7" cy="10.2" r="9.8"/>
+          <g transform="translate(-22.077)">
+              <path class="st13" d="M35.4,5H34c-1.3-0.1-2.4,0.9-2.5,2.2c0,0.1,0,0.2,0,0.3v1.2h-1.3c-0.1,0-0.2,0.1-0.2,0.2v1.7
+                  c0,0.1,0.1,0.2,0.2,0.2h1.3v4.3c0,0.1,0.1,0.2,0.2,0.2c0,0,0,0,0,0h1.7c0.1,0,0.2-0.1,0.2-0.2v-4.3h1.6c0.1,0,0.2-0.1,0.2-0.2
+                  c0,0,0,0,0,0V8.9c0-0.1-0.1-0.2-0.2-0.2h-1.6v-1c0-0.5,0.1-0.7,0.7-0.7h0.9c0.1,0,0.2-0.1,0.2-0.2V5.2C35.6,5.1,35.5,5,35.4,5
+                  C35.4,5,35.4,5,35.4,5z"/>
+          </g>
+          </svg></a>
+  
+        </div>
+        {%- if section.settings.show_currency_selector and shop.enabled_currencies.size > 1 -%}
+          {%- assign currency_selector = true -%}
+        {%- endif -%}
+  
+        {%- if section.settings.show_locale_selector and shop.published_locales.size > 1 -%}
+          {%- assign locale_selector = true -%}
+        {%- endif -%}
+  
+        {%- if locale_selector or currency_selector -%}
+          <div class="Footer__Localization">
+            {%- form 'localization', id: 'localization_form_footer', class: 'Footer__LocalizationForm' -%}
+              {%- if currency_selector -%}
+                <div class="Footer__LocalizationItem">
+                  <input type="hidden" name="currency_code" value="{{ form.current_currency.iso_code }}">
+                  <span class="u-visually-hidden">{{ 'footer.general.currency' | t }}</span>
+  
+                  <button type="button" class="SelectButton Link Link--primary u-h8" aria-haspopup="true" aria-expanded="false" aria-controls="footer-currency-popover">
+                    {{ form.current_currency.iso_code }} {% if form.current_currency.symbol %}{{ form.current_currency.symbol }}{% endif %}
+                    {%- render 'icon', icon: 'select-arrow' -%}
+                  </button>
+  
+                  <div id="footer-currency-popover" class="Popover Popover--small Popover--noWrap" aria-hidden="true">
+                    <header class="Popover__Header">
+                      <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% render 'icon' with 'close' %}</button>
+                      <span class="Popover__Title Heading u-h4">{{ 'footer.general.currency' | t }}</span>
+                    </header>
+  
+                    <div class="Popover__Content">
+                      <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
+                        {%- for currency in form.available_currencies -%}
+                          <button type="submit" name="currency_code" class="Popover__Value {% if currency.iso_code == form.current_currency.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6"  value="{{ currency.iso_code }}" {% if currency.iso_code == form.current_currency.iso_code %}aria-current="true"{% endif %}>
+                            {{ currency.iso_code }} {% if currency.symbol %}{{ currency.symbol }}{% endif %}
+                          </button>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+  
+              {%- if locale_selector -%}
+                <div class="Footer__LocalizationItem">
+                  <input type="hidden" name="locale_code" value="{{ form.current_locale.iso_code }}">
+                  <span class="u-visually-hidden">{{ 'footer.general.locale' | t }}</span>
+  
+                  <button type="button" class="SelectButton Link Link--primary u-h8" aria-haspopup="true" aria-expanded="false" aria-controls="footer-locale-popover">
+                    {{- form.current_locale.endonym_name -}}
+                    {%- render 'icon', icon: 'select-arrow' -%}
+                  </button>
+  
+                  <div id="footer-locale-popover" class="Popover Popover--small Popover--noWrap" aria-hidden="true">
+                    <header class="Popover__Header">
+                      <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% render 'icon' with 'close' %}</button>
+                      <span class="Popover__Title Heading u-h4">{{ 'footer.general.locale' | t }}</span>
+                    </header>
+  
+                    <div class="Popover__Content">
+                      <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
+                        {%- for locale in form.available_locales -%}
+                          <button type="submit" name="locale_code" class="Popover__Value {% if locale.iso_code == form.current_locale.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6" value="{{ locale.iso_code }}" {% if locale.iso_code == form.current_locale.iso_code %}aria-current="true"{% endif %}>
+                            {{- locale.endonym_name -}}
+                          </button>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+        {%- endif -%}
+  
+        <div class="Footer__Language">
+          <p>®2021, SHABES ApS. Alle rettigheder forbeholdt</p>
+        </div>
+  
+        {%- if section.settings.show_payment_methods -%}
+          {%- capture payment_methods -%}
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="HorizontalList__Item">{{ type | payment_type_svg_tag }}</li>
+            {%- endfor -%}
+          {%- endcapture -%}
+  
+          {%- if payment_methods != blank -%}
+            <ul class="Footer__PaymentList HorizontalList">
+              {{ payment_methods }}
+            </ul>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </footer>
+  
+  {%- endcomment -%}
+  
+  {% schema %}
+  {
+    "name": "Footer",
+    "class": "shopify-section--footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_payment_methods",
+        "label": "Show payment methods",
+        "info": "Payment method icons are automatically displayed based on your Shopify payment methods.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_language_selector",
+        "label": "Show language selector",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "language_selector_header",
+        "label": "Language selector header",
+        "default": "Language selector header"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_header",
+        "label": "Newsletter header",
+        "default": "Newsletter header"
+      },
+      {
+        "type": "image_picker",
+        "id": "newsletter_image",
+        "label": "Newsletter Image" 
+      },
+      {
+        "type": "header",
+        "content": "Footer boxes"
+      },
+      {
+        "type": "text",
+        "id": "text_box_header",
+        "label": "Text Box header",
+        "default": "Text Box header"
+      },
+      {
+        "type": "richtext",
+        "id": "text_box_text",
+        "label": "Text box text",
+        "default": "<p>Text box text</p>"
+      },
+      {
+        "type": "text",
+        "id": "linkbox_1_header",
+        "label": "Linkbox 1 header",
+        "default": "Link box header"
+      },
+      {
+        "type": "link_list",
+        "id": "linkbox_1_menu",
+        "label": "Links 1",
+        "default": "main-menu"
+      },
+      {
+        "type": "text",
+        "id": "linkbox_2_header",
+        "label": "Linkbox 2 header",
+        "default": "Link box header"
+      },
+      {
+        "type": "link_list",
+        "id": "linkbox_2_menu",
+        "label": "Links 2",
+        "default": "main-menu"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_header",
+        "label": "Contact box header",
+        "default": "Contact box header"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_phone",
+        "label": "Contact box phone",
+        "default": "Tel:"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_number",
+        "label": "Contact box number",
+        "default": "+45 71 34 37 26"
+      }, 
+      {
+        "type": "text",
+        "id": "contact_box_mail",
+        "label": "Contact box e-mail",
+        "default": "E-mail:"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_mail_text",
+        "label": "Contact box e-mail address",
+        "default": "hello@shabes.dk"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_day_week",
+        "label": "Contact box weekdays",
+        "default": "Mon-fri"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_day_week_time",
+        "label": "Contact box weekdays time",
+        "default": "09.00-17.30"
+      },
+      {
+        "type": "text",
+        "id": "contact_box_day_weekend",
+        "label": "Contact box weekends",
+        "default": "Sat:"
+      },
+      {
+        "type": "html",
+        "id": "contact_box_day_weekend_time",
+        "label": "Contact box weekend time",
+        "default": "09.00-17.30"
+      },
+      {
+        "type": "header",
+        "content": "Copyright"
+      },
+      {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "Copyright label",
+        "default": "2021, SHABES ApS. All rights reserved"
+      },
+      {
+        "type": "richtext",
+        "id": "copyright_text_company",
+        "label": "Copyright company number",
+        "default": "<p><strong>Company registration number:</strong> 13574863</p>"
+      }
+    ]
+  }
+  {% endschema %}
