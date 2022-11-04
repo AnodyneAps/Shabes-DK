@@ -14148,7 +14148,7 @@ shopify-payment-terms {
 }
 .ProductMeta .days__badge--save--blackdays,
 .ProductMeta .days__badge--save--cyberdays{
-  top: 80px;
+  top: 70px;
 }
 
 .ProductMeta .days__badge--save--cyberdays,
@@ -14168,9 +14168,9 @@ shopify-payment-terms {
 .returndate__wrapper strong{
   color: var(--product-sale-price-color);
 }
-.blackdays__banner{
+.blackdays__banner,
+.cyberdays__banner{
   width: 100%;
-  background-color: black;
   text-align: center;
   color: white;
   display: flex;
@@ -14178,40 +14178,52 @@ shopify-payment-terms {
   align-items: center;
   flex-direction: column;
 }
+.blackdays__banner{
+  background-color: var(--blackdays);
+}
+.cyberdays__banner{
+  background-color: var(--cyberdays);
+}
 
 .blackdays__banner .Icon.Icon--blackdays,
-.blackdays__banner .Icon.Icon--cyberdays{
+.cyberdays__banner .Icon.Icon--cyberdays{
   width: 12rem;
   height: 2rem;
 }
 .blackdays__banner svg > .blackdays {
   fill: white;
 }
-.blackdays__banner .text {
+.cyberdays__banner svg > .cyberdays {
+  fill: white;
+}
+.blackdays__banner .text,
+.cyberdays__banner .text {
 text-transform: uppercase;
 font-size: 1.6rem;
 margin-left: 0;
 line-height: 1;
 }
-.blackdays__banner .text .p {
+.blackdays__banner .text .p,
+.cyberdays__banner .text .p {
   font-weight: 900;
   color: var(--product-sale-price-color);
 }
 @media screen and (min-width: 560px){
-  .blackdays__banner{
+  .blackdays__banner,
+  .cyberdays__banner{
     width: 100%;
-    background-color: black;
     text-align: center;
     color: white;
     flex-direction: row;
   }
   .blackdays__banner .Icon.Icon--blackdays,
-  .blackdays__banner .Icon.Icon--cyberdays
+  .cyberdays__banner .Icon.Icon--cyberdays
   {
     width: 14rem;
     height: 4rem;
   }
-  .blackdays__banner .text {
+  .blackdays__banner .text,
+  .cyberdays__banner .text {
     font-size: 2rem;
     margin-left: 1rem;
     }
