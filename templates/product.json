@@ -12,7 +12,7 @@
             "show_taxes_included": false,
             "show_meta-days": false,
             "selector_meta-days": "none",
-            "blackdays__meta-save": ""
+            "blackdays__meta-save": "30%"
           }
         },
         "variant_selector": {
