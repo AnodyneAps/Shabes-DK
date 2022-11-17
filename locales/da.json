@@ -213,6 +213,8 @@
     "general": {
       "title": "Kurv",
       "empty": "Din kurv er tom",
+      "subtotal": "Subtotal",
+      "samletbesparelse": "Samlet besparelse",
       "checkout": "Gå til kassen",
       "shipping_and_taxes_notice": "Fri levering og ombytning",
       "discount": "Rabat",
@@ -489,6 +491,12 @@
       "order_summary": {
         "taxes_label": "Moms",
         "vat_label_html": "Inklusiv moms"
+      },
+      "review": {
+        "blocks": {
+          "shipping_address_title": "Adresse",
+          "shipping_method_title": "Leveringsmetode"
+        }
       }
     }
   }

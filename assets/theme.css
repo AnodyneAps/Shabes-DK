@@ -14097,6 +14097,171 @@ shopify-payment-terms {
   padding:0 8px !important;
 }
 
+/**
+ * ----------------------------------------------------------------------------
+ * Preorder modal
+ * ----------------------------------------------------------------------------
+ */
+
+.cart-preorder-popup-modal, .cart-madetoorder-popup-modal {
+  display:none;
+}
+.preorder-popup-modal, .madetoorder-popup-modal, .cart-preorder-popup-modal, .cart-madetoorder-popup-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 50; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
+}
+
+
+
+/* Modal Content */
+
+.preorder-popup-modal-content, .madetoorder-popup-modal-content, .cart-popup-modal-content{
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.madetoorder-close, .preorder-close, .cart-popup-close {
+  color: var(--button-background);
+  float: right;
+  font-size: 15px;
+  opacity: 1;
+  margin-top: -20px;
+  margin-right: -20px;
+  cursor: pointer;
+}
+
+.madetoorder-close, .preorder-close,
+.madetoorder-close, .preorder-close,
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pre-modal-header, .made-modal-header, .cart-header {
+  margin-bottom: 20px;
+}
+
+.pre-modal-body, .cart-modal-body  {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.modal_date {
+  font-size: 14px;
+  margin-top:20px;
+}
+
+.pre-modal-footer, .cart-modal-footer {
+  background-color: #fff;
+    font-size: 14px;
+}
+
+.cart-modal-disclaimer {
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.modal-note {
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 15px;
+}
+
+@media #{$phone} {
+  .pre-modal,
+  .cart-preorder-popup-modal,
+  .cart-madetoorder-popup-modal {
+    padding-top: 75px /* Location of the box */
+  }
+}
+
+.ProductForm__Preorder_Modal{
+  cursor: pointer;
+  color: {{settings.button_text_color}}!important;
+}
+.ProductForm__Preorder_Modal:hover{
+  color: #ffffff!important;
+}
+@media (-moz-touch-enabled: 1), (hover: none) {
+  button.vp-unmute-button {
+    display:none!important;
+  }
+}
+button.vp-unmute-button {
+  display: flex;
+  position: absolute;
+  margin: 1em auto;
+  padding: 0.1em 0.5em;
+  border-radius: 5px;
+  background: rgba(30,30,30,.9);
+  font-size: 0.8em;
+  align-items: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+button.vp-unmute-button svg.vp-icon-muted {
+  width: 20px;
+  height: 21px;
+  fill: #ffffff;
+  margin-right: 5px;
+  padding: 2px;
+}
+button.vp-unmute-button span.vp-unmute-button-title {
+  text-transform: uppercase;
+  color: #fff;
+  display: inline;
+}
+
+.hide-preorder-button{
+  display: none;
+}
+
+.hide-addToCart-button{
+  display: none;
+}
+
+.Button--primary:hover{
+  color: var(--button-background) !important;
+  cursor: pointer !important;
+}
+
+.Button--secondary {
+  background: #fff !important;
+  background-color: #fff !important;
+  color: var(--button-background) !important;
+}
+
 /* ================================ blackdays special ===================================  */
 .SectionHeader .black-title .Icon {
   width: 80%;
@@ -14171,7 +14336,7 @@ shopify-payment-terms {
 }
 .ProductMeta .days__badge--save--blackdays,
 .ProductMeta .days__badge--save--cyberdays{
-  top: 70px;
+  top: 60px;
 }
 
 .ProductMeta .days__badge--save--cyberdays,
@@ -14200,6 +14365,7 @@ shopify-payment-terms {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: var(--heading-font-family);
 }
 .blackdays__banner{
   background-color: var(--blackdays);
@@ -14224,12 +14390,13 @@ shopify-payment-terms {
 text-transform: uppercase;
 font-size: 1.6rem;
 margin-left: 0;
+  margin-top: 5px;
 line-height: 1;
 }
 .blackdays__banner .text .p,
 .cyberdays__banner .text .p {
   font-weight: 900;
-  color: var(--product-sale-price-color);
+  color: var(--button-background);
 }
 @media screen and (min-width: 560px){
   .blackdays__banner,
@@ -14251,4 +14418,25 @@ line-height: 1;
     margin-left: 1rem;
     }
 }
+/*------------ Drawer totals ------- */
+.Drawer__totals .Drawer__subtotal,
+.Drawer__totals .Drawer__savings{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Drawer__totals strong,
+.Drawer__totals .Drawer__subtotal .text__price,
+.Drawer__totals .Drawer__savings .text__price{
+  font-family: var(--heading-font-family);
+  font-weight: 900;
+}
+.Drawer__totals .Drawer__savings strong,
+.Drawer__totals .Drawer__savings .saving{
+  color: var(--button-background);
+}
+
+
+
+
 #shopify-block-9057320571597494{display:none}
