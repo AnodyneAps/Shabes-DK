@@ -14419,6 +14419,10 @@ line-height: 1;
     }
 }
 /*------------ Drawer totals ------- */
+.Drawer__totals{
+  margin-top: -15px;
+  border-bottom: 1px solid rgba(122,122,122,0.3);
+}
 .Drawer__totals .Drawer__subtotal,
 .Drawer__totals .Drawer__savings{
   display: flex;
@@ -14431,12 +14435,9 @@ line-height: 1;
   font-family: var(--heading-font-family);
   font-weight: 900;
 }
-.Drawer__totals .Drawer__savings strong,
-.Drawer__totals .Drawer__savings .saving{
+
+.Drawer__totals .Drawer__savings {
   color: var(--button-background);
 }
-
-
-
 
 #shopify-block-9057320571597494{display:none}

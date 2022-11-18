@@ -54,18 +54,16 @@
         </div>
       {%- endif -%}
     </div>
-    {% if cart.item_count > 0 %}
-      <div class="Drawer__Footer" data-drawer-animated-bottom>
-        <div class="Drawer__totals">
-          <div class="Drawer__subtotal"><strong>{{ 'cart.general.subtotal' | t }}</strong><span class="text__price sub">{{ cart.total_price | money }}</span></div>
-          <div class="Drawer__savings"><strong>{{ 'cart.general.samletbesparelse' | t }}</strong><span class="text__price saving">- {{ total_saving | money }}</span></div>
-        </div>
-      </div>
-    {% endif %}
+
     {%- unless cart.item_count == 0 -%}
       <div class="Drawer__Footer" data-drawer-animated-bottom>
+        {% if cart.item_count > 0 %}
+            <div class="Drawer__totals">
+              <div class="Drawer__subtotal"><strong>{{ 'cart.general.subtotal' | t }}</strong><span class="text__price sub">{{ cart.total_price | money }}</span></div>
+              <div class="Drawer__savings"><strong>{{ 'cart.general.samletbesparelse' | t }}</strong><span class="text__price saving">- {{ total_saving | money }}</span></div>
+            </div>
+        {% endif %}
         {%- capture shipping_and_taxes_notice -%}{{ 'cart.general.shipping_and_taxes_notice' | t }}{%- endcapture -%}
-
         {%- if settings.cart_enable_notes or shipping_and_taxes_notice != blank -%}
           {%- if settings.cart_enable_notes -%}
             {%- if cart.note == blank -%}

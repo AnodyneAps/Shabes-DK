@@ -49,7 +49,7 @@
     "product_list_vertical_spacing": "small",
     "cart_type": "drawer",
     "cart_enable_notes": false,
-    "cart_show_free_shipping_threshold": true,
+    "cart_show_free_shipping_threshold": false,
     "cart_free_shipping_threshold": "399",
     "social_facebook": "https:\/\/www.facebook.com\/shabesofficial",
     "social_instagram": "https:\/\/instagram.com\/shabesofficial",
