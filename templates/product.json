@@ -8,7 +8,7 @@
           "settings": {
             "show_vendor": true,
             "show_sku": false,
-            "show_product_rating": false,
+            "show_product_rating": true,
             "show_taxes_included": false,
             "show_meta-days": true,
             "selector_meta-days": "blackdays",
@@ -38,7 +38,7 @@
             "usp_autoplay": true,
             "usp_cycle_speed": 3,
             "icon_selector1": "package",
-            "icon_1_heading": "Fri fragt ved køb over 399 kr",
+            "icon_1_heading": "Gratis levering til pakkeshop",
             "icon_selector2": "shipping",
             "icon_2_heading": "Fri 30 dages retur",
             "icon_selector3": "cards",

@@ -216,7 +216,7 @@
       "subtotal": "Subtotal",
       "samletbesparelse": "Samlet besparelse",
       "checkout": "Gå til kassen",
-      "shipping_and_taxes_notice": "Fri levering og ombytning",
+      "shipping_and_taxes_notice": "Gratis levering og ombytning",
       "discount": "Rabat",
       "total": "I alt",
       "save_note": "Gem",
@@ -303,6 +303,12 @@
     },
     "buy_it_with": {
       "title": ""
+    },
+    "counter": {
+      "days": "Dage",
+      "hours": "Timer",
+      "minutes": "Minutter",
+      "seconds": "Sekunder"
     }
   },
   "blog": {

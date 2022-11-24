@@ -25,7 +25,7 @@
       ],
       "settings": {
         "show_fullscreen": true,
-        "show_arrow": true,
+        "show_arrow": false,
         "autoplay": true,
         "cycle_speed": 5,
         "heading_size": 47,
@@ -35,7 +35,10 @@
         "button_background": "#342e29",
         "button_color_hover": "#342e29",
         "button_background_hover": "rgba(0,0,0,0)",
-        "svg_selector": "blackdays"
+        "svg_selector": "blackdays",
+        "counter_text": "Black Days slutter om:",
+        "date__selector": "2022-11-27T23:59:59",
+        "show_counter": true
       }
     },
     "163276763442e7599e": {
