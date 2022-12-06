@@ -1,13 +1,13 @@
 {%- capture flickity_options -%}
   {
   "prevNextButtons": false,
-        "setGallerySize":{% if section.settings.show_fullscreen %}false{% else %}true{% endif %},
+                    "setGallerySize":{% if section.settings.show_fullscreen %}false{% else %}true{% endif %},
   "adaptiveHeight":
   {% if section.settings.show_fullscreen %}false{% else %}true{% endif %},
   "wrapAround": true,
-        "dragThreshold": 15,
-        "pauseAutoPlayOnHover": false,
-        "autoPlay":{% if section.settings.autoplay %}
+                    "dragThreshold": 15,
+                    "pauseAutoPlayOnHover": false,
+                    "autoPlay":{% if section.settings.autoplay %}
     {{ section.settings.cycle_speed | times: 1000 }}{% else %}false{% endif %},
   "pageDots":
   {% if section.blocks.size > 1 %}true{% else %}false{% endif %}
@@ -61,7 +61,7 @@
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <h2 class="SectionHeader__Heading SectionHeader__Heading--emphasize Heading u-h1">{{ block.settings.title | escape }}</h2>
+              <h2 class="SectionHeader__Heading SectionHeader__Heading--emphasize Heading u-h1 make-white">{{ block.settings.title | escape }}</h2>
             {%- endif -%}
 
             {%- if block.settings.button_1_text != blank and block.settings.button_2_text != blank -%}
@@ -257,9 +257,18 @@
           {
             "value": "none",
             "label": "None"
-          }, {
+          },
+          {
+            "value": "shabes_name",
+            "label": "Shabes Name"
+          },
+          {
             "value": "blackdays",
             "label": "Black Days"
+          },
+          {
+            "value": "blackfriday",
+            "label": "Black Friday"
           }, {
             "value": "cyberdays",
             "label": "Cyber Days"
@@ -273,28 +282,6 @@
         "id": "counter_text",
         "label": "Add counter text",
         "default": "We send your order in"
-      }, {
-        "type": "select",
-        "id": "date__selector",
-        "label": "Add date YYYY-MM-DD HH-MM-SS",
-        "default": "none",
-        "options": [
-          {
-            "label": "Black Days End",
-            "value": "2022-11-27T23:59:59"
-          }, 
-          {
-            "label": "Black Friday Night",
-            "value": "2022-11-25 23:59:59"
-          },
-          {
-            "label": "Cyber Days End",
-            "value": "2022-11-30T23:59:59"
-          }, {
-            "label": "none",
-            "value": "none"
-          }
-        ]
       }, {
         "type": "checkbox",
         "id": "show_counter",

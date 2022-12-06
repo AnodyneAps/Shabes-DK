@@ -10,8 +10,8 @@
             "show_sku": false,
             "show_product_rating": true,
             "show_taxes_included": false,
-            "show_meta-days": true,
-            "selector_meta-days": "blackdays",
+            "show_meta-days": false,
+            "selector_meta-days": "none",
             "blackdays__meta-save": "30%"
           }
         },
@@ -150,7 +150,8 @@
         "heading": "Andre kiggede på",
         "show_product_info": true,
         "show_vendor": true,
-        "show_color_swatch": true
+        "show_color_swatch": true,
+        "selector_product-days": "none"
       }
     }
   },

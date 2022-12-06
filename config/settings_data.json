@@ -83,12 +83,12 @@
           "enable_bar_one": false,
           "content": "KLIK HER og vind en rabatkode",
           "link": "https:\/\/shabes.dk\/pages\/rabatkode",
-          "fadein_one": "Spar 30% på alt",
-          "icon_selector1": "heart",
-          "fadein_two": "Det bliver ikke billigere",
+          "fadein_one": "Gratis 1-2 dages levering",
+          "icon_selector1": "package",
+          "fadein_two": "Gratis ombytning",
           "icon_selector2": "cards",
-          "fadein_three": "Gratis levering til pakkeshop",
-          "icon_selector3": "package",
+          "fadein_three": "+45 53 89 00 53",
+          "icon_selector3": "heart",
           "fadein_four": "Returnér frem til d. 24. jan. 2023",
           "icon_selector4": "shipping"
         }

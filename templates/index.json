@@ -6,14 +6,14 @@
         "slide-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cover.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/cover.jpg",
+            "image": "shopify:\/\/shop_images\/shabes-jul.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/shabes-jul-mobile.jpg",
             "image_position": "center center",
             "apply_overlay": true,
             "content_position": "middleCenter",
             "subheading": "",
-            "title": "Spar 30% på alt hos Shabes",
-            "button_1_text": "Shop nu - spar 30% på alt",
+            "title": "Få den smukkeste silhuet med Shabes®",
+            "button_1_text": "Shop nu",
             "button_1_link": "shopify:\/\/collections\/alt-shapewear",
             "button_2_text": "",
             "button_2_link": ""
@@ -32,12 +32,11 @@
         "sub_heading_size": 45,
         "text_color": "#342e29",
         "button_color": "#ffffff",
-        "button_background": "#342e29",
+        "button_background": "#303030",
         "button_color_hover": "#342e29",
         "button_background_hover": "rgba(0,0,0,0)",
-        "svg_selector": "blackdays",
-        "counter_text": "Black Days slutter om:",
-        "date__selector": "2022-11-27T23:59:59",
+        "svg_selector": "shabes_name",
+        "counter_text": "Vi pakker din ordre om:",
         "show_counter": true
       }
     },
@@ -93,8 +92,8 @@
         "show_color_swatch": true,
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4,
-        "show_product-days": true,
-        "selector_product-days": "black days",
+        "show_product-days": false,
+        "selector_product-days": "none",
         "blackdays__save": "30%"
       }
     },
@@ -219,6 +218,26 @@
         "heading_size_mobile": 20
       }
     },
+    "1633001842c9af7c59": {
+      "type": "apps",
+      "blocks": {
+        "268cb35f-e96e-492b-8e92-40590653c703": {
+          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "disabled": true,
+          "settings": {
+            "heading_size": 20,
+            "feed_width": 100,
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "268cb35f-e96e-492b-8e92-40590653c703"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "1633092430dbe29d1b": {
       "type": "five-reasons",
       "blocks": {
@@ -339,12 +358,6 @@
         "button_label": "",
         "button_link": ""
       }
-    },
-    "1633001842c9af7c59": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -353,9 +366,9 @@
     "featured-collections",
     "1632827034e58962e0",
     "16328296399e7c669c",
+    "1633001842c9af7c59",
     "1633092430dbe29d1b",
     "16328270427ef8487b",
-    "1632770742cb2c7b8c",
-    "1633001842c9af7c59"
+    "1632770742cb2c7b8c"
   ]
 }

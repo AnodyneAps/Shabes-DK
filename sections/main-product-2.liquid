@@ -4,10 +4,11 @@
 {%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
 
 {%- capture section_settings -%}
-{
+  {
   "enableHistoryState": true,
-  "templateSuffix": {{ product.template_suffix | json }},
-  "showInventoryQuantity": {% if inventory_block != blank %}true{% else %}false{% endif %},
+    "templateSuffix": {{ product.template_suffix | json }},
+  "showInventoryQuantity":
+  {% if inventory_block != blank %}true{% else %}false{% endif %},
   "showSku": {{ meta_block.settings.show_sku | json }},
   "stackProductImages": {{ section.settings.stack_images | json }},
   "showThumbnails": {{ section.settings.show_thumbnails | json }},
@@ -16,8 +17,9 @@
   "showPriceInButton": {{ buy_buttons_block.settings.show_price_in_button | json }},
   "enableImageZoom": {{ section.settings.enable_image_zoom | json }},
   "showPaymentButton": {{ buy_buttons_block.settings.show_payment_button | json }},
-  "useAjaxCart": {% if settings.cart_type == 'drawer' %}true{% else %}false{% endif %}
-}
+  "useAjaxCart":
+  {% if settings.cart_type == 'drawer' %}true{% else %}false{% endif %}
+  }
 {%- endcapture -%}
 
 <script>
@@ -25,16 +27,15 @@
   (() => {
     let items = JSON.parse(localStorage.getItem('recentlyViewedProducts') || '[]');
 
-    // We check if the current product already exists, and if it does not, we add it at the start
-    if (!items.includes({{ product.id }})) {
+// We check if the current product already exists, and if it does not, we add it at the start
+    if (! items.includes({{ product.id }})) {
       items.unshift({{ product.id }});
     }
 
-    // Then, we save the current product into the local storage, by keeping only the 8 most recent
+// Then, we save the current product into the local storage, by keeping only the 8 most recent
     try {
       localStorage.setItem('recentlyViewedProducts', JSON.stringify(items.slice(0, 8)));
-    } catch (error) {
-      // Do nothing, this may happen in Safari in incognito mode
+    } catch (error) { // Do nothing, this may happen in Safari in incognito mode
     }
   })();
 </script>
@@ -70,9 +71,9 @@
     {%- endcapture -%}
 
     {%- comment -%}
-    --------------------------------------------------------------------------------------------------------------------
-    PRODUCT GALLERY
-    --------------------------------------------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------------------------------------------
+      PRODUCT GALLERY
+      --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
 
     {%- assign initial_media_id = product.featured_media.id -%}
@@ -86,7 +87,8 @@
           {%- assign initial_media_id = media.id -%}
         {%- endif -%}
 
-        {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
+        {%- capture supported_sizes -%}
+          {%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
 
         {%- case media.media_type -%}
           {%- when 'image' -%}
@@ -194,15 +196,15 @@
         {%- endif -%}
 
         {%- capture flickity_options -%}
-        {
+          {
           "prevNextButtons": true,
-          "pageDots": false,
-          "adaptiveHeight": true,
-          "watchCSS": true,
-          "dragThreshold": 8,
-          "initialIndex": {{ initial_media_index }},
+                    "pageDots": false,
+                    "adaptiveHeight": true,
+                    "watchCSS": true,
+                    "dragThreshold": 8,
+                    "initialIndex": {{ initial_media_index }},
           "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-        }
+                  }
         {%- endcapture -%}
 
         <div class="Product__Slideshow {% if section.settings.enable_image_zoom %}Product__Slideshow--zoomable{% endif %} Carousel" data-flickity-config='{{ flickity_options }}'>
@@ -225,21 +227,21 @@
             achievable easily using Flickity options only, so we have to run our own
           {%- endcomment -%}
           {%- comment -%}
-          <div class="Product__SlideshowMobileNav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-lap-and-up{% endif %}">
+            <div class="Product__SlideshowMobileNav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-lap-and-up{% endif %}">
             <button class="Product__SlideshowNavArrow Product__SlideshowNavArrow--previous" type="button" data-direction="previous" aria-label="{{ 'general.accessibility.previous' | t }}">
-              {% render 'icon' with 'media-arrow-left' %}
+            {% render 'icon' with 'media-arrow-left' %}
             </button>
 
             <div class="flickity-page-dots">
-              {%- for i in (1..media_count) -%}
-                <button type="button" aria-label="{{ 'product.slideshow.go_to_image' | t: i: i | escape }}" class="dot {% if forloop.index0 == initial_media_index %}is-selected{% endif %}" data-index="{{ forloop.index0 }}"></button>
-              {%- endfor -%}
+            {%- for i in (1..media_count) -%}
+            <button type="button" aria-label="{{ 'product.slideshow.go_to_image' | t: i: i | escape }}" class="dot {% if forloop.index0 == initial_media_index %}is-selected{% endif %}" data-index="{{ forloop.index0 }}"></button>
+            {%- endfor -%}
             </div>
 
             <button class="Product__SlideshowNavArrow Product__SlideshowNavArrow--next" type="button" data-direction="next" aria-label="{{ 'general.accessibility.next' | t }}">
-              {% render 'icon' with 'media-arrow-right' %}
+            {% render 'icon' with 'media-arrow-right' %}
             </button>
-          </div>
+            </div>
           {%- endcomment -%}
         {%- endif -%}
 
@@ -251,9 +253,9 @@
 
     {%- capture product_aside -%}
       {%- comment -%}
-      --------------------------------------------------------------------------------------------------------------------
-      PRODUCT WEAR IT WITH
-      --------------------------------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------------------------------
+        PRODUCT WEAR IT WITH
+        --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
       {%- assign buy_it_with_block = section.blocks | where: 'type', 'buy_it_with' | first -%}
@@ -360,7 +362,7 @@
                   <div class="ProductForm__BuyButtons" {{ block.shopify_attributes }}>
                     {%- if block.settings.show_payment_button and product.selected_or_first_available_variant.available == false -%}
                       <style>
-                        #shopify-section-{{ section.id }} .shopify-payment-button {
+                        #shopify-section-{{ section.id }}.shopify-payment-button {
                           display: none;
                         }
                       </style>
@@ -368,7 +370,12 @@
 
                     <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if product.selected_or_first_available_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if product.selected_or_first_available_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %}>
                       {%- if product.selected_or_first_available_variant.available -%}
-                        <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>
+                        <span>
+                          {% if product.template_suffix == 'pre-order' %}
+                            {{ 'product.form.pre_order' | t }}
+                          {% else %}
+                            {{ 'product.form.add_to_cart' | t }}{% endif %}
+                        </span>
 
                         {%- if block.settings.show_price_in_button -%}
                           <span class="Button__SeparatorDot"></span>
@@ -395,7 +402,7 @@
                     </div>
                   {%- endif -%}
 
-                
+
               {%- endcase -%}
             {%- endfor -%}
             {%- render 'product-tabs' -%}
@@ -428,11 +435,11 @@
 </section>
 
 {%- comment -%}
---------------------------------------------------------------------------------------------------------------------
-PHOTO SWIPE
+  --------------------------------------------------------------------------------------------------------------------
+  PHOTO SWIPE
 
-This is the root container for the zoom functionality. Must not be removed, as order element is important.
---------------------------------------------------------------------------------------------------------------------
+  This is the root container for the zoom functionality. Must not be removed, as order element is important.
+  --------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 {%- if section.settings.enable_image_zoom -%}
@@ -461,323 +468,298 @@ This is the root container for the zoom functionality. Must not be removed, as o
 {%- endif -%}
 
 <script>
-  window.ShopifyXR=window.ShopifyXR||function(){(ShopifyXR.q=ShopifyXR.q||[]).push(arguments)};
+  window.ShopifyXR = window.ShopifyXR || function() {
+    (ShopifyXR.q = ShopifyXR.q || []).push(arguments)
+  };
   ShopifyXR('addModels', {{ product.media | where: 'media_type', 'model' | json }});
 </script>
 
 {% schema %}
-{
-  "name": "Product page",
-  "class": "shopify-section--bordered",
-  "blocks": [
-    {
-      "type": "product_meta",
-      "name": "Product meta",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_vendor",
-          "label": "Show vendor",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "show_sku",
-          "label": "Show SKU",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "show_product_rating",
-          "label": "Show product rating",
-          "info": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/en/manual/products/product-reviews/installation)",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "show_taxes_included",
-          "label": "Show price taxes notice",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "show_meta-days",
-          "label": "Show black or cyber days badge on collection",
-          "default": false
-          }, 
+  {
+    "name": "Product page",
+    "class": "shopify-section--bordered",
+    "blocks": [
+      {
+        "type": "product_meta",
+        "name": "Product meta",
+        "limit": 1,
+        "settings": [
           {
-          "type": "select",
-          "id": "selector_meta-days",
-          "label": "Select days type",
-          "options": [
-            {
-              "value": "blackdays",
-              "label": "Black days"
-            },
-            {
-              "value": "cyberdays",
-              "label": "Cyber days"
-            },
-            {
-              "value": "none",
-              "label": "None"
-            }
-          ],
-          "default": "none"
-        },
-        {
-          "type": "text",
-          "id": "blackdays__meta-save",
-          "label": "Add static save amount badge on product"
-        }
-      ]
-    },
-    {
-      "type": "variant_selector",
-      "name": "Variant selector",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "selector_mode",
-          "label": "Selector type",
-          "options": [
-            {
-              "value": "block",
-              "label": "Block"
-            },
-            {
-              "value": "dropdown",
-              "label": "Dropdown"
-            }
-          ],
-          "default": "dropdown"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_color_swatch",
-          "label": "Show color swatch",
-          "default": false,
-          "info": "Some colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch)."
-        },
-        {
-          "type": "checkbox",
-          "id": "show_color_carousel",
-          "label": "Show color carousel",
-          "info": "A pop-up selector with variant images for choosing colors. Only enables when color swatch is disabled.",
-          "default": false
-        },
-        {
-          "type": "page",
-          "id": "size_chart",
-          "label": "Size chart",
-          "info": "Show along option named Size."
-        }
-      ]
-    },
-    {
-      "type": "share_buttons",
-      "name": "Share buttons",
-      "limit": 1
-    },
-    {
-      "type": "inventory",
-      "name": "Inventory",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "range",
-          "id": "inventory_quantity_threshold",
-          "label": "Inventory quantity threshold",
-          "info": "Only show inventory quantity if below threshold. Choose 0 to always show.",
-          "min": 0,
-          "max": 50,
-          "step": 1,
-          "default": 0
-        }
-      ]
-    },
-    {
-      "type": "buy_buttons",
-      "name": "Buy buttons",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_price_in_button",
-          "label": "Show price in add to cart button",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "show_payment_button",
-          "label": "Show dynamic checkout button",
-          "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "description",
-      "name": "Description",
-      "limit": 1
-    },
-    {
-      "type": "quantity_selector",
-      "name": "Quantity selector",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_label",
-          "label": "Show label",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "Text",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "This text will show on the right part of the product page."
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    },
-    {
-      "type": "store_pickup",
-      "name": "Local pickup availability",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "Show customers where they can pick up the product. [Learn more](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup#show-pickup-availability-to-your-customers)"
-        }
-      ]
-    },
-    {
-      "type": "@app"
-    },
-    {
-      "name": "Content",
-      "type": "content",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "This content will show on the left part, below the product images."
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Content"
-        },
-        {
-          "type": "page",
-          "id": "page",
-          "label": "Content from page",
-          "info": "If specified, takes precedence over inline content."
-        }
-      ]
-    },
-    {
-      "name": "Reviews",
-      "type": "reviews",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "To show reviews, install [Shopify Product Reviews](https://apps.shopify.com/product-reviews). This content will show on the left part, below the product images. "
-        }
-      ]
-    },
-    {
-      "name": "Buy it with",
-      "type": "buy_it_with",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Product"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Buy it with"
-        }
-      ]
-    }
-  ],
-  "settings": [
-    {
-      "type": "header",
-      "content": "Media"
-    },
-    {
-      "type": "paragraph",
-      "content": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
-    },
-    {
-      "type": "select",
-      "id": "image_size",
-      "label": "Size",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        },
-        {
-          "value": "fill",
-          "label": "Fill screen"
-        }
-      ],
-      "default": "large"
-    },
-    {
-      "type": "checkbox",
-      "id": "stack_images",
-      "label": "Stack images on desktop",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_thumbnails",
-      "label": "Show thumbnails on desktop",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_image_zoom",
-      "label": "Enable zoom",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_video_looping",
-      "label": "Enable video looping",
-      "default": false
-    }
-  ]
-}
+            "type": "checkbox",
+            "id": "show_vendor",
+            "label": "Show vendor",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_sku",
+            "label": "Show SKU",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "show_product_rating",
+            "label": "Show product rating",
+            "info": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/en/manual/products/product-reviews/installation)",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "show_taxes_included",
+            "label": "Show price taxes notice",
+            "default": false
+          }, {
+            "type": "checkbox",
+            "id": "show_meta-days",
+            "label": "Show black or cyber days badge on collection",
+            "default": false
+          }, {
+            "type": "select",
+            "id": "selector_meta-days",
+            "label": "Select days type",
+            "options": [
+              {
+                "value": "blackdays",
+                "label": "Black days"
+              }, {
+                "value": "blackfriday",
+                "label": "Black Friday"
+              }, {
+                "value": "cyberdays",
+                "label": "Cyber days"
+              }, {
+                "value": "none",
+                "label": "None"
+              }
+            ],
+            "default": "none"
+          }, {
+            "type": "text",
+            "id": "blackdays__meta-save",
+            "label": "Add static save amount badge on product"
+          }
+        ]
+      },
+      {
+        "type": "variant_selector",
+        "name": "Variant selector",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "selector_mode",
+            "label": "Selector type",
+            "options": [
+              {
+                "value": "block",
+                "label": "Block"
+              }, {
+                "value": "dropdown",
+                "label": "Dropdown"
+              }
+            ],
+            "default": "dropdown"
+          }, {
+            "type": "checkbox",
+            "id": "show_color_swatch",
+            "label": "Show color swatch",
+            "default": false,
+            "info": "Some colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch)."
+          }, {
+            "type": "checkbox",
+            "id": "show_color_carousel",
+            "label": "Show color carousel",
+            "info": "A pop-up selector with variant images for choosing colors. Only enables when color swatch is disabled.",
+            "default": false
+          }, {
+            "type": "page",
+            "id": "size_chart",
+            "label": "Size chart",
+            "info": "Show along option named Size."
+          }
+        ]
+      },
+      {
+        "type": "share_buttons",
+        "name": "Share buttons",
+        "limit": 1
+      },
+      {
+        "type": "inventory",
+        "name": "Inventory",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "range",
+            "id": "inventory_quantity_threshold",
+            "label": "Inventory quantity threshold",
+            "info": "Only show inventory quantity if below threshold. Choose 0 to always show.",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "default": 0
+          }
+        ]
+      }, {
+        "type": "buy_buttons",
+        "name": "Buy buttons",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "show_price_in_button",
+            "label": "Show price in add to cart button",
+            "default": false
+          }, {
+            "type": "checkbox",
+            "id": "show_payment_button",
+            "label": "Show dynamic checkout button",
+            "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+            "default": true
+          }
+        ]
+      }, {
+        "type": "description",
+        "name": "Description",
+        "limit": 1
+      }, {
+        "type": "quantity_selector",
+        "name": "Quantity selector",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "show_label",
+            "label": "Show label",
+            "default": false
+          }
+        ]
+      }, {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "This text will show on the right part of the product page."
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }, {
+        "type": "store_pickup",
+        "name": "Local pickup availability",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "Show customers where they can pick up the product. [Learn more](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup#show-pickup-availability-to-your-customers)"
+          }
+        ]
+      }, {
+        "type": "@app"
+      }, {
+        "name": "Content",
+        "type": "content",
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "This content will show on the left part, below the product images."
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          }, {
+            "type": "page",
+            "id": "page",
+            "label": "Content from page",
+            "info": "If specified, takes precedence over inline content."
+          }
+        ]
+      }, {
+        "name": "Reviews",
+        "type": "reviews",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "To show reviews, install [Shopify Product Reviews](https://apps.shopify.com/product-reviews). This content will show on the left part, below the product images. "
+          }
+        ]
+      }, {
+        "name": "Buy it with",
+        "type": "buy_it_with",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Buy it with"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "header",
+        "content": "Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          }, {
+            "value": "medium",
+            "label": "Medium"
+          }, {
+            "value": "large",
+            "label": "Large"
+          }, {
+            "value": "fill",
+            "label": "Fill screen"
+          }
+        ],
+        "default": "large"
+      },
+      {
+        "type": "checkbox",
+        "id": "stack_images",
+        "label": "Stack images on desktop",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_thumbnails",
+        "label": "Show thumbnails on desktop",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "enable_image_zoom",
+        "label": "Enable zoom",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "label": "Enable video looping",
+        "default": false
+      }
+    ]
+  }
 {% endschema %}
