@@ -7,7 +7,7 @@
 {%- capture section_settings -%}
   {
   "enableHistoryState": true,
-                      "templateSuffix": {{ product.template_suffix | json }},
+                                "templateSuffix": {{ product.template_suffix | json }},
   "showInventoryQuantity":
   {% if inventory_block != blank %}true{% else %}false{% endif %},
   "showSku": {{ meta_block.settings.show_sku | json }},
@@ -26,14 +26,14 @@
 {%- capture flickity_options -%}
   {
   "prevNextButtons": true,
-                      "pageDots": false,
-                      "draggable": true,
-                      "contain": true,
-                      "adaptiveHeight": true,
-                      "pauseAutoPlayOnHove": false,
-                      "cellAlign": "left",
-                      "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                    }{%- endcapture -%}
+                                "pageDots": false,
+                                "draggable": true,
+                                "contain": true,
+                                "adaptiveHeight": true,
+                                "pauseAutoPlayOnHove": false,
+                                "cellAlign": "left",
+                                "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                              }{%- endcapture -%}
 
 <script>
   // To power the recently viewed products section, we save the ID of the product inside the local storage
@@ -72,39 +72,49 @@
     {%- endif -%}
   </a>
 </div>
-
+{% comment %}
 {% if blackdays == 'blackdays' %}
-  <div class="blackdays__banner">
-    {% render 'icon' with 'blackdays' %}<span class="text">spar
-      <span class="p">30%</span>
-      på alt</span>
-  </div>
+<div class="blackdays__banner">
+{% render 'icon' with 'blackdays' %}<span class="text">spar
+<span class="p">30%</span>
+på alt</span>
+</div>
 {% elsif blackdays == 'blackfriday'  %}
-  <div class="blackdays__banner">
-    {% render 'icon' with 'blackfriday' %}<span class="text">spar
-      <span class="p">30%</span>
-      på alt</span>
-  </div>
+<div class="blackdays__banner">
+{% render 'icon' with 'blackfriday' %}<span class="text">spar
+<span class="p">30%</span>
+på alt</span>
+</div>
 {% elsif blackdays == 'cyberdays'  %}
-  <div class="cyberdays__banner">
-    {% render 'icon' with 'cyberdays' %}<span class="text">spar
-      <span class="p">30%</span>
-      på alt</span>
-  </div>
+<div class="cyberdays__banner">
+{% render 'icon' with 'cyberdays' %}<span class="text">spar
+<span class="p">30%</span>
+på alt</span>
+</div>
 {% endif %}
-
-<section class="Product" data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
+{% endcomment %}<section
+  class="Product"
+  data-section-id="{{ section.id }}"
+  data-section-type="product"
+  data-section-settings='{{ section_settings }}'>
   <div class="Product__Wrapper">
     {%- capture action_list_items -%}
       {%- if section.settings.enable_image_zoom -%}
         <div class="Product__ActionItem hidden-lap-and-up">
-          <button class="RoundButton RoundButton--small RoundButton--flat" aria-label="{{ 'product.slideshow.zoom' | t | escape }}" data-action="open-product-zoom">{% render 'icon' with 'plus' %}</button>
+          <button
+            class="RoundButton RoundButton--small RoundButton--flat"
+            aria-label="{{ 'product.slideshow.zoom' | t | escape }}"
+            data-action="open-product-zoom">{% render 'icon' with 'plus' %}</button>
         </div>
       {%- endif -%}
 
       {%- if share_buttons_block != blank -%}
         <div class="Product__ActionItem hidden-lap-and-up">
-          <button class="RoundButton RoundButton--small RoundButton--flat" data-action="toggle-social-share" data-animate-bottom aria-expanded="false">
+          <button
+            class="RoundButton RoundButton--small RoundButton--flat"
+            data-action="toggle-social-share"
+            data-animate-bottom
+            aria-expanded="false">
             <span class="RoundButton__PrimaryState">{% render 'icon' with 'share' %}</span>
             <span class="RoundButton__SecondaryState">{% render 'icon' with 'close' %}</span>
           </button>
@@ -115,18 +125,30 @@
           {%- assign pinterest_image = product.featured_media | img_url: '1024x' | prepend: 'https:' -%}
 
           <div class="Product__ShareList" aria-hidden="true">
-            <a class="Product__ShareItem" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank" rel="noopener">{%- render 'icon' with 'facebook' -%} Facebook</a>
-            <a class="Product__ShareItem" href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener">{%- render 'icon' with 'pinterest' -%} Pinterest</a>
-            <a class="Product__ShareItem" href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener">{%- render 'icon' with 'twitter' -%} Twitter</a>
+            <a
+              class="Product__ShareItem"
+              href="https://www.facebook.com/sharer.php?u={{ share_url }}"
+              target="_blank"
+              rel="noopener">{%- render 'icon' with 'facebook' -%} Facebook</a>
+            <a
+              class="Product__ShareItem"
+              href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}"
+              target="_blank"
+              rel="noopener">{%- render 'icon' with 'pinterest' -%} Pinterest</a>
+            <a
+              class="Product__ShareItem"
+              href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}"
+              target="_blank"
+              rel="noopener">{%- render 'icon' with 'twitter' -%} Twitter</a>
           </div>
         </div>
       {%- endif -%}
     {%- endcapture -%}
 
     {%- comment -%}
-      --------------------------------------------------------------------------------------------------------------------
-      CUSTOM GALLERY
-      --------------------------------------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------------------------------------
+    CUSTOM GALLERY
+    --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
 
     <div class="Product_Images">
@@ -137,45 +159,81 @@
               {%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
             {%- case media.media_type -%}
               {%- when 'image' -%}
-                <div id="Media{{ media.id }}" tabindex="0" class="product_images__item Product__SlideItem--image" data-media-type="image" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-image-media-position="{% increment image_position %}">
-                  <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
-                    {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <div
+                id="Media{{ media.id }}"
+                tabindex="0"
+                class="product_images__item Product__SlideItem--image"
+                data-media-type="image"
+                data-media-id="{{ media.id }}"
+                data-media-position="{{ media.position }}"
+                data-image-media-position="{% increment image_position %}">
+                <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
+                  {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-                    <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" data-expand="-100" alt="{{ media.alt | escape }}" data-max-width="{{ media.width }}" data-max-height="{{ media.height }}" data-original-src="{{ media | img_url: 'master' }}">
-                    <span class="Image__Loader"></span>
+                  <img
+                    class="Image--lazyLoad Image--fadeIn"
+                    data-src="{{ image_url }}"
+                    data-widths="[{{ supported_sizes }}]"
+                    data-sizes="auto"
+                    data-expand="-100"
+                    alt="{{ media.alt | escape }}"
+                    data-max-width="{{ media.width }}"
+                    data-max-height="{{ media.height }}"
+                    data-original-src="{{ media | img_url: 'master' }}">
+                  <span class="Image__Loader"></span>
 
-                    <noscript>
-                      <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
-                    </noscript>
-                  </div>
+                  <noscript>
+                    <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
+                  </noscript>
                 </div>
+              </div>
 
               {%- when 'external_video' -%}
-                <div id="Media{{ media.id }}" tabindex="-1" class="product_images__item m Product__SlideItem--video " data-media-type="external_video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-video-host="{{ media.host | escape }}" data-video-id="{{ media.external_id | escape }}">
-                  <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
-                    <div class="VideoWrapper">
-                      {{- media | external_video_tag: image_size: '1024x' -}}
-                    </div>
+              <div
+                id="Media{{ media.id }}"
+                tabindex="-1"
+                class="product_images__item m Product__SlideItem--video "
+                data-media-type="external_video"
+                data-media-id="{{ media.id }}"
+                data-media-position="{{ media.position }}"
+                data-video-host="{{ media.host | escape }}"
+                data-video-id="{{ media.external_id | escape }}">
+                <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                  <div class="VideoWrapper">
+                    {{- media | external_video_tag: image_size: '1024x' -}}
                   </div>
                 </div>
+              </div>
 
               {%- when 'video' -%}
-                <div id="Media{{ media.id }}" tabindex="-1" class="product_images__item  Product__SlideItem--videol" data-media-type="video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}">
-                  <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
-                    <div class="VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
-                      {{- media | video_tag: image_size: '1024x' -}}
-                    </div>
+              <div
+                id="Media{{ media.id }}"
+                tabindex="-1"
+                class="product_images__item  Product__SlideItem--videol"
+                data-media-type="video"
+                data-media-id="{{ media.id }}"
+                data-media-position="{{ media.position }}">
+                <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                  <div class="VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
+                    {{- media | video_tag: image_size: '1024x' -}}
                   </div>
                 </div>
+              </div>
 
               {%- when 'model' -%}
-                <div id="Media{{ media.id }}" tabindex="-1" class="product_images__item Product__SlideItem--model" data-media-type="model" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}">
-                  <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
-                    <div class="ModelWrapper">
-                      {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
-                    </div>
+              <div
+                id="Media{{ media.id }}"
+                tabindex="-1"
+                class="product_images__item Product__SlideItem--model"
+                data-media-type="model"
+                data-media-id="{{ media.id }}"
+                data-media-position="{{ media.position }}">
+                <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                  <div class="ModelWrapper">
+                    {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
                   </div>
                 </div>
+              </div>
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -189,45 +247,81 @@
                 {%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
               {%- case media.media_type -%}
                 {%- when 'image' -%}
-                  <div id="Media{{ media.id }}" tabindex="0" class="Product__SlideItem Product__SlideItem--image carousel-cell" data-media-type="image" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-image-media-position="{% increment image_position %}">
-                    <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
-                      {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                <div
+                  id="Media{{ media.id }}"
+                  tabindex="0"
+                  class="Product__SlideItem Product__SlideItem--image carousel-cell"
+                  data-media-type="image"
+                  data-media-id="{{ media.id }}"
+                  data-media-position="{{ media.position }}"
+                  data-image-media-position="{% increment image_position %}">
+                  <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
+                    {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-                      <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" data-expand="-100" alt="{{ media.alt | escape }}" data-max-width="{{ media.width }}" data-max-height="{{ media.height }}" data-original-src="{{ media | img_url: 'master' }}">
-                      <span class="Image__Loader"></span>
+                    <img
+                      class="Image--lazyLoad Image--fadeIn"
+                      data-src="{{ image_url }}"
+                      data-widths="[{{ supported_sizes }}]"
+                      data-sizes="auto"
+                      data-expand="-100"
+                      alt="{{ media.alt | escape }}"
+                      data-max-width="{{ media.width }}"
+                      data-max-height="{{ media.height }}"
+                      data-original-src="{{ media | img_url: 'master' }}">
+                    <span class="Image__Loader"></span>
 
-                      <noscript>
-                        <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
-                      </noscript>
-                    </div>
+                    <noscript>
+                      <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
+                    </noscript>
                   </div>
+                </div>
 
                 {%- when 'external_video' -%}
-                  <div id="Media{{ media.id }}" tabindex="-1" class="Product__SlideItem Product__SlideItem--video carousel-cell" data-media-type="external_video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-video-host="{{ media.host | escape }}" data-video-id="{{ media.external_id | escape }}">
-                    <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
-                      <div class="VideoWrapper">
-                        {{- media | external_video_tag: image_size: '1024x' -}}
-                      </div>
+                <div
+                  id="Media{{ media.id }}"
+                  tabindex="-1"
+                  class="Product__SlideItem Product__SlideItem--video carousel-cell"
+                  data-media-type="external_video"
+                  data-media-id="{{ media.id }}"
+                  data-media-position="{{ media.position }}"
+                  data-video-host="{{ media.host | escape }}"
+                  data-video-id="{{ media.external_id | escape }}">
+                  <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                    <div class="VideoWrapper">
+                      {{- media | external_video_tag: image_size: '1024x' -}}
                     </div>
                   </div>
+                </div>
 
                 {%- when 'video' -%}
-                  <div id="Media{{ media.id }}" tabindex="-1" class="Product__SlideItem Product__SlideItem--video carousel-cell" data-media-type="video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}">
-                    <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
-                      <div class="VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
-                        {{- media | video_tag: image_size: '1024x' -}}
-                      </div>
+                <div
+                  id="Media{{ media.id }}"
+                  tabindex="-1"
+                  class="Product__SlideItem Product__SlideItem--video carousel-cell"
+                  data-media-type="video"
+                  data-media-id="{{ media.id }}"
+                  data-media-position="{{ media.position }}">
+                  <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                    <div class="VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
+                      {{- media | video_tag: image_size: '1024x' -}}
                     </div>
                   </div>
+                </div>
 
                 {%- when 'model' -%}
-                  <div id="Media{{ media.id }}" tabindex="-1" class="Product__SlideItem Product__SlideItem--model carousel-cell" data-media-type="model" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}">
-                    <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
-                      <div class="ModelWrapper">
-                        {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
-                      </div>
+                <div
+                  id="Media{{ media.id }}"
+                  tabindex="-1"
+                  class="Product__SlideItem Product__SlideItem--model carousel-cell"
+                  data-media-type="model"
+                  data-media-id="{{ media.id }}"
+                  data-media-position="{{ media.position }}">
+                  <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                    <div class="ModelWrapper">
+                      {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
                     </div>
                   </div>
+                </div>
               {%- endcase -%}
             {%- endfor -%}
           </div>
@@ -236,9 +330,9 @@
     </div>
 
     {%- comment -%}
-      --------------------------------------------------------------------------------------------------------------------
-      PRODUCT INFORMATION WRAPPER
-      --------------------------------------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------------------------------------
+    PRODUCT INFORMATION WRAPPER
+    --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
 
     <div class="Product__InfoWrapper">
@@ -252,117 +346,158 @@
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'product_meta' -%}
-                  {%- render 'product-meta', form: form, block: block, product: product -%}
+                {%- render 'product-meta', form: form, block: block, product: product -%}
 
                 {%- when 'share_buttons' -%}
-                  <div class="ProductMeta__ShareButtons hidden-pocket" {{ block.shopify_attributes }}>
-                    <span class="ProductMeta__ShareTitle Heading Text--subdued u-h7">{{ 'product.form.share' | t }}</span>
+                <div class="ProductMeta__ShareButtons hidden-pocket" {{ block.shopify_attributes }}>
+                  <span class="ProductMeta__ShareTitle Heading Text--subdued u-h7">{{ 'product.form.share' | t }}</span>
 
-                    {%- assign share_url = shop.url | append: product.url -%}
-                    {%- assign twitter_text = product.title -%}
-                    {%- assign pinterest_description = product.description | strip_html | truncatewords: 15 | url_param_escape -%}
-                    {%- assign pinterest_image = product.featured_image | img_url: 'large' | prepend: 'https:' -%}
+                  {%- assign share_url = shop.url | append: product.url -%}
+                  {%- assign twitter_text = product.title -%}
+                  {%- assign pinterest_description = product.description | strip_html | truncatewords: 15 | url_param_escape -%}
+                  {%- assign pinterest_image = product.featured_image | img_url: 'large' | prepend: 'https:' -%}
 
-                    <div class="ProductMeta__ShareList Text--subdued">
-                      <a class="ProductMeta__ShareItem" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" aria-label="Facebook">{%- render 'icon' with 'facebook' -%}</a>
-                      <a class="ProductMeta__ShareItem" href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener" aria-label="Twitter">{%- render 'icon' with 'twitter' -%}</a>
-                      <a class="ProductMeta__ShareItem" href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener" aria-label="Pinterest">{%- render 'icon' with 'pinterest' -%}</a>
-                    </div>
+                  <div class="ProductMeta__ShareList Text--subdued">
+                    <a
+                      class="ProductMeta__ShareItem"
+                      href="https://www.facebook.com/sharer.php?u={{ share_url }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Facebook">{%- render 'icon' with 'facebook' -%}</a>
+                    <a
+                      class="ProductMeta__ShareItem"
+                      href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Twitter">{%- render 'icon' with 'twitter' -%}</a>
+                    <a
+                      class="ProductMeta__ShareItem"
+                      href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Pinterest">{%- render 'icon' with 'pinterest' -%}</a>
                   </div>
+                </div>
 
                 {%- when 'variant_selector' -%}
-                  {%- assign has_ouputted_variant_selector = true -%}
-                  {%- render 'product-form', block: block, product: product -%}
+                {%- assign has_ouputted_variant_selector = true -%}
+                {%- render 'product-form', block: block, product: product -%}
 
                 {%- when 'quantity_selector' -%}
-                  <div class="ProductForm__QuantitySelector" {{ block.shopify_attributes }}>
-                    {%- if block.settings.show_label -%}
-                      <span class="ProductForm__Label">{{ 'product.form.quantity' | t }}:</span>
-                    {%- endif -%}
+                <div class="ProductForm__QuantitySelector" {{ block.shopify_attributes }}>
+                  {%- if block.settings.show_label -%}
+                    <span class="ProductForm__Label">{{ 'product.form.quantity' | t }}:</span>
+                  {%- endif -%}
 
-                    <div class="QuantitySelector QuantitySelector--large">
-                      {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
+                  <div class="QuantitySelector QuantitySelector--large">
+                    {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
 
-                      <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="decrease-quantity">{% render 'icon' with 'minus' %}</button>
-                      <input type="text" class="QuantitySelector__CurrentQuantity" pattern="[0-9]*" name="quantity" value="1" aria-label="{{ 'product.form.quantity' | t }}">
-                      <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="increase-quantity">{% render 'icon' with 'plus' %}</button>
-                    </div>
+                    <button
+                      type="button"
+                      class="QuantitySelector__Button Link Link--secondary"
+                      data-action="decrease-quantity">{% render 'icon' with 'minus' %}</button>
+                    <input
+                      type="text"
+                      class="QuantitySelector__CurrentQuantity"
+                      pattern="[0-9]*"
+                      name="quantity"
+                      value="1"
+                      aria-label="{{ 'product.form.quantity' | t }}">
+                    <button
+                      type="button"
+                      class="QuantitySelector__Button Link Link--secondary"
+                      data-action="increase-quantity">{% render 'icon' with 'plus' %}</button>
                   </div>
+                </div>
 
                 {%- when 'inventory' -%}
-                  {%- assign hide_inventory_quantity_by_default = false -%}
+                {%- assign hide_inventory_quantity_by_default = false -%}
 
-                  {%- if product.selected_or_first_available_variant.inventory_management == blank or product.selected_or_first_available_variant.inventory_quantity <= 0 -%}
-                    {%- assign hide_inventory_quantity_by_default = true -%}
+                {%- if product.selected_or_first_available_variant.inventory_management == blank or product.selected_or_first_available_variant.inventory_quantity <= 0 -%}
+                  {%- assign hide_inventory_quantity_by_default = true -%}
+                {%- endif -%}
+
+                {%- if block.settings.inventory_quantity_threshold != 0 and product.selected_or_first_available_variant.inventory_quantity > block.settings.inventory_quantity_threshold -%}
+                  {%- assign hide_inventory_quantity_by_default = true -%}
+                {%- endif -%}
+
+                <p
+                  class="ProductForm__Inventory Text--subdued"
+                  {% if hide_inventory_quantity_by_default %}style="display: none"{% endif %}
+                  {{ block.shopify_attributes }}>
+                  {%- if block.settings.inventory_quantity_threshold == 0 -%}
+                    {{- 'product.form.inventory_quantity_count' | t: count: product.selected_or_first_available_variant.inventory_quantity -}}
+                  {%- else -%}
+                    {{- 'product.form.low_inventory_quantity_count' | t: count: product.selected_or_first_available_variant.inventory_quantity -}}
                   {%- endif -%}
-
-                  {%- if block.settings.inventory_quantity_threshold != 0 and product.selected_or_first_available_variant.inventory_quantity > block.settings.inventory_quantity_threshold -%}
-                    {%- assign hide_inventory_quantity_by_default = true -%}
-                  {%- endif -%}
-
-                  <p class="ProductForm__Inventory Text--subdued" {% if hide_inventory_quantity_by_default %}style="display: none"{% endif %} {{ block.shopify_attributes }}>
-                    {%- if block.settings.inventory_quantity_threshold == 0 -%}
-                      {{- 'product.form.inventory_quantity_count' | t: count: product.selected_or_first_available_variant.inventory_quantity -}}
-                    {%- else -%}
-                      {{- 'product.form.low_inventory_quantity_count' | t: count: product.selected_or_first_available_variant.inventory_quantity -}}
-                    {%- endif -%}
-                  </p>
+                </p>
 
                 {%- when 'buy_buttons' -%}
-                  {%- if block.settings.show_payment_button == false or product.selling_plan_groups.size > 0 -%}
-                    {%- assign use_primary_button = true -%}
-                  {%- else -%}
-                    {%- assign use_primary_button = false -%}
+                {%- if block.settings.show_payment_button == false or product.selling_plan_groups.size > 0 -%}
+                  {%- assign use_primary_button = true -%}
+                {%- else -%}
+                  {%- assign use_primary_button = false -%}
+                {%- endif -%}
+
+                <div
+                  id="js-sticky-add-to-cart"
+                  class="ProductForm__BuyButtons"
+                  {{ block.shopify_attributes }}>
+                  {%- if block.settings.show_payment_button and product.selected_or_first_available_variant.available == false -%}
+                    <style>
+                      #shopify-section-{{ section.id }}.shopify-payment-button {
+                        display: none;
+                      }
+                    </style>
                   {%- endif -%}
+                  <div class="ProductForm__AddToCart__Wrapper">
+                    <button
+                      type="submit"
+                      data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}"
+                      class="ProductForm__AddToCart Button {% if product.selected_or_first_available_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full"
+                      {% if product.selected_or_first_available_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %}>
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        <span>
+                          {% if product.template_suffix == 'pre-order' %}
+                            {%- render 'icon' with 'cart' -%}{{ 'product.form.pre_order' | t }}
+                          {% else %}
+                            {%- render 'icon' with 'cart' -%}{{ 'product.form.add_to_cart' | t }}{% endif %}
+                        </span>
 
-                  <div id="js-sticky-add-to-cart" class="ProductForm__BuyButtons" {{ block.shopify_attributes }}>
-                    {%- if block.settings.show_payment_button and product.selected_or_first_available_variant.available == false -%}
-                      <style>
-                        #shopify-section-{{ section.id }}.shopify-payment-button {
-                          display: none;
-                        }
-                      </style>
-                    {%- endif -%}
-                    <div class="ProductForm__AddToCart__Wrapper">
-                      <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if product.selected_or_first_available_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if product.selected_or_first_available_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %}>
-                        {%- if product.selected_or_first_available_variant.available -%}
-                          <span>
-                            {% if product.template_suffix == 'pre-order' %}
-                              {%- render 'icon' with 'cart' -%}{{ 'product.form.pre_order' | t }}
-                            {% else %}
-                              {%- render 'icon' with 'cart' -%}{{ 'product.form.add_to_cart' | t }}{% endif %}
-                          </span>
-
-                          {%- if block.settings.show_price_in_button -%}
-                            <span class="Button__SeparatorDot"></span>
-                            <span>{{ product.selected_or_first_available_variant.price | money }}</span>
-                          {%- endif -%}
-                        {%- else -%}
-                          {{- 'product.form.sold_out' | t -}}
+                        {%- if block.settings.show_price_in_button -%}
+                          <span class="Button__SeparatorDot"></span>
+                          <span>{{ product.selected_or_first_available_variant.price | money }}</span>
                         {%- endif -%}
-                      </button>
+                      {%- else -%}
+                        {{- 'product.form.sold_out' | t -}}
+                      {%- endif -%}
+                    </button>
 
-                      <!-- Start ønskeskyen knap -->
-                      <button id="ov-onskeskyen-generated-wish-button" class="onskeskyen_pill" type="button">Tilføj til Ønskeskyen</button>
-                      <!-- End ønskeskyen knap -->
-                    </div>
-                    {%- if block.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
-                      {%- render 'icon' with 'cart' -%}{{ form | payment_button }}
-                    {%- endif -%}
+                    <!-- Start ønskeskyen knap -->
+                    <button
+                      id="ov-onskeskyen-generated-wish-button"
+                      class="onskeskyen_pill"
+                      type="button">Tilføj til Ønskeskyen</button>
+                    <!-- End ønskeskyen knap -->
                   </div>
+                  {%- if block.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
+                    {%- render 'icon' with 'cart' -%}{{ form | payment_button }}
+                  {%- endif -%}
+                </div>
+
 
                 {%- when 'product_usp' -%}
-                  {%- include 'usp-blocks' -%}
+                {%- include 'usp-blocks' -%}
                 {%- when 'store_pickup' -%}
-                  {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
-                  <div class="ProductMeta__StoreAvailabilityContainer" {{ block.shopify_attributes }}></div>
+                {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
+                <div class="ProductMeta__StoreAvailabilityContainer" {{ block.shopify_attributes }}></div>
 
                 {%- when 'text' -%}
-                  {%- if block.settings.text != blank -%}
-                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
-                      {{- block.settings.text -}}
-                    </div>
-                  {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                    {{- block.settings.text -}}
+                  </div>
+                {%- endif -%}
 
 
               {%- endcase -%}
@@ -370,7 +505,10 @@
 
             {%- unless has_ouputted_variant_selector -%}
               {%- comment -%}If for any reason the merchant has removed the variant selector block, we still output the ID here{%- endcomment -%}
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <input
+                type="hidden"
+                name="id"
+                value="{{ product.selected_or_first_available_variant.id }}">
             {%- endunless -%}
           {%- endform -%}
         </div>
@@ -380,9 +518,9 @@
 
     {%- capture product_aside -%}
       {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        PRODUCT WEAR IT WITH
-        --------------------------------------------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------------------------------------------
+      PRODUCT WEAR IT WITH
+      --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
       {%- assign buy_it_with_block = section.blocks | where: 'type', 'buy_it_with' | first -%}
@@ -410,26 +548,26 @@
         {%- case block.type -%}
 
           {%- when 'description' -%}
-            {%- if product.description != blank -%}
-              <div class="product_description">
-                <div class="ProductMeta__Description product_d_inner" {{ block.shopify_attributes }}>
-                  <div class="Rte">
-                    {{- product.description | replace: 'data-section-type', 'data-section-type-placeholder' -}}
-                  </div>
-                  {%- render 'product-tabs' -%}
+          {%- if product.description != blank -%}
+            <div class="product_description">
+              <div class="ProductMeta__Description product_d_inner" {{ block.shopify_attributes }}>
+                <div class="Rte">
+                  {{- product.description | replace: 'data-section-type', 'data-section-type-placeholder' -}}
                 </div>
+                {%- render 'product-tabs' -%}
               </div>
-            {%- endif -%}
+            </div>
+          {%- endif -%}
 
           {%- when 'materials' -%}
-            {%- include 'product-materials' -%}
+          {%- include 'product-materials' -%}
 
 
           {%- when 'customers_reviews' -%}
-            {%- include 'customers-testimonials' -%}
+          {%- include 'customers-testimonials' -%}
 
           {%- when '@app' -%}
-            {%- render block -%}
+          {%- render block -%}
 
 
         {%- endcase -%}
@@ -448,15 +586,16 @@
 </section>
 
 {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  PHOTO SWIPE
+--------------------------------------------------------------------------------------------------------------------
+PHOTO SWIPE
 
-  This is the root container for the zoom functionality. Must not be removed, as order element is important.
-  --------------------------------------------------------------------------------------------------------------------
-{%- endcomment -%}
-
-{%- if section.settings.enable_image_zoom -%}
-  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+This is the root container for the zoom functionality. Must not be removed, as order element is important.
+--------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}{%- if section.settings.enable_image_zoom -%}
+  <div class="pswp"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true">
     <!-- Background of PhotoSwipe -->
     <div class="pswp__bg"></div>
 
@@ -472,9 +611,18 @@
 
       <!-- Main UI bar -->
       <div class="pswp__ui pswp__ui--hidden">
-        <button class="pswp__button pswp__button--prev RoundButton" data-animate-left title="{{ 'product.slideshow.previous' | t }}">{% render 'icon' with 'arrow-left' %}</button>
-        <button class="pswp__button pswp__button--close RoundButton RoundButton--large" data-animate-bottom title="{{ 'product.slideshow.close' | t }}">{% render 'icon' with 'close' %}</button>
-        <button class="pswp__button pswp__button--next RoundButton" data-animate-right title="{{ 'product.slideshow.next' | t }}">{% render 'icon' with 'arrow-right' %}</button>
+        <button
+          class="pswp__button pswp__button--prev RoundButton"
+          data-animate-left
+          title="{{ 'product.slideshow.previous' | t }}">{% render 'icon' with 'arrow-left' %}</button>
+        <button
+          class="pswp__button pswp__button--close RoundButton RoundButton--large"
+          data-animate-bottom
+          title="{{ 'product.slideshow.close' | t }}">{% render 'icon' with 'close' %}</button>
+        <button
+          class="pswp__button pswp__button--next RoundButton"
+          data-animate-right
+          title="{{ 'product.slideshow.next' | t }}">{% render 'icon' with 'arrow-right' %}</button>
       </div>
     </div>
   </div>
@@ -621,17 +769,31 @@
         "limit": 1,
         "settings": [
           {
+            "type": "header",
+            "content": "Product Counter"
+          },
+          {
+            "type": "richtext",
+            "id": "product_counter_text",
+            "label": "Add product counter text",
+            "default": "<p>Vi pakker din ordre om:</p>"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_product_counter",
+            "label": "show product counter",
+            "default": false
+          },
+          {
             "type": "richtext",
             "id": "blackdays__returndate",
             "label": "Add text about return"
-          },
-          {
+          }, {
             "type": "checkbox",
             "id": "usp_autoplay",
             "label": "Auto rotate between usp",
             "default": true
-          },
-          {
+          }, {
             "type": "range",
             "id": "usp_cycle_speed",
             "min": 3,
@@ -640,8 +802,7 @@
             "unit": "sec",
             "label": "Change usp every",
             "default": 5
-          },
-          {
+          }, {
             "type": "header",
             "content": "Icon 1"
           }, {

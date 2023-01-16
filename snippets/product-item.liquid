@@ -1,3 +1,7 @@
+{%-liquid 
+    assign compare_at_price = product.compare_at_price
+    assign price = product.price
+-%}
 <div class="ProductItem {% if use_horizontal %}ProductItem--horizontal{% endif %}">
   <div class="ProductItem__Wrapper">
     {%- comment -%}
@@ -79,14 +83,10 @@
         </div>
       {% endif %}
       {% if section.settings.show_product-days == true %}
-        {%- if section.settings.selector_product-days != 'none' -%}
-        <span class="days__badge--{{ section.settings.selector_product-days }}">
-          {{ section.settings.selector_product-days }}
-        </span>{%- endif -%}
         {% if section.settings.blackdays__save != blank %}
-          {%- if section.settings.selector_product-days != 'none' -%}
-          <span class="days__badge--save--{{ section.settings.selector_product-days }}">{{ section.settings.blackdays__save }}</span>
-        {%- endif -%}
+            {%- assign discount_price = compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round | append: '%' -%}
+{%-comment %}{{ section.settings.blackdays__save  }} {%- endcomment -%}
+          <span class="days__badge--save--black">{{ discount_price }}</span>
         {% endif %}
       {% endif %}
       {% if product.metafields.my_fields.shaping_level %}

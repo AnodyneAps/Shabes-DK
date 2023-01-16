@@ -10,9 +10,9 @@
             "show_sku": false,
             "show_product_rating": true,
             "show_taxes_included": false,
-            "show_meta-days": false,
-            "selector_meta-days": "none",
-            "blackdays__meta-save": "30%"
+            "show_meta-days": true,
+            "selector_meta-days": "blackdays",
+            "blackdays__meta-save": "-30%"
           }
         },
         "variant_selector": {
@@ -34,7 +34,9 @@
         "f4cce94d-6434-4928-a9a9-d142eb3b4702": {
           "type": "product_usp",
           "settings": {
-            "blackdays__returndate": "<p>Du kan roligt købe julegaver - returretten er forlænget frem til <strong>d. 24. januar 2023<\/strong><\/p>",
+            "product_counter_text": "<p>Vi pakker din ordre om:<\/p>",
+            "show_product_counter": true,
+            "blackdays__returndate": "<p><strong>Husk: <\/strong>Vi har altid 30 dages FULD returret<\/p>",
             "usp_autoplay": true,
             "usp_cycle_speed": 3,
             "icon_selector1": "package",
@@ -80,7 +82,7 @@
           "type": "content",
           "settings": {
             "title": "",
-            "content": "",
+            "content": "<p><\/p>",
             "page": "baeredygtighed-info"
           }
         },
@@ -88,7 +90,7 @@
           "type": "content",
           "settings": {
             "title": "",
-            "content": "",
+            "content": "<p><\/p>",
             "page": "care"
           }
         },

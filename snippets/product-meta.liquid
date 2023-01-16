@@ -23,12 +23,12 @@
   {% if block.settings.show_meta-days == true %}
     {% if block.settings.blackdays__meta-save != blank %}
       {%- if block.settings.selector_meta-days != 'none' -%}
-      <span class="days__badge--save--{{ block.settings.selector_meta-days }}">{{ block.settings.blackdays__meta-save }}</span>
-    {%- endif -%}
+        <span class="days__badge--save--{{ block.settings.selector_meta-days }}">{{ block.settings.blackdays__meta-save }}</span>
+      {%- endif -%}
     {% endif %}
   {% endif %}
-  
-  
+
+
   {%- if block.settings.show_product_rating -%}
     <div class="ProductMeta__Rating Heading u-h7">
       {%- render 'product-rating', product: product -%}
@@ -36,7 +36,9 @@
   {%- endif -%}
 
   {%- if block.settings.show_sku and product.selected_or_first_available_variant.sku != blank -%}
-    <p class="ProductMeta__Sku Heading u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ product.selected_or_first_available_variant.sku }}</span></p>
+    <p class="ProductMeta__Sku Heading u-h6">{{ 'product.form.sku' | t }}:
+      <span class="ProductMeta__SkuNumber">{{ product.selected_or_first_available_variant.sku }}</span>
+    </p>
   {%- endif -%}
 
   {%- if product.template_suffix != 'coming-soon' -%}
@@ -57,23 +59,28 @@
         {%- endif -%}
       {%- endif -%}
     </div>
-    
+
     {% assign shop_url_product_page = shop.url %}
     {% assign shop_dk = 'https://shabes.dk' %}
     {% if shop_url_product_page == shop_dk %}
-      <div style="display: flex;margin: 5px 0 10px 0;font-family: 'DinNext';font-size: 13.5px;"> 
-            <anyday-price-tag total-price-selector=".ProductMeta__PriceList .Price" total-price="" price-tag-token="dcd170a788e84e088823a5682e48ad94" currency="DKK" price-format-locale="da"></anyday-price-tag>
+      <div style="display: flex;margin: 5px 0 10px 0;font-family: 'DinNext';font-size: 13.5px;">
+        <anyday-price-tag
+          total-price-selector=".ProductMeta__PriceList .Price"
+          total-price=""
+          price-tag-token="dcd170a788e84e088823a5682e48ad94"
+          currency="DKK"
+          price-format-locale="da"></anyday-price-tag>
       </div>
     {% endif %}
-  
-  {% if product.metafields.my_fields.shaping_level %}
-    <span class="ProductItem__Label spaping_level_label Heading Text--subdued" style="padding: 0px !important;">
-      <br>
-      <p style="font-size: 14px; color: #303030;">{{product.metafields.my_fields.shaping_level.value}}</p>
-      {% comment %}
-      <div class="outer_circle" style="align-items: unset !important; justify-content: start;">
+
+    {% if product.metafields.my_fields.shaping_level %}
+      <span class="ProductItem__Label spaping_level_label Heading Text--subdued" style="padding: 0px !important;">
+        <br>
+        <p style="font-size: 14px; color: #303030;">{{ product.metafields.my_fields.shaping_level.value }}</p>
+        {% comment %}
+        <div class="outer_circle" style="align-items: unset !important; justify-content: start;">
         <span class="shaping_label_t">{{product.metafields.my_fields.shaping_level.value}}</span> 
-		
+
         {% if product.metafields.my_fields.shaping_level == 'Strong' %}
         <span class="shaping_level_circle_filled"></span>
         <span class="shaping_level_circle_filled"></span>
@@ -89,17 +96,18 @@
         <span class="shaping_level_circle"></span>
 
         {% endif %}
-      </div>
-     {% endcomment %}
-    </span>
+        </div>
+        {% endcomment %}
+      </span>
 
-  {% endif %}
+    {% endif %}
 
 
     <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if product.selected_or_first_available_variant.unit_price_measurement -%}block{% else %}none{% endif %}">
       <div class="UnitPriceMeasurement Heading u-h6">
         <span class="UnitPriceMeasurement__Price">{{ product.selected_or_first_available_variant.unit_price | money }}</span>
-        <span class="UnitPriceMeasurement__Separator">/ </span>
+        <span class="UnitPriceMeasurement__Separator">/
+        </span>
         <span class="UnitPriceMeasurement__ReferenceValue" style="display: {% if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 %}inline{% else %}none{% endif %}">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_value }}</span>
         <span class="UnitPriceMeasurement__ReferenceUnit">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
       </div>
@@ -114,7 +122,7 @@
         {%- endif -%}
         {%- comment -%}
         {%- if shop.shipping_policy.body != blank -%}
-          {{ 'product.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+        {{ 'product.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
         {%- endif -%}
         {%- endcomment -%}
       </p>

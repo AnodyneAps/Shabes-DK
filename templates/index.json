@@ -6,13 +6,13 @@
         "slide-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/shabes-jul.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/shabes-jul-mobile.jpg",
+            "image": "shopify:\/\/shop_images\/cover.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/cover_mobile.jpg",
             "image_position": "center center",
             "apply_overlay": true,
             "content_position": "middleCenter",
             "subheading": "",
-            "title": "Få den smukkeste silhuet med Shabes®",
+            "title": "Vinterudsalg 2023. LIGE NU KAN DU Spare 30% på alle produkter",
             "button_1_text": "Shop nu",
             "button_1_link": "shopify:\/\/collections\/alt-shapewear",
             "button_2_text": "",
@@ -37,7 +37,7 @@
         "button_background_hover": "rgba(0,0,0,0)",
         "svg_selector": "shabes_name",
         "counter_text": "Vi pakker din ordre om:",
-        "show_counter": true
+        "show_counter": false
       }
     },
     "163276763442e7599e": {
@@ -92,9 +92,9 @@
         "show_color_swatch": true,
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4,
-        "show_product-days": false,
+        "show_product-days": true,
         "selector_product-days": "none",
-        "blackdays__save": "30%"
+        "blackdays__save": "-30%"
       }
     },
     "1632827034e58962e0": {

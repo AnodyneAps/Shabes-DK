@@ -14581,6 +14581,30 @@ button.vp-unmute-button span.vp-unmute-button-title {
  }
 }
 
+/*--------product counter -----*/
+.product-counter-container{
+  border-radius: 5px;
+  background-color: #fcf6f2;
+  border: 1px solid #f9f9f9;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom:15px;
+  gap:10px;
+}
+.product-counter-container p {
+  padding-top:13px;
+}
+.product-counter-container .inner{
+  color: var(--product-sale-price-color);
+}
+.product-counter-container #product__counter{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 600;
+}
 
 /* ================================ blackdays special ===================================  */
 .SectionHeader .black-title .Icon {

@@ -1,66 +1,75 @@
+{% if block.settings.show_product_counter %}
+  <div class="product-counter-container">
+    {%- if block.settings.product_counter_text != blank -%}
+      {{ block.settings.product_counter_text }}
+    {%- endif -%}
+    <div id="product__counter"></div>
+  </div>
+{% endif %}
+
 {% if block.settings.blackdays__returndate != blank %}
-    <div class="returndate__wrapper">
-        {{ block.settings.blackdays__returndate }}
-    </div>
+  <div class="returndate__wrapper">
+    {{ block.settings.blackdays__returndate }}
+  </div>
 {% endif %}
 {%- capture flickity_options -%}
-{
+  {
   "prevNextButtons": false,
-  "wrapAround": true,
-  "pageDots": false,
-  "draggable": true,
-  "adaptiveHeight": true,
-  "pauseAutoPlayOnHove": false,
-  "cellAlign": "left",
-  "autoPlay": {% if block.settings.usp_autoplay %}{{ block.settings.usp_cycle_speed | times: 1000 }}{% else %}false{% endif %},
+      "wrapAround": true,
+      "pageDots": false,
+      "draggable": true,
+      "adaptiveHeight": true,
+      "pauseAutoPlayOnHove": false,
+      "cellAlign": "left",
+      "autoPlay":{% if block.settings.usp_autoplay %}
+    {{ block.settings.usp_cycle_speed | times: 1000 }}{% else %}false{% endif %},
   "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-}
-{%- endcapture -%}
+    }{%- endcapture -%}
 
-    <div class="usp_block_wrapper flex_align-start flex_colum">
-        <div class="usp_carousel usp_snippet carousel" data-flickity='{{ flickity_options }}'>
-            {% if block.settings.icon_1_heading != blank %}
-                <div class="usp_block flex_align-start carousel-cell">
-                    <div class="usp_icon">
-                        {%- render 'icon' with {{block.settings.icon_selector1}} -%}
-                    </div>
-                    <div class="usp_text">
-                        <h4 class="Heading u-h5">{{ block.settings.icon_1_heading }}</h4>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if block.settings.icon_2_heading != blank %}
-                <div class="usp_block flex_align-start carousel-cell">
-                    <div class="usp_icon">
-                        {%- render 'icon' with {{block.settings.icon_selector2}} -%}
-                    </div>
-                    <div class="usp_text">
-                        <h4 class="Heading u-h5">{{ block.settings.icon_2_heading }}</h4>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if block.settings.icon_3_heading != blank %}
-                <div class="usp_block flex_align-start carousel-cell">
-                    <div class="usp_icon">
-                        {%- render 'icon' with {{block.settings.icon_selector3}} -%}
-                    </div>
-                    <div class="usp_text">
-                        <h4 class="Heading u-h5">{{ block.settings.icon_3_heading }}</h4>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if block.settings.icon_4_heading != blank %}
-                <div class="usp_block flex_align-start carousel-cell">
-                    <div class="usp_icon">
-                        {%- render 'icon' with {{block.settings.icon_selector4}} -%}
-                    </div>
-                    <div class="usp_text">
-                        <h4 class="Heading u-h5">{{ block.settings.icon_4_heading }}</h4>
-                    </div>
-                </div>
-            {% endif %}
+<div class="usp_block_wrapper flex_align-start flex_colum">
+  <div class="usp_carousel usp_snippet carousel" data-flickity='{{ flickity_options }}'>
+    {% if block.settings.icon_1_heading != blank %}
+      <div class="usp_block flex_align-start carousel-cell">
+        <div class="usp_icon">
+          {%- render 'icon' with {{block.settings.icon_selector1}} -%}
         </div>
-    </div>
+        <div class="usp_text">
+          <h4 class="Heading u-h5">{{ block.settings.icon_1_heading }}</h4>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.icon_2_heading != blank %}
+      <div class="usp_block flex_align-start carousel-cell">
+        <div class="usp_icon">
+          {%- render 'icon' with {{block.settings.icon_selector2}} -%}
+        </div>
+        <div class="usp_text">
+          <h4 class="Heading u-h5">{{ block.settings.icon_2_heading }}</h4>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.icon_3_heading != blank %}
+      <div class="usp_block flex_align-start carousel-cell">
+        <div class="usp_icon">
+          {%- render 'icon' with {{block.settings.icon_selector3}} -%}
+        </div>
+        <div class="usp_text">
+          <h4 class="Heading u-h5">{{ block.settings.icon_3_heading }}</h4>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.icon_4_heading != blank %}
+      <div class="usp_block flex_align-start carousel-cell">
+        <div class="usp_icon">
+          {%- render 'icon' with {{block.settings.icon_selector4}} -%}
+        </div>
+        <div class="usp_text">
+          <h4 class="Heading u-h5">{{ block.settings.icon_4_heading }}</h4>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
