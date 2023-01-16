@@ -23,7 +23,9 @@
   {% if block.settings.show_meta-days == true %}
     {% if block.settings.blackdays__meta-save != blank %}
       {%- if block.settings.selector_meta-days != 'none' -%}
-        <span class="days__badge--save--{{ block.settings.selector_meta-days }}">{{ block.settings.blackdays__meta-save }}</span>
+           {%- assign discount_price = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round | append: '%' -%}
+{%- comment -%}{{block.settings.blackdays__meta-save}}{%- endcomment-%}
+        <span class="days__badge--save--{{ block.settings.selector_meta-days }}">{{ discount_price }}</span>
       {%- endif -%}
     {% endif %}
   {% endif %}
