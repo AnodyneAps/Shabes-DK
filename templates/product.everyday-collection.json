@@ -36,7 +36,7 @@
           "settings": {
             "product_counter_text": "<p>Vi pakker din ordre om:<\/p>",
             "show_product_counter": false,
-            "blackdays__returndate": "<p>Du kan roligt købe julegaver - returretten er forlænget frem til <strong>d. 24. januar 2023<\/strong><\/p>",
+            "blackdays__returndate": "<p><strong>Husk: <\/strong>Vi har altid 30 dages FULD returret<\/p>",
             "usp_autoplay": true,
             "usp_cycle_speed": 3,
             "icon_selector1": "package",
