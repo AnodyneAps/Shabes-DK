@@ -1,0 +1,64 @@
+{% liquid
+  if block.settings.logo_selector1_link != blank 
+    assign logoSelector1_url = block.settings.logo_selector1_link
+  endif
+  if block.settings.logo_selector2_link != blank 
+    assign logoSelector2_url = block.settings.logo_selector2_link
+  endif
+%}
+
+
+{%- capture flickity_options -%}
+  {
+  "prevNextButtons": false,
+                                                  "wrapAround": true,
+                                                  "pageDots": false,
+                                                  "draggable": true,
+                                                  "adaptiveHeight": true,
+                                                  "pauseAutoPlayOnHove": false,
+                                                  "cellAlign": "left",
+                                                  "autoPlay":{% if block.settings.logos_autoplay %}
+    {{ block.settings.logos_cycle_speed | times: 1000 }}{% else %}false{% endif %},
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                                                }{%- endcapture -%}
+<div class="logos_main_container">
+  {%- if block.settings.logos_main_text != blank -%}
+    <div class="logos_heading">
+      <h4 class="Heading u-h5 logos_tex">{{ block.settings.logos_main_text }}</h4>
+    </div>
+  {%- endif -%}
+  <div class="usp_block_wrapper flex_align-start flex_colum">
+    <div class="usp_carousel usp_snippet carousel" data-flickity='{{ flickity_options }}'>
+      {% if block.settings.logo_selector1 != blank %}
+        <div class="usp_block flex_align-start carousel-cell">
+          <div class="usp_icon">
+            <a
+              href="{{ logoSelector1_url }}"
+              target="_blank"
+              class="logo__link">
+              <img
+                class="logo"
+                src="{{ block.settings.logo_selector1 | img_url: '120x40' }}"
+                alt="">
+            </a>
+          </div>
+        </div>
+      {% endif %}
+      {% if block.settings.logo_selector2 != blank %}
+        <div class="usp_block flex_align-start carousel-cell">
+          <div class="usp_icon">
+            <a
+              href="{{ logoSelector2_url }}"
+              target="_blank"
+              class="logo__link">
+              <img
+                class="logo"
+                src="{{ block.settings.logo_selector2 | img_url: '120x40' }}"
+                alt="">
+            </a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

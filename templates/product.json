@@ -36,7 +36,7 @@
           "settings": {
             "product_counter_text": "<p>Vi pakker din ordre om:<\/p>",
             "show_product_counter": true,
-            "blackdays__returndate": "<p><strong>Husk: <\/strong>Vi har altid 30 dages FULD returret<\/p>",
+            "blackdays__returndate": "",
             "usp_autoplay": true,
             "usp_cycle_speed": 3,
             "icon_selector1": "package",
@@ -47,6 +47,19 @@
             "icon_3_heading": "Nem og sikker betaling",
             "icon_selector4": "heart",
             "icon_4_heading": "Altid til rådighed"
+          }
+        },
+        "243606cc-7de9-4ab2-a2ea-b18568ddfdf4": {
+          "type": "partner_logos",
+          "settings": {
+            "show_partner_logos": true,
+            "logos_main_text": "Shabes forhandles også hos",
+            "logos_autoplay": true,
+            "logos_cycle_speed": 6,
+            "logo_selector1": "shopify:\/\/shop_images\/mollyogmy-logo.png",
+            "logo_selector1_link": "https:\/\/www.mollyogmy.dk\/search?type=product%2Carticle%2Cpage%2Ccollection&options[prefix]=last&q=shabes*",
+            "logo_selector2": "shopify:\/\/shop_images\/salling-logo.png",
+            "logo_selector2_link": "https:\/\/salling.dk\/"
           }
         },
         "description": {
@@ -129,6 +142,7 @@
         "variant_selector",
         "buy_buttons",
         "f4cce94d-6434-4928-a9a9-d142eb3b4702",
+        "243606cc-7de9-4ab2-a2ea-b18568ddfdf4",
         "description",
         "db8668d8-1342-408e-afc0-e884dcf70f00",
         "0ea1b043-eff1-4e99-946d-d1923fd15e88",

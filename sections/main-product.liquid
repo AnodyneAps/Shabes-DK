@@ -7,7 +7,7 @@
 {%- capture section_settings -%}
   {
   "enableHistoryState": true,
-                                "templateSuffix": {{ product.template_suffix | json }},
+                                                                  "templateSuffix": {{ product.template_suffix | json }},
   "showInventoryQuantity":
   {% if inventory_block != blank %}true{% else %}false{% endif %},
   "showSku": {{ meta_block.settings.show_sku | json }},
@@ -26,14 +26,14 @@
 {%- capture flickity_options -%}
   {
   "prevNextButtons": true,
-                                "pageDots": false,
-                                "draggable": true,
-                                "contain": true,
-                                "adaptiveHeight": true,
-                                "pauseAutoPlayOnHove": false,
-                                "cellAlign": "left",
-                                "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                              }{%- endcapture -%}
+                                                                  "pageDots": false,
+                                                                  "draggable": true,
+                                                                  "contain": true,
+                                                                  "adaptiveHeight": true,
+                                                                  "pauseAutoPlayOnHove": false,
+                                                                  "cellAlign": "left",
+                                                                  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                                                                }{%- endcapture -%}
 
 <script>
   // To power the recently viewed products section, we save the ID of the product inside the local storage
@@ -487,7 +487,11 @@ på alt</span>
 
 
                 {%- when 'product_usp' -%}
-                {%- include 'usp-blocks' -%}
+                {%- render 'usp-blocks' with block: block -%}
+                {%- when 'partner_logos' -%}
+                {% if block.settings.show_partner_logos %}
+                  {%- render 'partner-logos' with block: block -%}
+                {% endif %}
                 {%- when 'store_pickup' -%}
                 {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
                 <div class="ProductMeta__StoreAvailabilityContainer" {{ block.shopify_attributes }}></div>
@@ -592,7 +596,8 @@ PHOTO SWIPE
 This is the root container for the zoom functionality. Must not be removed, as order element is important.
 --------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}{%- if section.settings.enable_image_zoom -%}
-  <div class="pswp"
+  <div
+    class="pswp"
     tabindex="-1"
     role="dialog"
     aria-hidden="true">
@@ -958,6 +963,62 @@ This is the root container for the zoom functionality. Must not be removed, as o
             "type": "text",
             "id": "icon_4_heading",
             "label": "Icon 4 text"
+          }
+        ]
+      }, {
+        "type": "partner_logos",
+        "name": "Partner Logos",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "show_partner_logos",
+            "label": "show partner logos",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "logos_main_text",
+            "label": "Heading text",
+            "default": "Shabes forhandles også hos"
+          },
+          {
+            "type": "checkbox",
+            "id": "logos_autoplay",
+            "label": "Auto rotate between logos",
+            "default": true
+          },
+          {
+            "type": "range",
+            "id": "logos_cycle_speed",
+            "min": 3,
+            "max": 12,
+            "step": 0.5,
+            "unit": "sec",
+            "label": "Change logos every N of seconds",
+            "default": 5
+          }, {
+            "type": "header",
+            "content": "Logo one"
+          }, {
+            "type": "image_picker",
+            "id": "logo_selector1",
+            "label": "Add Logo 600X200px png recommended"
+          }, {
+            "type": "text",
+            "id": "logo_selector1_link",
+            "label": "Add external link to first logo"
+          }, {
+            "type": "header",
+            "content": "Logo two"
+          }, {
+            "type": "image_picker",
+            "id": "logo_selector2",
+            "label": "Add Logo 600X200px png recommended"
+          }, {
+            "type": "text",
+            "id": "logo_selector2_link",
+            "label": "Add external link to second logo"
           }
         ]
       }, {

@@ -97,6 +97,17 @@
         "blackdays__save": "-30%"
       }
     },
+    "3614fe14-5657-4e5b-80d5-99896c5e455b": {
+      "type": "partner-logos",
+      "settings": {
+        "show_partner_logos": true,
+        "logo_heading": "Shabes forhandles også hos",
+        "logo_selector1": "shopify:\/\/shop_images\/mollyogmy-logo.png",
+        "logo_selector1_link": "https:\/\/www.mollyogmy.dk\/search?type=product%2Carticle%2Cpage%2Ccollection&options[prefix]=last&q=shabes*",
+        "logo_selector2": "shopify:\/\/shop_images\/salling-logo.png",
+        "logo_selector2_link": "https:\/\/salling.dk\/"
+      }
+    },
     "1632827034e58962e0": {
       "type": "collection-list",
       "blocks": {
@@ -364,6 +375,7 @@
     "slideshow",
     "163276763442e7599e",
     "featured-collections",
+    "3614fe14-5657-4e5b-80d5-99896c5e455b",
     "1632827034e58962e0",
     "16328296399e7c669c",
     "1633001842c9af7c59",

@@ -1,0 +1,104 @@
+{% liquid
+  if section.settings.logo_selector1_link != blank 
+    assign logoSelector1_url = section.settings.logo_selector1_link
+  endif
+  if section.settings.logo_selector2_link != blank 
+    assign logoSelector2_url = section.settings.logo_selector2_link
+  endif
+%}
+
+<section id="section-{{ section.id }}" class="partner__logos-home">
+  {%- if section.settings.show_partner_logos -%}
+    <div class="partner__logos-wrapper">
+      {% if section.settings.logo_heading != blank %}
+        <header class="partner__logos-header">
+          <h4 class="Heading u-h3">{{ section.settings.logo_heading }}</h4>
+        </header>
+      {% endif %}
+
+      <div class="partner__logos-flex">
+        {%- if section.settings.logo_selector1 != blank -%}
+          <div class="logo__block">
+            <div class="logo">
+              <a
+                href="{{ logoSelector1_url }}"
+                target="_blank"
+                class="logo__link">
+                <img
+                  class="logo_img"
+                  src="{{ section.settings.logo_selector1 | img_url: '240x80' }}"
+                  alt="">
+              </a>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.logo_selector2 != blank -%}
+          <div class="logo__block">
+            <div class="logo">
+              <a
+                href="{{ logoSelector2_url }}"
+                target="_blank"
+                class="logo__link">
+                <img
+                  class="logo_img"
+                  src="{{ section.settings.logo_selector2 | img_url: '240x80' }}"
+                  alt="">
+              </a>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+  {
+    "name": "Partner Logos",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_partner_logos",
+        "label": "show partner logos",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "logo_heading",
+        "label": "main-heading",
+        "default": "Shabes forhandles også hos"
+      },
+      {
+        "type": "header",
+        "content": "Logo one"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_selector1",
+        "label": "Add Logog 600X200px recommended"
+      }, {
+        "type": "text",
+        "id": "logo_selector1_link",
+        "label": "Add external link to first logo"
+      }, {
+        "type": "header",
+        "content": "Logo two"
+      }, {
+        "type": "image_picker",
+        "id": "logo_selector2",
+        "label": "Add Logog 600X200px recommended"
+      }, {
+        "type": "text",
+        "id": "logo_selector2_link",
+        "label": "Add external link to second logo"
+      }
+    ],
+    "presets": [
+      {
+        "category": "Promotional",
+        "name": "Partner Logos",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

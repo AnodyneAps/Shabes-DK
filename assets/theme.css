@@ -12863,15 +12863,15 @@ shopify-payment-terms {
 
 /**
  * ----------------------------------------------------------------------------
- * USP BLOCKS
+ * USP BLOCKS AND PARTNER LOGOS ON PRODUCT PAGE
  * ----------------------------------------------------------------------------
  */
 
  .usp_block_wrapper{
+
    width: 100%;
    height: auto;
  }
-
  .usp_block{
    height: 200px;
  }
@@ -12919,7 +12919,43 @@ shopify-payment-terms {
 .usp_section .usp_text {
   text-align: center;
 }
+.logos_main_container {
+    border-radius: 5px;
+    text-align: center;
 
+}
+.logos_main_container .logos_heading {
+  padding:15px 0;
+  line-height: 1;
+  font-size: 13px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.logos_main_container .usp_block .usp_icon .logo__link {
+  display: block;
+  margin-top: -10px;
+  margin-left: 10px;
+  fill: #222;
+}
+.Product__Info .logos_main_container .usp_block_wrapper {
+margin: -10px 0 0 0;
+background-color: #fff;
+border: 1px solid #fff;
+
+}
+/* home logos styles */ 
+.partner__logos-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 3rem;
+  text-align: center;
+}
+.partner__logos-wrapper .partner__logos-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:3rem;
+}
  @media screen and (max-width: 960px) {
   .usp_section .carousel:after {
     content: 'flickity';
@@ -12960,12 +12996,10 @@ shopify-payment-terms {
     width: 100%;
   }
  }
-
-
-
-
 .Product__Info .usp_block_wrapper{
-  margin: 20px 0 20px 0;
+  background-color: var(--sand-color);
+  border: 1px solid #f9f9f9;
+  margin: 10px 0;
 }
 
  .Product__Info .usp_block{
@@ -14584,13 +14618,13 @@ button.vp-unmute-button span.vp-unmute-button-title {
 /*--------product counter -----*/
 .product-counter-container{
   border-radius: 5px;
-  background-color: #fcf6f2;
+  background-color: var(--sand-color);
   border: 1px solid #f9f9f9;
   display:flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
-  margin-bottom:15px;
+  margin-top: 10px;
+  margin-bottom:10px;
   gap:10px;
 }
 .product-counter-container p {
@@ -14701,9 +14735,9 @@ button.vp-unmute-button span.vp-unmute-button-title {
 }
 .returndate__wrapper{
   padding: 15px;
-  background-color: #fcf6f2;
+  background-color:  var(--sand-color);
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   letter-spacing: -1px;
   line-height: 1;
   border-radius: 5px;
