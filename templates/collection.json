@@ -40,7 +40,7 @@
         "apply_overlay": true,
         "show_color_swatch": true,
         "show_vendor": true,
-        "show_product-days": true,
+        "show_product-days": false,
         "selector_product-days": "none",
         "blackdays__save": "-30%",
         "collection_image_size": "normal",
@@ -59,8 +59,17 @@
         "video_url": "https:\/\/vimeo.com\/623365744"
       }
     },
+    "6dceb44b-e587-4009-87ce-e7274be283e2": {
+      "type": "custom-html",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "html": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"da-DK\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"607073666348670001f8ed65\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"da\">\n  <a href=\"https:\/\/dk.trustpilot.com\/review\/shabes.dk\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>\n<!-- End TrustBox widget -->"
+      }
+    },
     "1633105453d9ab1568": {
       "type": "customer-testimonials",
+      "disabled": true,
       "blocks": {
         "1633105453d9ab1568-0": {
           "type": "review",
@@ -177,6 +186,7 @@
     "1633281870251e33c5",
     "16334226477fd6df41",
     "main",
+    "6dceb44b-e587-4009-87ce-e7274be283e2",
     "1633105453d9ab1568",
     "1633105440fb57a17a",
     "1640530894480205e7"

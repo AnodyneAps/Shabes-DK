@@ -10,7 +10,7 @@
             "show_sku": false,
             "show_product_rating": false,
             "show_taxes_included": false,
-            "show_meta-days": true,
+            "show_meta-days": false,
             "selector_meta-days": "blackdays",
             "blackdays__meta-save": "-30%"
           }
@@ -47,6 +47,19 @@
             "icon_3_heading": "Nem og sikker betaling",
             "icon_selector4": "heart",
             "icon_4_heading": "Altid til rådighed"
+          }
+        },
+        "c30d48d0-d643-446f-b11b-3d6f7a15b8f9": {
+          "type": "partner_logos",
+          "settings": {
+            "show_partner_logos": true,
+            "logos_main_text": "Shabes forhandles også hos",
+            "logos_autoplay": true,
+            "logos_cycle_speed": 6,
+            "logo_selector1": "shopify:\/\/shop_images\/mollylogo.webp",
+            "logo_selector1_link": "https:\/\/www.mollyogmy.dk\/search?type=product%2Carticle%2Cpage%2Ccollection&options[prefix]=last&q=shabes*",
+            "logo_selector2": "shopify:\/\/shop_images\/salling-logo.png",
+            "logo_selector2_link": "https:\/\/salling.dk\/"
           }
         },
         "description": {
@@ -129,6 +142,7 @@
         "variant_selector",
         "buy_buttons",
         "f4cce94d-6434-4928-a9a9-d142eb3b4702",
+        "c30d48d0-d643-446f-b11b-3d6f7a15b8f9",
         "description",
         "db8668d8-1342-408e-afc0-e884dcf70f00",
         "0ea1b043-eff1-4e99-946d-d1923fd15e88",

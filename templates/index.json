@@ -1,7 +1,57 @@
 {
   "sections": {
+    "75b60b2a-077e-4c22-9ddf-33df93815d30": {
+      "type": "collection-list",
+      "blocks": {
+        "template--16648074232030__75b60b2a-077e-4c22-9ddf-33df93815d30-1679343405b43c8576-0": {
+          "type": "collection",
+          "settings": {
+            "hide_mobile": false,
+            "hide_link": false,
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/4224A.jpg",
+            "image_alignment": "center center",
+            "image_mobile": "shopify:\/\/shop_images\/4224A_cut.jpg",
+            "content_position": "bottomLeft",
+            "subheading": "",
+            "title": "SHAPEWEAR AF HØJESTE KVALITET",
+            "richtext": "",
+            "button_text": "Shop nu",
+            "button_link": "shopify:\/\/collections\/alt-shapewear",
+            "apply_overlay": true,
+            "apply_overlay_extra": false,
+            "add_logo": false,
+            "logo_color": "#ffffff",
+            "logo_size": 150
+          }
+        }
+      },
+      "block_order": [
+        "template--16648074232030__75b60b2a-077e-4c22-9ddf-33df93815d30-1679343405b43c8576-0"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "image_size": "large",
+        "spacing": "add_spacing_three",
+        "heading_size": 28,
+        "sub_heading_size": 20,
+        "expand_collection": true,
+        "stack_on_mobile": false,
+        "text_color": "#ffffff",
+        "richtext_size": 16,
+        "button_size": 16,
+        "button_color": "#303030",
+        "button_border_color": "#ffffff",
+        "button_fill": "#ffffff",
+        "button_color_hoover": "#342e29",
+        "button_fill_hoover": "#ffffff"
+      }
+    },
     "slideshow": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "slide-0": {
           "type": "image",
@@ -12,7 +62,7 @@
             "apply_overlay": true,
             "content_position": "middleCenter",
             "subheading": "",
-            "title": "Vinterudsalg 2023. LIGE NU KAN DU Spare 30% på alle produkter",
+            "title": "Luksuriøst og komfortabelt shapewear af højeste kvalitet",
             "button_1_text": "Shop nu",
             "button_1_link": "shopify:\/\/collections\/alt-shapewear",
             "button_2_text": "",
@@ -30,36 +80,14 @@
         "cycle_speed": 5,
         "heading_size": 47,
         "sub_heading_size": 45,
-        "text_color": "#342e29",
+        "text_color": "#ffffff",
         "button_color": "#ffffff",
-        "button_background": "#303030",
+        "button_background": "#d8beac",
         "button_color_hover": "#342e29",
         "button_background_hover": "rgba(0,0,0,0)",
         "svg_selector": "shabes_name",
         "counter_text": "Vi pakker din ordre om:",
         "show_counter": false
-      }
-    },
-    "163276763442e7599e": {
-      "type": "text-area",
-      "settings": {
-        "padding_small": false,
-        "hide_desktop": false,
-        "float_left": false,
-        "background_img": "none",
-        "background": "#ffffff",
-        "text_color": "#1c1b1b",
-        "title": "HVORFOR VÆLGE SHAPEWEAR FRA SHABES",
-        "h1": true,
-        "heading_size": 26,
-        "margin_heading": false,
-        "heading_size_mobile": 22,
-        "content": "<p>Hos Shabes skaber vi luksuriøst shapewear, og fundamentet for alle vores produkter er effekt, komfort og bæredygtighed. Vi mener, at alle skal have mulighed for at føle sig komfortable i egen krop, og derfor laver vi shapewear af højeste kvalitet, der fremhæver kroppens naturlige former og er behageligt at have på hele dagen.<\/p>",
-        "max_content": false,
-        "max_content_size": 50,
-        "max_box_size": 50,
-        "button_label": "",
-        "button_link": ""
       }
     },
     "featured-collections": {
@@ -69,7 +97,7 @@
           "type": "collection",
           "settings": {
             "collection": "bestsellers",
-            "title": "",
+            "title": "LUKSURIØST OG KOMFORTABELT SHAPEWEAR TIL ALLE",
             "text_box": "",
             "grid_items_count": 4,
             "button_text": "Shop her"
@@ -92,9 +120,17 @@
         "show_color_swatch": true,
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4,
-        "show_product-days": true,
+        "show_product-days": false,
         "selector_product-days": "none",
         "blackdays__save": "-30%"
+      }
+    },
+    "05111668-3136-4aad-8baf-43bbc593319f": {
+      "type": "custom-html",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "html": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"da-DK\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"607073666348670001f8ed65\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"5\" data-review-languages=\"da\">\n  <a href=\"https:\/\/dk.trustpilot.com\/review\/shabes.dk\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>\n<!-- End TrustBox widget -->"
       }
     },
     "3614fe14-5657-4e5b-80d5-99896c5e455b": {
@@ -102,7 +138,7 @@
       "settings": {
         "show_partner_logos": true,
         "logo_heading": "Shabes forhandles også hos",
-        "logo_selector1": "shopify:\/\/shop_images\/mollyogmy-logo.png",
+        "logo_selector1": "shopify:\/\/shop_images\/mollylogo.webp",
         "logo_selector1_link": "https:\/\/www.mollyogmy.dk\/search?type=product%2Carticle%2Cpage%2Ccollection&options[prefix]=last&q=shabes*",
         "logo_selector2": "shopify:\/\/shop_images\/salling-logo.png",
         "logo_selector2_link": "https:\/\/salling.dk\/"
@@ -178,9 +214,11 @@
     },
     "16328296399e7c669c": {
       "type": "customer-testimonials",
+      "disabled": true,
       "blocks": {
         "144b1d98-8251-4d58-b0fb-dd33fd99eee7": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "review_heading": "Føler mig rigtig godt tilpas",
             "review_richtext": "<p>Det er et FANTASTIK LÆKKERT at have på og derfor føler jeg mig rigtig godt tilpas. SUPER SUPER SUPER godt produkt<\/p>",
@@ -189,6 +227,7 @@
         },
         "c49bb351-a46d-4c17-8654-d9b8d003f729": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "review_heading": "Helt vild med Shabes!",
             "review_richtext": "<p>Jeg er helt vild med jeres Shabes! Modtog dem i går inden min mors fødselsdag og havde dem på i 12 timer straight.<\/p>",
@@ -197,6 +236,7 @@
         },
         "be0ad830-3c6d-4c03-a52c-c59a4613c18c": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "review_heading": "Det bedste shapewear jeg har prøvet",
             "review_richtext": "<p>Det bedste shapewear til dato! Jeg elsker kvaliteten, bevægeligheden og at det strammer ind lige hvor det skal. Føles som silke!<\/p>",
@@ -205,6 +245,7 @@
         },
         "ef63d32b-e2a8-4b2e-b2cc-f3f4221cc533": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "review_heading": "Det bedste shapewear jeg har prøvet",
             "review_richtext": "<p>Virkelig fedt produkt. Det bedste shapewear jeg har prøvet! Vildt behageligt at have på og samtidig gør det lige hvad det skal.<\/p>",
@@ -348,8 +389,31 @@
         "button_fill_hoover": "rgba(0,0,0,0)"
       }
     },
+    "163276763442e7599e": {
+      "type": "text-area",
+      "settings": {
+        "padding_small": false,
+        "hide_desktop": false,
+        "float_left": false,
+        "background_img": "none",
+        "background": "#ffffff",
+        "text_color": "#1c1b1b",
+        "title": "HVORFOR VÆLGE SHAPEWEAR FRA SHABES",
+        "h1": true,
+        "heading_size": 26,
+        "margin_heading": false,
+        "heading_size_mobile": 22,
+        "content": "<p>Hos Shabes skaber vi luksuriøst shapewear, og fundamentet for alle vores produkter er effekt, komfort og bæredygtighed. Vi mener, at alle skal have mulighed for at føle sig komfortable i egen krop, og derfor laver vi shapewear af højeste kvalitet, der fremhæver kroppens naturlige former og er behageligt at have på hele dagen.<\/p><h2><strong>Shop tidløst Shapewear<\/strong><\/h2><p>Vi er et tidløst brand, der brænder for at fuldføre og perfektionere hvert enkelt produkt. Når du køber shapewear fra Shabes, fjerner vi dine bekymringer om fremtidens trends og giver dig i stedet luksuriøst shapewear, der er komfortabelt og af højeste kvalitet. Vores shapewear kollektion består af forskelligt shapewear undertøj, heriblandt <a href=\"\/collections\/shapewear-thong\" title=\"Shapewear trusser\"><span style=\"text-decoration:underline\">shapewear trusser<\/span><\/a>, <a href=\"\/collections\/shapewear-shorts\" title=\"Shapewear Shorts\"><span style=\"text-decoration:underline\">shapewear shorts<\/span><\/a> og <a href=\"\/collections\/shapewear-bodysuit\" title=\"Shapewear bodysuit\"><span style=\"text-decoration:underline\">shapewear bodysuits<\/span><\/a>, som alt sammen har en høj opstrammende effekt og er komfortabelt at have på hele dagen.<\/p>",
+        "max_content": false,
+        "max_content_size": 50,
+        "max_box_size": 50,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "1632770742cb2c7b8c": {
       "type": "text-area",
+      "disabled": true,
       "settings": {
         "padding_small": false,
         "hide_desktop": false,
@@ -369,18 +433,51 @@
         "button_label": "",
         "button_link": ""
       }
+    },
+    "16861208528bdbbf1d": {
+      "type": "apps",
+      "blocks": {
+        "1277cb97-2763-4b91-ae65-70fe0b54b591": {
+          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "disabled": true,
+          "settings": {
+            "heading_size": 15,
+            "feed_width": 100,
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "1277cb97-2763-4b91-ae65-70fe0b54b591"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "af6171fa-196b-448d-bb93-0e313305469f": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": ""
+      }
     }
   },
   "order": [
+    "75b60b2a-077e-4c22-9ddf-33df93815d30",
     "slideshow",
-    "163276763442e7599e",
     "featured-collections",
+    "05111668-3136-4aad-8baf-43bbc593319f",
     "3614fe14-5657-4e5b-80d5-99896c5e455b",
     "1632827034e58962e0",
     "16328296399e7c669c",
     "1633001842c9af7c59",
     "1633092430dbe29d1b",
     "16328270427ef8487b",
-    "1632770742cb2c7b8c"
+    "163276763442e7599e",
+    "1632770742cb2c7b8c",
+    "16861208528bdbbf1d",
+    "af6171fa-196b-448d-bb93-0e313305469f"
   ]
 }

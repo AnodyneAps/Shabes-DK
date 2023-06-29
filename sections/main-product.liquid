@@ -7,7 +7,7 @@
 {%- capture section_settings -%}
   {
   "enableHistoryState": true,
-                                                                  "templateSuffix": {{ product.template_suffix | json }},
+                                                                      "templateSuffix": {{ product.template_suffix | json }},
   "showInventoryQuantity":
   {% if inventory_block != blank %}true{% else %}false{% endif %},
   "showSku": {{ meta_block.settings.show_sku | json }},
@@ -26,15 +26,14 @@
 {%- capture flickity_options -%}
   {
   "prevNextButtons": true,
-                                                                  "pageDots": false,
-                                                                  "draggable": true,
-                                                                  "contain": true,
-                                                                  "adaptiveHeight": true,
-                                                                  "pauseAutoPlayOnHove": false,
-                                                                  "cellAlign": "left",
-                                                                  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                                                                }{%- endcapture -%}
-
+      "pageDots": false,
+      "draggable": true,
+      "contain": true,
+      "adaptiveHeight": true,
+      "pauseAutoPlayOnHove": false,
+      "cellAlign": "left",
+      "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+    }{%- endcapture -%}
 <script>
   // To power the recently viewed products section, we save the ID of the product inside the local storage
   (() => {
@@ -472,26 +471,30 @@ på alt</span>
                         {{- 'product.form.sold_out' | t -}}
                       {%- endif -%}
                     </button>
-
+                    <br>
+                    {%- comment -%}
                     <!-- Start ønskeskyen knap -->
                     <button
                       id="ov-onskeskyen-generated-wish-button"
                       class="onskeskyen_pill"
                       type="button">Tilføj til Ønskeskyen</button>
                     <!-- End ønskeskyen knap -->
+                    {%- endcomment -%}
                   </div>
                   {%- if block.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
                     {%- render 'icon' with 'cart' -%}{{ form | payment_button }}
                   {%- endif -%}
                 </div>
 
-
+                {%- comment -%}Product Usps run from here{%- endcomment -%}
                 {%- when 'product_usp' -%}
                 {%- render 'usp-blocks' with block: block -%}
+                {%- comment -%}Product partner logos run from here{%- endcomment -%}
                 {%- when 'partner_logos' -%}
                 {% if block.settings.show_partner_logos %}
                   {%- render 'partner-logos' with block: block -%}
                 {% endif %}
+
                 {%- when 'store_pickup' -%}
                 {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
                 <div class="ProductMeta__StoreAvailabilityContainer" {{ block.shopify_attributes }}></div>
