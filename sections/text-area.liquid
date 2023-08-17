@@ -110,15 +110,19 @@ hidden-lap-and-up
         background-image: url('{{ section.settings.background_img| asset_url }}');
         background-posistion: top;
         background-size: cover;
-        opacity: 0.5;
+        opacity: 0.1;
     }
 
     #section-{{ section.id }} {
       position: relative;
       overflow: hidden;
     }
-
+ #section-{{ section.id }} a {
+   text-decoration: underline;
+ }
     .Text_Wrapper{
+      position: relative;
+      z-index:5;
       max-width: 700px;
       text-align: center;
       margin-left: auto;

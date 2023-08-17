@@ -81,16 +81,16 @@
           "background": "#858e80",
           "text_color": "#d8beac",
           "enable_bar_one": false,
-          "content": "KLIK HER og vind en rabatkode",
-          "link": "https:\/\/shabes.dk\/pages\/rabatkode",
-          "fadein_one": "Gratis 1-2 dages levering",
-          "icon_selector1": "package",
-          "fadein_two": "Gratis ombytning",
-          "icon_selector2": "cards",
-          "fadein_three": "+45 53 89 00 53",
-          "icon_selector3": "heart",
-          "fadein_four": "30 dages fuld returret",
-          "icon_selector4": "shipping"
+          "content": "",
+          "link": "",
+          "fadein_one": "Gratis levering ved køb over 399 kr",
+          "icon_selector1": "sustainable",
+          "fadein_two": "30 dages fuld returret",
+          "icon_selector2": "sustainable",
+          "fadein_three": "100% tilfredshedsgaranti",
+          "icon_selector3": "sustainable",
+          "fadein_four": "Gratis ombytning",
+          "icon_selector4": "sustainable"
         }
       },
       "header": {
